@@ -3,7 +3,7 @@ public class Testclass {
 	public static void main(String[] args) {
 		System.out.println("Testclass");
 		System.out.println("commit vom Laptop");
-		System.out.println("Veronika war nicht hier!");
+		System.out.println("Veronika war hier!");
 	}
 
 }
