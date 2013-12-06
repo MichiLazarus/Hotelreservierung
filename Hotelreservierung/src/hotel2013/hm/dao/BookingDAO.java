@@ -3,6 +3,8 @@ package hotel2013.hm.dao;
 import hotel2013.hm.data.Booking;
 
 
+import hotel2013.hm.data.Room;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -93,6 +95,17 @@ public class BookingDAO {
 		}
 
 		return null;
+	}
+	
+	public int getRoombyBookingnumber(int bookingnumber){
+		for (Booking booking : Bookinglist){
+			if(booking.getBookingnumber() == bookingnumber){
+				return booking.getBroomnumber();
+				
+			}
+		}
+		throw new IllegalArgumentException("No Room with this bookingnumber");
+		
 	}
 	
 

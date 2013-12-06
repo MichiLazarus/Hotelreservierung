@@ -4,23 +4,32 @@ import java.util.Date;
 
 public class Booking {
 
-	private int bookingnumber;
+	private static int bookingnumber = 1000;
 	private Date bookingstart;
 	private Date bookingend;
 	private boolean payment;
 	private int bnop;       // number of persons zb: 3 zimmer 2 personen
+	private int broomnumber;
 	
-	
-	public Booking(int bookingnumber,Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+	public Booking(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
 		setBookingnumber(bookingnumber);
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
 		setBnop(bnop);
-		
+		setBroomnumber(broomnumber);
+		bookingnumber++;
 	}
 	
-	
+    public int getBroomnumber(){
+    	return broomnumber;
+    }
+ 
+    public void setBroomnumber(int x){
+    	if( x >999 && x < 10000  ) {
+    		broomnumber = x;
+    	}
+    }
 	
 	public int getBookingnumber(){
 		return bookingnumber;

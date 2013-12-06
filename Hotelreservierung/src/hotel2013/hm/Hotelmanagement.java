@@ -125,28 +125,69 @@ public class Hotelmanagement {
 	
 	
 	//Customer
-	public void SearchRoom(){
+	
+	
+	public String CancelBooking(int bookingnumber){
 		if(session instanceof Customer){
+			for(Booking booking : bookinglist){
+				if(booking.getBookingnumber() == bookingnumber){
+					bookingDAO.deleteBooking(booking);
+					return "Booking canceled";
+				}
+			}
+			return "Booking not found";
 			
 		}
+		return "You do not have the permission to edit a room";
 	}
 	
-	public void CancelBooking(){
+	public String RateBooking(int bookingnumber , String rating){
 		if(session instanceof Customer){
+			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
+			Room newRoom = roomDAO.getRoombyRoomnumber(x);
+			newRoom.setRating(rating);
+			roomDAO.updateRoom(newRoom);
+			return "Rating sucessful";
+		}
+		return "Bookingnumber not availible";
+	}
+	
+	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+		if(session instanceof Customer){
+			boolean works = false;
+			for (Booking booking : bookinglist){
+				if (booking.getBroomnumber()==broomnumber){
+					if((booking.getBookingstart().after(bookingstart)||booking.getBookingstart().equals(bookingstart))
+							&&(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
+						works = false;
+					}
+					
+					else {
+						works = true;
+					}
+					
+					
+				}
+				else{
+					works = true;
+					break;
+				}
+			}
+			if(works == true){
+				Booking newBooking =  new Booking(bookingstart, bookingend, payment, bnop, broomnumber);
+				bookingDAO.saveBooking(newBooking);
+				return"Booking done";
+				
+			}
+			else {
+				return "Room in this time no available";
+			}
+			
+		
 			
 		}
-	}
 	
-	public void RateBooking(){
-		if(session instanceof Customer){
-			
-		}
-	}
+	return "Booking not sucessfull";
 	
-	public void Book(){
-		if(session instanceof Customer){
-			
-		}
 	}
-	
 }
