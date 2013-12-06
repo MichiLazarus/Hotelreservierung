@@ -2,6 +2,7 @@ package hotel2013.hm.dao;
 
 
 import hotel2013.hm.data.Room;
+import hotel2013.hm.users.Person;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -100,4 +101,78 @@ public class RoomDAO {
 
 		return null;
 	}
+	
+public void saveRoom(Room room)  throws IllegalArgumentException{
+		
+		if (this.getRoombyRoomnumber(room.getRoomnumber()) == null) {
+			System.out.println(room.getRoomnumber() + " saved");
+			this.Roomlist.add(room);
+			this.saveFile();
+		} else {
+			System.out.println(room.getRoomnumber() + " already exists");
+			throw new IllegalArgumentException("Room already exists");
+		}
+		
+			
+	}
+
+
+	public void deleteRoom(Room room) throws IllegalArgumentException {
+		
+		boolean roomExists = false;
+		
+		for(int i = 0; i < this.Roomlist.size(); i++) {
+			
+			if (this.Roomlist.get(i).getRoomnumber()==(room.getRoomnumber())) {
+				Roomlist.remove(i);
+				roomExists = true;
+				this.saveFile();
+				
+			
+			}
+		}
+		
+		if(roomExists != true) {
+			throw new IllegalArgumentException("Inserted Room to delete was not found !");
+		}
+		
+	}
+
+	public void deleteRoomlist() {
+		this.Roomlist.clear();
+	}
+	
+
+
+
+
+
+	public void updatePerson(Room room)throws IllegalArgumentException {
+
+		boolean personExists = false;
+		
+		for (Room r : this.Roomlist) {
+			if (r.getRoomnumber()==(room.getRoomnumber())) {
+				
+				r.setRoomnumber(room.getRoomnumber());
+				r.setNop(room.getNop());
+				r.setEquipment(room.getEquipment());
+				r.setPrice(room.getPrice());
+				r.setPriceOffer(room.getPriceOffer());
+				r.setRating(room.getRating());
+				r.setStatus(room.getStatus());
+				
+				
+				
+				personExists = true;
+				this.saveFile();
+			} 
+		}
+		
+		if(personExists != true) {
+			throw new IllegalArgumentException("person doesnt exist!");
+		}
+		
+	}
+
 }

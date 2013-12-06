@@ -1,7 +1,7 @@
 package hotel2013.hm.dao;
 
 import hotel2013.hm.data.Booking;
-import hotel2013.hm.data.Room;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 
@@ -34,9 +35,7 @@ public class BookingDAO {
 		this.readFile();
 	}
 
-	/*
-	 * to read all Userobjects in a file and save them into a ArrayList
-	 */
+	
 	@SuppressWarnings("unchecked")
 	public void readFile() {
 
@@ -62,9 +61,7 @@ public class BookingDAO {
 
 	}
 
-	/*
-	 * method to create the file and save all Userobjects in there
-	 */
+	
 	private void saveFile() {
 
 		try {
@@ -78,26 +75,97 @@ public class BookingDAO {
 	}
 
 	/*
-	 * method that returns the whole Roomlist
+	 * method that returns the whole Bookinglist
 	 */
-	public ArrayList<Booking> getRoomlist() {
+	public ArrayList<Booking> getBookinglist() {
 		return this.Bookinglist;
 
 	}
 
-	/*
-	 * method that returns an Userobject by searching for it with the username
-	 * in the UserobejctArraylist
-	 */
+	
 	public Booking getBookingbyBookingnumber(int bookingnumber)
 			throws IllegalArgumentException {
 		for (Booking booking : this.Bookinglist) {
 
-			if (booking.getBookingnumber() == (bookingnumber)) {
+			if (booking.getBookingnumber()==(bookingnumber)) {
 				return booking;
 			}
 		}
 
 		return null;
 	}
+	
+
+
+
+public void saveBooking(Booking booking)  throws IllegalArgumentException{
+	
+	if (this.getBookingbyBookingnumber(booking.getBookingnumber()) == null) {
+		System.out.println(booking.getBookingnumber() + " saved");
+		this.Bookinglist.add(booking);
+		this.saveFile();
+	} else {
+		System.out.println(booking.getBookingnumber() + " already exists");
+		throw new IllegalArgumentException("Bookingnumber already exists");
+	}
+	
+		
+}
+
+
+public void deleteBooking(Booking booking) throws IllegalArgumentException {
+	
+	boolean bookingExists = false;
+	
+	for(int i = 0; i < this.Bookinglist.size(); i++) {
+		
+		if (this.Bookinglist.get(i).getBookingnumber()==(booking.getBookingnumber())) {
+			Bookinglist.remove(i);
+			bookingExists = true;
+			this.saveFile();
+			
+		
+		}
+	}
+	
+	if(bookingExists != true) {
+		throw new IllegalArgumentException("Inserted Booking to delete was not found !");
+	}
+	
+}
+
+public void deleteBookinglist() {
+	this.Bookinglist.clear();
+}
+
+
+
+
+
+public void updateBooking(Booking booking)throws IllegalArgumentException {
+
+	boolean bookingExists = false;
+	
+	for (Booking b : this.Bookinglist) {
+		if (b.getBookingnumber()==(booking.getBookingnumber())) {
+			
+			b.setBookingnumber(booking.getBookingnumber());
+			b.setBookingstart(booking.getBookingstart());
+			b.setBookingend(booking.getBookingend());
+			b.setPayment(booking.getPayment());
+			b.setBnop(booking.getBnop());
+			
+			
+			bookingExists = true;
+			this.saveFile();
+		} 
+	}
+	
+	if(bookingExists != true) {
+		throw new IllegalArgumentException("Booking doesnt exist!");
+	}
+	
+}
+
+
 }

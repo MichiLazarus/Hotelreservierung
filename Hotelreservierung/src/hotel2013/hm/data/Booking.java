@@ -11,13 +11,15 @@ public class Booking {
 	private int bnop;       // number of persons zb: 3 zimmer 2 personen
 	
 	
-	public Booking(int bookingnumber,Date bookingstart, Date bookingend , boolean payment, int bnop){
+	public Booking(int bookingnumber,Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
 		setBookingnumber(bookingnumber);
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
 		setBnop(bnop);
+		
 	}
+	
 	
 	
 	public int getBookingnumber(){
@@ -35,9 +37,9 @@ public class Booking {
 		return bookingstart;
 	}
 	
-	public void setBookingstart(Date x){
+	public void setBookingstart(Date i){
 		Date dateNow = new Date();
-		if(x.after(dateNow) || x.equals(dateNow)) bookingstart = x;
+		if(i.after(dateNow) || i.equals(dateNow)) bookingstart = i;
 		else throw new IllegalArgumentException("Please enter valid Date");
 	}
 	
