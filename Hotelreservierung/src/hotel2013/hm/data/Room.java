@@ -90,5 +90,10 @@ public class Room {
 		public void setStatus(boolean x){
 			status = x;
 		}
+		
+		public String toString(){
+			String x = (roomnumber + "   " + nop +  "   " + equipment + "   " + price + "   " + priceoffer + "   " + rating);
+			return x;
+		}
 }
 

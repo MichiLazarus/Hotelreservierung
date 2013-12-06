@@ -143,11 +143,7 @@ public void saveRoom(Room room)  throws IllegalArgumentException{
 	}
 	
 
-
-
-
-
-	public void updatePerson(Room room)throws IllegalArgumentException {
+public void updateRoom(Room room)throws IllegalArgumentException {
 
 		boolean personExists = false;
 		
