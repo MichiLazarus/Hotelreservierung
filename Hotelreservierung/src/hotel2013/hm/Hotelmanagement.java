@@ -154,33 +154,23 @@ public class Hotelmanagement {
 	
 	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
 		if(session instanceof Customer){
-			boolean works = false;
+			boolean works = true;
 			for (Booking booking : bookinglist){
 				if (booking.getBroomnumber()==broomnumber){
 					if((booking.getBookingstart().after(bookingstart)||booking.getBookingstart().equals(bookingstart))
 							&&(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
 						works = false;
+						break;
 					}
-					
-					else {
-						works = true;
-					}
-					
-					
-				}
-				else{
-					works = true;
-					break;
 				}
 			}
 			if(works == true){
 				Booking newBooking =  new Booking(bookingstart, bookingend, payment, bnop, broomnumber);
 				bookingDAO.saveBooking(newBooking);
-				return"Booking done";
-				
+				return"Booking done";	
 			}
 			else {
-				return "Room in this time no available";
+				return "Room is occupied during this time";
 			}
 			
 		
