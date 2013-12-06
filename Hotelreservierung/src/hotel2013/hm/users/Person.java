@@ -32,8 +32,8 @@ public class Person {
 			
 			
 			public void setUsername(String username){
-					this.username = username;
-			
+				if(username.length() < 26 && username.length() > 5)	this.username = username;
+				else throw new IllegalArgumentException("Enter valid username");
 				}
 			
 			

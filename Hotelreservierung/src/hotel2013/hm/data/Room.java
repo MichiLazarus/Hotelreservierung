@@ -35,8 +35,6 @@ public class Room {
 			return equipment;
 		}
 		
-	
-		
 		public double getPrice(){
 			return price;
 		}
@@ -56,21 +54,24 @@ public class Room {
 		}
 		
 		public void setRoomnumber(int x){
-			roomnumber = x;
+			if(x <= 100 && x > 0) roomnumber = x;
+			else throw new IllegalArgumentException("Roomnumber not allowed!");
 		}
 		
 		public void setNop(int x){
-			nop = x;
+			if(x < 7 && x > 0) nop = x;
+			else throw new IllegalArgumentException("Max Number of Persons exceeded");	
 		}
 		
 		public void setEquipment(String x){
-			equipment = x;
+			if(x != null) equipment = x;
+			else throw new IllegalArgumentException("Please enter anything");
 		}
 		
-	
 		
 		public void setPrice(double x){
-			price = x;
+			if(price > 0) price = x;
+			else throw new IllegalArgumentException("Price too low");
 		}
 		
 		public void setPriceOffer(double x){
@@ -78,7 +79,10 @@ public class Room {
 		}
 		
 		public void setRating(String x){
-			rating = x;
+			if(x.contains("fuck") || x.contains("shit") || x.contains("bitch") || x.contains("piss") || x.contains("asshole")){
+			throw new IllegalArgumentException("Please don't enter swear words");
+			}
+			if(x != null) rating = x;
 		}
 		
 

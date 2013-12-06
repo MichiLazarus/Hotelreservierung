@@ -28,14 +28,17 @@ public class Booking {
 		if(x > 999 && x < 10000){
 		bookingnumber = x;
 		}
+		else throw new IllegalArgumentException("Bookingnumber must consist of exactly 4 numbers");
 	}
 	
-	public Date getBookingsart(){
+	public Date getBookingstart(){
 		return bookingstart;
 	}
 	
 	public void setBookingstart(Date x){
-		bookingstart = x;
+		Date dateNow = new Date();
+		if(x.after(dateNow) || x.equals(dateNow)) bookingstart = x;
+		else throw new IllegalArgumentException("Please enter valid Date");
 	}
 	
 	public Date getBookingend(){
@@ -43,7 +46,8 @@ public class Booking {
 	}
 	
 	public void setBookingend(Date x){
-		bookingend = x;
+		if(x.after(bookingstart)) bookingend = x;
+		else throw new IllegalArgumentException("Bookinend must be after Bookingstart");
 	}
 	
 	public boolean getPayment(){
@@ -59,8 +63,8 @@ public class Booking {
 	}
 	
 	public void setBnop(int x){
-		bnop=x;
-	}
-	
+		bnop = x;
+
+	}	
 }
 
