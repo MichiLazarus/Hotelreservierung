@@ -36,17 +36,23 @@ public class Hotelmanagement {
 	}
 	
 	public String login(String username,String password){
-		personlist = personDAO.getPersonlist();
+		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person.verifyPassword(password)){
 			session = person;
-			return "Login Success";
+			
+			if(person instanceof Customer)
+				return "CustomerInterface.jsp";
+			if(person instanceof Hotelier)
+				return "HotelierInterface.jsp";
+			if(person instanceof Analyst)
+				return "AnalystInterface.jsp";
 		}
 			session = null;
-			return "Password does not match Username";
+			return "AnalystInterface.jsp";
 	}
 	
-	
+	//javascript:alert(\"User nicht vorhanden. Prüfen Sie Username und Passwort\")
 	//Analyst
 	public void ShowStatistic(String type){
 		if(session instanceof Analyst){
