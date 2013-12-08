@@ -25,7 +25,7 @@ div.abstand {margin-top:150px;}
 </table>
 <hr>
 
-
+<h:form>
 <div class="abstand">
 <center>
 <table width="450"  border="1" rules="groups" cellpadding="8">
@@ -38,7 +38,7 @@ div.abstand {margin-top:150px;}
 </tr>
 <tr>
 <th align="center">
-<h:inputText id="username" value="#{Person.username}"/>
+<h:inputText id="username" value="#{person.username}"/>
 <h:message for="username" errorClass="error" />
 </th>
 </tr>
@@ -47,27 +47,27 @@ div.abstand {margin-top:150px;}
 </tr>
 <tr>
 <th align="center">
-<h:inputSecret id="password" value="#{Person.password}" />
+<h:inputSecret id="password" value="#{person.password}" />
 <h:message for="password" errorClass="error" />
 </th>
 </tr>
 <tr>
 
 
-<th align="center"><h:commandButton action="#{Hotelmanagement.login}" value="Login"  /></th>
+<th align="center"><h:commandButton action="#{hotelmanagement.login}" value="Login"  /></th>
 
 
 </tr>
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Registrieren" /></th>
+<th align="center"><h:commandButton value="Registrieren" action="Register.jsp" /></th>
 </tr>
 </tfoot>
 </table>
 </center>
 </div>
-
+</h:form>
 
 </f:view>
 </body>

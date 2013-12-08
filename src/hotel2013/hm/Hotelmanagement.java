@@ -35,7 +35,7 @@ public class Hotelmanagement {
 		return "Registration succeeded";
 	}
 	
-	public String login(String username,String password){
+	public String login(){
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person.verifyPassword(password)){

@@ -15,13 +15,8 @@ public class Person {
 			
 		//KONSTRUKTOR
 	
-		public Person(String username, String password, String fullName, String email, char sex, Date birthday){
-				setUsername(username);
-				setPassword(password);
-				setFullName(fullName);
-				setEmail(email);
-				setSex(sex);
-				setBirthday(birthday);
+		public Person(){
+				Person p;
 			}
 		
 			//METHODEN
@@ -86,7 +81,7 @@ public class Person {
 				this.fullName = fullName;
 				}
 				else {
-					throw new IllegalArgumentException(" Enter Valid Name!");
+					throw new IllegalArgumentException("Enter Valid Name!");
 				}
 			}
 			
