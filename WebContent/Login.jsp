@@ -8,10 +8,13 @@
 <title>Login</title>
 </head>
 <body>
+
 <f:view>
 
 
-
+<p>
+<img alt="Logo" src="C:\Users\Michael\git\Hotelreservierung\WebContent\Logo.png" width="200" />
+</p>
 
 
 
