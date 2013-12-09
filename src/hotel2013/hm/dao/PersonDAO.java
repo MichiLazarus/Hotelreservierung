@@ -1,10 +1,6 @@
 package hotel2013.hm.dao;
 
 
-
-
-
-
 import hotel2013.hm.data.Booking;
 import hotel2013.hm.users.Person;
 
