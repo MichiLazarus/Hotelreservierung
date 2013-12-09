@@ -38,7 +38,7 @@ div.abstand {margin-top:150px;}
 </tr>
 <tr>
 <th align="center">
-<h:inputText id="username" value="#{person.username}"/>
+<h:inputText id="username" value="#{usercontroller.username}"/>
 <h:message for="username" errorClass="error" />
 </th>
 </tr>
@@ -47,21 +47,17 @@ div.abstand {margin-top:150px;}
 </tr>
 <tr>
 <th align="center">
-<h:inputSecret id="password" value="#{person.password}" />
+<h:inputSecret id="password" value="#{usercontroller.password}" />
 <h:message for="password" errorClass="error" />
 </th>
 </tr>
 <tr>
-
-
 <th align="center"><h:commandButton action="#{hotelmanagement.login}" value="Login"  /></th>
-
-
 </tr>
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Registrieren" action="Register.jsp" /></th>
+<th align="center"><h:commandButton value="Register" action="Register.jsp" /></th>
 </tr>
 </tfoot>
 </table>

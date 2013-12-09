@@ -34,6 +34,11 @@ function Formularüberprüfung () {
     document.Formular.email.focus();
     return false;
   }
+  if ((document.Formular.sex.value == "" ) || (document.Formular.sex.value != 'm' ) || (document.Formular.sex.value == 'f' )) {
+	    alert("Please enter 'm' or 'f' for sex!");
+	    document.Formular.sex.focus();
+	    return false;
+	  }
   if (document.Formular.email.value.indexOf("@") == -1) {
     alert("Not an email-adress!");
     document.Formular.email.focus();
@@ -46,9 +51,6 @@ function Formularüberprüfung () {
   }
 }
 
-function Alert(){
-	 alert('User Registered');
-}
 </script>
 
 </head>
@@ -79,33 +81,37 @@ function Alert(){
 <p>Please enter your register data:</p>
 
 
-<form name="Formular" action="CustomerInterface.jsp" method="post" onsubmit="return Formularüberprüfung()">
+<form name="Formular" action="Login.jsp" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
 <tr>
 <th align="left">Username:</th>
-<th align="left"><input type="text" size="40" name="username"></th>
+<th align="left"><h:inputText id="username" value="#{usercontroller.username}"/></th>
 </tr>
 <tr>
 <th align="left">Password:</th>
-<th align="left"><input type="text" size="40" name="password"></th>
+<th align="left"><h:inputText id="password" value="#{usercontroller.password}"/></th>
 </tr>
 <tr>
 <th align="left">FullName:</th>
-<th align="left"><input type="text" size="40" name="fullName"></th>
+<th align="left"><h:inputText id="fullName" value="#{usercontroller.fullName}"/></th>
 </tr>
 <tr>
 <th align="left">E-Mail:</th>
-<th align="left"><input type="text" size="40" name="email"></th>
+<th align="left"><h:inputText id="email" value="#{usercontroller.email}"/></th>
+</tr>
+<tr>
+<th align="left">Sex (m/f):</th>
+<th align="left"><h:inputText id="sex" value="#{usercontroller.sex}"/></th>
 </tr>
 <tr>
 <th align="left">Birthday:</th>
-<th align="left"><input type="text" size="40" name="birthday"></th>
+<th align="left"><h:inputText id="birthday" value="#{usercontroller.birthday}"/></th>
 </tr>
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" onclick="return Alert()" value="Confirm"><input type="reset" value="Cancel"></th>
+<th align="left"><h:commandButton action="#{usercontroller.saveCustomer}" value="Register"  /><input type="reset" value="Cancel"></th>
 </tr>
 </table>
 </form>

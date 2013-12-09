@@ -50,8 +50,8 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>person</managed-bean-name>
-		<managed-bean-class>hotel2013.hm.users.Person</managed-bean-class>
+		<managed-bean-name>usercontroller</managed-bean-name>
+		<managed-bean-class>hotel2013.hm.usercontroller.Usercontroller</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 

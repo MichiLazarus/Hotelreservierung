@@ -15,8 +15,13 @@ public class Person {
 			
 		//KONSTRUKTOR
 	
-		public Person(){
-				Person p;
+		public Person(String username,String password,String fullName,String email,char sex,Date birthday){
+				this.username = username;
+				this.password = password;
+				this.fullName = fullName;
+				this.email = email;
+				this.sex = sex;
+				this.birthday = birthday;
 			}
 		
 			//METHODEN

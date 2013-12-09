@@ -52,7 +52,7 @@ public class Hotelmanagement {
 			return "AnalystInterface.jsp";
 	}
 	
-	//javascript:alert(\"User nicht vorhanden. Prüfen Sie Username und Passwort\")
+	
 	//Analyst
 	public void ShowStatistic(String type){
 		if(session instanceof Analyst){
