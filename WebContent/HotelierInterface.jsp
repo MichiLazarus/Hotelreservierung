@@ -31,7 +31,7 @@ div.abstand2 {margin-top:50px;}
 <col width=*>
 <col width=*>
 <tr>
-<th align="left">Customer</th>
+<th align="left">Hotelier</th>
 <th align="right"><h:commandButton value="Logout" action="Login.jsp" /></th>
 </tr>
 </table>
