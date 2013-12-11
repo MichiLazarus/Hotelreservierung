@@ -68,13 +68,13 @@ function Formularüberprüfung () {
 <col width=*>
 <tr>
 <th align="left">Register</th>
-<th align="right"><input type="submit" name="submit" value="Back" onclick="Login.jsp"></th>
+<th align="right"><input type="button" value="Back" onclick="Login.jsp"></th>
 </tr>
 </table>
 
 <p>Please enter your register data:</p>
 
-<form name="formular" action="Register" method="post" onsubmit="return Formularüberprüfung()">
+<form name="register" action="Register" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
@@ -84,7 +84,7 @@ function Formularüberprüfung () {
 </tr>
 <tr>
 <th align="left">Password:</th>
-<th align="left"><input type="password" name="pw" size="20" maxlength="20"></th>
+<th align="left"><input type="password" name="pw" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left">FullName:</th>
@@ -103,7 +103,7 @@ function Formularüberprüfung () {
 </tr>
 <tr>
 <th align="left">Birthday:</th>
-<th align="left"><input type="text" name="birthday" size="20" maxlength="20"></th>
+<th align="left"><input type="text" name="birthday" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left"></th>
