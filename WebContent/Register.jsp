@@ -33,11 +33,6 @@ function Formularüberprüfung () {
     document.Formular.email.focus();
     return false;
   }
-  if ((document.Formular.sex.value == "" ) || (document.Formular.sex.value != 'm' ) || (document.Formular.sex.value == 'f' )) {
-	    alert("Please enter 'm' or 'f' for sex!");
-	    document.Formular.sex.focus();
-	    return false;
-	  }
   if (document.Formular.email.value.indexOf("@") == -1) {
     alert("Not an email-adress!");
     document.Formular.email.focus();
@@ -68,13 +63,13 @@ function Formularüberprüfung () {
 <col width=*>
 <tr>
 <th align="left">Register</th>
-<th align="right"><input type="button" value="Back" onclick="Login.jsp"></th>
+<th align="right"><a href="Login.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
 
 <p>Please enter your register data:</p>
 
-<form name="register" action="Register" method="post" onsubmit="return Formularüberprüfung()">
+<form name="register" action="http://localhost:8080/Hotelreservierung/Register" method="post" onsubmit="Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
@@ -84,7 +79,7 @@ function Formularüberprüfung () {
 </tr>
 <tr>
 <th align="left">Password:</th>
-<th align="left"><input type="password" name="pw" size="40" maxlength="40"></th>
+<th align="left"><input type="text" name="pw" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left">FullName:</th>

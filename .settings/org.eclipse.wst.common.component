@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Hotelreservierung">
+    <wb-module deploy-name="Hotelreservierungneu">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Hotelreservierung"/>
-        <property name="java-output-path" value="/Hotelreservierung/build/classes"/>
+        <property name="java-output-path" value="/Hotelreservierungneu/build/classes"/>
+        <property name="context-root" value="Hotelreservierungneu"/>
     </wb-module>
 </project-modules>

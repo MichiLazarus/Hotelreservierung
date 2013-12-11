@@ -35,13 +35,17 @@ function Formularüberprüfung () {
 </table>
 <hr>
 
-<form name="login" action="Login" method="post" onsubmit="return Formularüberprüfung()">
 <div class="abstand">
 <center>
+
+<form name="login" action="Login" method="post" onsubmit="return Formularüberprüfung()">
+
 <table width="450"  border="1" rules="groups" cellpadding="8">
+
 <tr>
 <th align="center">Login</th>
 </tr>
+
 <tbody>
 <tr>
 <th align="center">Username</th>
@@ -63,15 +67,18 @@ function Formularüberprüfung () {
 <th align="center"><input type="submit" name="submit" value="Login"></th>
 </tr>
 </tbody>
+
 <tfoot>
-<tr>
-<th align="center"><input type="submit" name="submit" value="Register" onclick="Register.jsp"></th>
-</tr>
 </tfoot>
 </table>
+</form>
+
+<br>
+<a href="Register.jsp"><input type="button" value="Register" name="ToRegister"/></a>
+
 </center>
 </div>
-</form>
+
 </body>
 
 </html>
