@@ -63,7 +63,7 @@ function Formularüberprüfung () {
 <col width=*>
 <tr>
 <th align="left">Register</th>
-<th align="right"><a href="Login.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
 
