@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
-<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,13 +48,11 @@ function Formularüberprüfung () {
     return false;
   }
 }
-
 </script>
 
 </head>
 <body>
 
-<f:view>
 <table width="900">
 <col width="250">
 <col width="650">
@@ -67,56 +63,54 @@ function Formularüberprüfung () {
 </table>
 <hr>
 
-<h:form>
 <table width="100%" cellpadding="8">
 <col width=*>
 <col width=*>
 <tr>
 <th align="left">Register</th>
-<th align="right"><h:commandButton value="Back" action="Login.jsp" /></th>
+<th align="right"><input type="submit" name="submit" value="Back" onclick="Login.jsp"></th>
 </tr>
 </table>
-</h:form>
 
 <p>Please enter your register data:</p>
 
-
-<form name="Formular" action="Login.jsp" method="post" onsubmit="return Formularüberprüfung()">
+<form method="post" action="Register" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
 <tr>
 <th align="left">Username:</th>
-<th align="left"><h:inputText id="username" value="#{usercontroller.username}"/></th>
+<th align="left"><input type="text" name="username" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left">Password:</th>
-<th align="left"><h:inputText id="password" value="#{usercontroller.password}"/></th>
+<th align="left"><input type="password" name="pw" size="20" maxlength="20"></th>
 </tr>
 <tr>
 <th align="left">FullName:</th>
-<th align="left"><h:inputText id="fullName" value="#{usercontroller.fullName}"/></th>
+<th align="left"><input type="text" name="fullname" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left">E-Mail:</th>
-<th align="left"><h:inputText id="email" value="#{usercontroller.email}"/></th>
+<th align="left"><input type="text" size="40" maxlength="40" name="email"></th>
 </tr>
 <tr>
 <th align="left">Sex (m/f):</th>
-<th align="left"><h:inputText id="sex" value="#{usercontroller.sex}"/></th>
+<th align="left"><select name="sex">
+				 <option value="f">Female</option>
+ 				 <option value="m">Male</option>
+			     </select></th>
 </tr>
 <tr>
 <th align="left">Birthday:</th>
-<th align="left"><h:inputText id="birthday" value="#{usercontroller.birthday}"/></th>
+<th align="left"><input type="text" name="birthday" size="20" maxlength="20"></th>
 </tr>
 <tr>
 <th align="left"></th>
-<th align="left"><h:commandButton action="#{usercontroller.saveCustomer}" value="Register"  /><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="Register"><input type="reset" value="Cancel"></th>
 </tr>
 </table>
 </form>
 
-
-</f:view>
 </body>
 </html>
