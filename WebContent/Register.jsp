@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register</title>
+
 <style type="text/css">
 h1 {color:#3399CC; font-size:42px;}
 body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
@@ -49,10 +50,9 @@ function Formularüberprüfung () {
   }
 }
 </script>
-
 </head>
-<body>
 
+<body>
 <table width="900">
 <col width="250">
 <col width="650">
@@ -74,7 +74,7 @@ function Formularüberprüfung () {
 
 <p>Please enter your register data:</p>
 
-<form method="post" action="Register" method="post" onsubmit="return Formularüberprüfung()">
+<form name="formular" action="Register" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
