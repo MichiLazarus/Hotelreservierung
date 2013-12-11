@@ -35,7 +35,7 @@ public class Hotelmanagement {
 		return "Registration succeeded";
 	}
 	
-	public String login(){
+	public String login(String username, String password){
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person.verifyPassword(password)){
@@ -49,7 +49,7 @@ public class Hotelmanagement {
 				return "AnalystInterface.jsp";
 		}
 			session = null;
-			return "AnalystInterface.jsp";
+			return "Login.jsp";
 	}
 	
 	
