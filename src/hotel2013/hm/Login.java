@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import oifwenfwo.bravo;
+
 
 /**
  * Servlet implementation class Login
@@ -21,13 +21,20 @@ public class Login extends HttpServlet {
      * Default constructor. 
      */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String check = null;
 		response.setContentType("text/html");
-		PrintWriter out= response.getWriter();
-		String geilo = request.getParameter("dasistgut");
-		String matico = request.getParameter("dasistauchgut");
-		String master = bravo.login(geilo,matico);
-		out.println("geilo post methode" + master);
+		String rcv = request.getParameter("login");
+		if(rcv.equals("login")){
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			
+			Hotelmanagement x = new Hotelmanagement();
+		   check = x.login(username, password);
+
+		}
+		
+		response.sendRedirect(check);
+		
 		}
 
 }
