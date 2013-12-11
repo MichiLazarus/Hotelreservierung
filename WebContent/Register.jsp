@@ -69,7 +69,7 @@ function Formularüberprüfung () {
 
 <p>Please enter your register data:</p>
 
-<form name="register" action="http://localhost:8080/Hotelreservierung/Register" method="post" onsubmit="Formularüberprüfung()">
+<form name="register" action="Register" method="post" onsubmit="Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
