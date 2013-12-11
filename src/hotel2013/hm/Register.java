@@ -43,7 +43,7 @@ public class Register extends HttpServlet {
 				e.printStackTrace();
 			}
 			Hotelmanagement x = new Hotelmanagement();
-			x.register(username, password, fullname, email, sex, birthday);
+			 x.register(username, password, fullname, email, sex, birthday);
 		}
 		response.sendRedirect("Login.jsp");
 		
