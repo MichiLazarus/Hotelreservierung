@@ -30,12 +30,18 @@ public class Hotelmanagement {
 	
 	
 	public String register(String username, String password, String fullName, String email, char sex, Date birthday){
+		if(username.isEmpty() || password.isEmpty() || fullName.isEmpty() || email.isEmpty() || birthday==null){
+			return "Register.jsp";
+		}
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
 		personDAO.savePerson(newCustomer);
 		return "index.jsp";
 	}
 	
 	public String login(String username, String password){
+		if(username.isEmpty() || password.isEmpty()){
+			return "index.jsp";
+		}
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
