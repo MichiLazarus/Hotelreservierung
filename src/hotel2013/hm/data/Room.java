@@ -1,8 +1,9 @@
 package hotel2013.hm.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Room {
+public class Room implements Serializable{
 
 		private static  int roomnumber;
 		private int nop; //Number of Persons
