@@ -48,8 +48,7 @@ public class Hotelmanagement {
 			if(person instanceof Analyst)
 				return "AnalystInterface.jsp";
 		}
-			session = null;
-			return "Login.jsp";
+			return "index.jsp";
 	}
 	
 	

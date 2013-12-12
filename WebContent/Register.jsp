@@ -79,7 +79,7 @@ function Formularüberprüfung () {
 </tr>
 <tr>
 <th align="left">Password:</th>
-<th align="left"><input type="text" name="pw" size="40" maxlength="40"></th>
+<th align="left"><input type="text" name="password" size="40" maxlength="40"></th>
 </tr>
 <tr>
 <th align="left">FullName:</th>

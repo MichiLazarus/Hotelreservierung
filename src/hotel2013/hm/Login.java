@@ -21,10 +21,10 @@ public class Login extends HttpServlet {
      * Default constructor. 
      */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String check = null;
+		String check = "index.jsp";
 		response.setContentType("text/html");
-		String rcv = request.getParameter("login");
-		if(rcv.equals("login")){
+		String rcv = request.getParameter("submit");
+		if(rcv.equals("Login")){
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			

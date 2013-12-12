@@ -1,9 +1,10 @@
 package hotel2013.hm.users;
 
 import java.util.Date;
+import java.io.Serializable;
 import java.lang.IllegalArgumentException;
 
-public class Person {
+public class Person implements Serializable{
 	
 	
 		private String username;

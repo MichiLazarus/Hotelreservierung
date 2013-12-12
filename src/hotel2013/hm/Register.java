@@ -1,6 +1,7 @@
 package hotel2013.hm;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,10 +24,10 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		String rcv = request.getParameter("submit");
-		if(rcv.equals("submit")){
+		if(rcv.equals("Register")){
 			Date birthday = new Date();
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -42,8 +43,8 @@ public class Register extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Hotelmanagement x = new Hotelmanagement();
-			 x.register(username, password, fullname, email, sex, birthday);
+			Hotelmanagement y = new Hotelmanagement();
+			 y.register(username, password, fullname, email, sex, birthday);		 
 		}
 		response.sendRedirect("index.jsp");
 		
