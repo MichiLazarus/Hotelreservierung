@@ -44,7 +44,7 @@ public class Register extends HttpServlet {
 				e.printStackTrace();
 			}
 			Hotelmanagement y = new Hotelmanagement();
-			 y.register(username, password, fullname, email, sex, birthday);		 
+			y.register(username, password, fullname, email, sex, birthday);		 
 		}
 		response.sendRedirect("index.jsp");
 		

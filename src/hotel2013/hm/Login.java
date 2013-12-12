@@ -32,7 +32,6 @@ public class Login extends HttpServlet {
 		   check = x.login(username, password);
 
 		}
-		
 		response.sendRedirect(check);
 		
 		}

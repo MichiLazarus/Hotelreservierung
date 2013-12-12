@@ -32,13 +32,16 @@ public class Hotelmanagement {
 	public String register(String username, String password, String fullName, String email, char sex, Date birthday){
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
 		personDAO.savePerson(newCustomer);
-		return "Registration succeeded";
+		return "index.jsp";
 	}
 	
 	public String login(String username, String password){
 		
 		Person person = personDAO.getPersonbyUsername(username);
-		if(person.verifyPassword(password)){
+		if(person == null){
+			return "index.jsp";
+		}
+			if(person.verifyPassword(password)){
 			session = person;
 			
 			if(person instanceof Customer)
@@ -48,7 +51,8 @@ public class Hotelmanagement {
 			if(person instanceof Analyst)
 				return "AnalystInterface.jsp";
 		}
-			return "index.jsp";
+		
+		return "index.jsp";
 	}
 	
 	

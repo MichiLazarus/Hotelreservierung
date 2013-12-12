@@ -93,10 +93,10 @@ public class PersonDAO {
 	 */
 	public Person getPersonbyUsername(String username)
 			throws IllegalArgumentException {
-		for (Person Person : this.Personlist) {
+		for (Person person : this.Personlist) {
 
-			if (Person.getUsername().equals(username)) {
-				return Person;
+			if (person.getUsername().equals(username)) {
+				return person;
 			}
 		}
 
