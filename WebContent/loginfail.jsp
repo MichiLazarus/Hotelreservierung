@@ -64,9 +64,17 @@ function Formularüberprüfung () {
 <input type="password" name="password" size="40" maxlength="40">
 </th>
 </tr>
+
+<tr>
+<th>
+<font color="red" size="-0.5">Falsche Eingabe!</font>
+</th>
+</tr>
+
 <tr>
 <th align="center"><input type="submit" name="submit" value="Login"></th>
 </tr>
+
 </tbody>
 
 <tfoot>

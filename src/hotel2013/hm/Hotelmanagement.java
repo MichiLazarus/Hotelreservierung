@@ -39,13 +39,10 @@ public class Hotelmanagement {
 	}
 	
 	public String login(String username, String password){
-		if(username.isEmpty() || password.isEmpty()){
-			return "index.jsp";
-		}
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
-			return "index.jsp";
+			return "loginfail.jsp";
 		}
 			if(person.verifyPassword(password)){
 			session = person;
