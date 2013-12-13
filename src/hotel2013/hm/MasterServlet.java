@@ -49,10 +49,45 @@ public class MasterServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			check = x.register(username, password, fullname, email, sex, birthday);		 
-	}
-	
+		}
+
 		
-	//if(rcv.equals)
+		if(rcv.equals("ShowStatistics")){
+			
+		}
+		
+		if(rcv.equals("MakePriceOffer")){
+			
+		}
+		
+		if(rcv.equals("ShowAllRooms")){
+			
+		}
+		
+		if(rcv.equals("ShowRating")){
+			
+		}
+		
+		if(rcv.equals("NewOffer")){
+			
+		}
+		
+		if(rcv.equals("EditRoom")){
+			
+		}
+		
+		if(rcv.equals("CancelBooking")){
+			
+		}
+		
+		if(rcv.equals("RateBooking")){
+			
+		}
+		
+		if(rcv.equals("Book")){
+			
+		}
+		
 	response.sendRedirect(check);
 
 }
