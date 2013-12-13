@@ -53,39 +53,91 @@ public class MasterServlet extends HttpServlet {
 
 		
 		if(rcv.equals("ShowStatistics")){
-			
+			String type = request.getParameter("type");
+			//check = x.ShowStatistic(type);
+			//oder hier andere Art des Aufrufs
 		}
 		
 		if(rcv.equals("MakePriceOffer")){
-			
+			String xpriceoffer = request.getParameter("priceoffer");
+			String xroomnumber = request.getParameter("roomnumber");
+			double priceoffer = Double.parseDouble(xpriceoffer);
+			int roomnumber = Integer.parseInt(xroomnumber);
+			//check = x.MakePriceOffer(priceoffer, roomnumber);
 		}
 		
 		if(rcv.equals("ShowAllRooms")){
-			
+			check = x.ShowAllRooms();
+			//Methode
 		}
 		
 		if(rcv.equals("ShowRating")){
-			
+			String xroomnumber = request.getParameter("roomnumber");
+			int roomnumber = Integer.parseInt(xroomnumber);
+			check = x.ShowRating(roomnumber);
 		}
 		
 		if(rcv.equals("NewOffer")){
-			
+			String xroomnumber = request.getParameter("roomnumber");
+			String xnop = request.getParameter("nop");
+			String equipment = request.getParameter("equipment"); // muss nicht konvertiert werden
+			String xprice = request.getParameter("price");
+			int roomnumber = Integer.parseInt(xroomnumber);
+			int nop = Integer.parseInt(xnop);
+			double price = Double.parseDouble(xprice);
+			//String rating    ----  Rating aus dem Room holen!
+			//Methode ---- check = 
 		}
 		
 		if(rcv.equals("EditRoom")){
-			
+			String xroomnumber = request.getParameter("roomnumber");
+			String xnop = request.getParameter("nop");
+			String equipment = request.getParameter("equipment"); // muss nicht konvertiert werden
+			String xprice = request.getParameter("price");
+			int roomnumber = Integer.parseInt(xroomnumber);
+			int nop = Integer.parseInt(xnop);
+			double price = Double.parseDouble(xprice);
+			//String rating    ----  Rating aus dem Room holen!
+			//Hier evtl. andere Lösungsmöglichkeit?
+			//Methode ---- check = 
 		}
 		
 		if(rcv.equals("CancelBooking")){
-			
+			String xbookingnumber = request.getParameter("bookingnumber");
+			int bookingnumber = Integer.parseInt(xbookingnumber);
+			//Methode ---- check = 
 		}
 		
 		if(rcv.equals("RateBooking")){
-			
+			String xbookingnumber = request.getParameter("bookingnumber");
+			String rating = request.getParameter("rating");
+			int bookingnumber = Integer.parseInt(xbookingnumber);
+			//Methode ---- check = 
 		}
 		
 		if(rcv.equals("Book")){
-			
+			String xbookingstart = request.getParameter("bookingstart");
+			String xbookingend = request.getParameter("bookingend");
+			String xpayment = request.getParameter("payment");
+			String xbnop = request.getParameter("bnop");
+			String xbroomnumber = request.getParameter("broomnumber");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+			try {
+				Date bookingstart = sdf.parse(xbookingstart);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				Date bookingend = sdf.parse(xbookingend);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			boolean payment = Boolean.parseBoolean(xpayment);
+			int bnop = Integer.parseInt(xbnop);
+			int broomnumber = Integer.parseInt(xbroomnumber);
+			//Methode ---- check = 
 		}
 		
 	response.sendRedirect(check);

@@ -28,11 +28,8 @@ public class Hotelmanagement {
 		
 	}
 	
-	
 	public String register(String username, String password, String fullName, String email, char sex, Date birthday){
-		if(username.isEmpty() || password.isEmpty() || fullName.isEmpty() || email.isEmpty() || birthday==null){
-			return "Register.jsp";
-		}
+
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
 		personDAO.savePerson(newCustomer);
 		return "index.jsp";
@@ -60,19 +57,20 @@ public class Hotelmanagement {
 	
 	
 	//Analyst
-	public void ShowStatistic(String type){
+	public int ShowStatistic(String type){
 		if(session instanceof Analyst){
 			if(type.contains("Season")){
-				System.out.println(((Analyst) session).SeasonStatistic());
+				return ((Analyst) session).SeasonStatistic();
 			}
 			else if(type.contains("Occupancy")){
-				System.out.println(((Analyst) session).OccupancyStatistic());
+				return ((Analyst) session).OccupancyStatistic();
 			}
 			else if(type.contains("Customer")){
-				System.out.println(((Analyst) session).CustomerStatistic());
+				return ((Analyst) session).CustomerStatistic();
 			}
 			else throw new IllegalArgumentException("No statistic available with these parameters");
 		}
+		return 0;
 	}
 	
 	public String MakePriceOffer(double priceOffer, int roomnumber){
