@@ -13,34 +13,34 @@ div.abstand {margin-top:150px;}
 
 <script type="text/javascript">
 function Formularüberprüfung () {
-  if (document.Formular.username.value == "") {
+  if (document.register.username.value == "") {
     alert("Please enter username!");
-    document.Formular.usenamer.focus();
+    document.register.usename.focus();
     return false;
   }
-  if (document.Formular.password.value == "") {
+  if (document.register.password.value == "") {
     alert("Please enter password!");
-    document.Formular.password.focus();
+    document.register.password.focus();
     return false;
   }
-  if (document.Formular.fullName.value == "") {
+  if (document.register.fullname.value == "") {
 	    alert("Please enter full name!");
-	    document.Formular.fullName.focus();
+	    document.register.fullname.focus();
 	    return false;
 	  }
-  if (document.Formular.email.value == "") {
+  if (document.register.email.value == "") {
     alert("Please enter email!");
-    document.Formular.email.focus();
+    document.register.email.focus();
     return false;
   }
-  if (document.Formular.email.value.indexOf("@") == -1) {
+  if (document.register.email.value.indexOf("@") == -1) {
     alert("Not an email-adress!");
-    document.Formular.email.focus();
+    document.register.email.focus();
     return false;
   }
-  if (document.Formular.birthday.value == "") {
+  if (document.register.birthday.value == "") {
     alert("Please enter birthday!");
-    document.Formular.birthday.focus();
+    document.register.birthday.focus();
     return false;
   }
 }
@@ -69,7 +69,7 @@ function Formularüberprüfung () {
 
 <p>Please enter your register data:</p>
 
-<form name="register" action="MasterServlet" method="post" onsubmit="Formularüberprüfung()">
+<form name="register" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
@@ -90,14 +90,14 @@ function Formularüberprüfung () {
 <th align="left"><input type="text" size="40" maxlength="40" name="email"></th>
 </tr>
 <tr>
-<th align="left">Sex (m/f):</th>
+<th align="left">Sex:</th>
 <th align="left"><select name="sex">
 				 <option value="f">Female</option>
  				 <option value="m">Male</option>
 			     </select></th>
 </tr>
 <tr>
-<th align="left">Birthday:</th>
+<th align="left"><font size="-0.5">Birthday: (DD.MM.YYYY)</font></th>
 <th align="left"><input type="text" name="birthday" size="40" maxlength="40"></th>
 </tr>
 <tr>
