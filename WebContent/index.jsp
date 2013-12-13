@@ -38,7 +38,7 @@ function Formularüberprüfung () {
 <div class="abstand">
 <center>
 
-<form name="login" action="Login" method="post" onsubmit="return Formularüberprüfung()">
+<form name="login" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
 
 <table width="450"  border="1" rules="groups" cellpadding="8">
 
