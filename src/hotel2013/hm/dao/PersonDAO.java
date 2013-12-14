@@ -103,15 +103,15 @@ public class PersonDAO {
 		return null;
 	}
 	
-	public void savePerson(Person person)  throws IllegalArgumentException{
+	public boolean savePerson(Person person)  throws IllegalArgumentException{
 		
 		if (this.getPersonbyUsername(person.getUsername()) == null) {
 			System.out.println(person.getUsername() + " saved");
 			this.Personlist.add(person);
 			this.saveFile();
+			return true;
 		} else {
-			System.out.println(person.getUsername() + " already exists");
-			throw new IllegalArgumentException("Person already exists");
+			return false;
 		}
 		
 			

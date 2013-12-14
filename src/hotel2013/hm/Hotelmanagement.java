@@ -28,11 +28,31 @@ public class Hotelmanagement {
 		
 	}
 	
-	public String register(String username, String password, String fullName, String email, char sex, Date birthday){
+	public String registerC(String username, String password, String fullName, String email, char sex, Date birthday){
 
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
-		personDAO.savePerson(newCustomer);
+		if(personDAO.savePerson(newCustomer))
 		return "index.jsp";
+		else
+		return "registerfail.jsp";
+	}
+	
+	public String registerH(String username, String password, String fullName, String email, char sex, Date birthday){
+
+		Person newHotelier =  new Hotelier(username, password, fullName, email, sex, birthday);
+		if(personDAO.savePerson(newHotelier))
+		return "index.jsp";
+		else
+		return "registerfail.jsp";
+	}
+	
+	public String registerA(String username, String password, String fullName, String email, char sex, Date birthday){
+
+		Person newAnalyst =  new Customer(username, password, fullName, email, sex, birthday);
+		if(personDAO.savePerson(newAnalyst))
+		return "index.jsp";
+		else
+		return "registerfail.jsp";
 	}
 	
 	public String login(String username, String password){

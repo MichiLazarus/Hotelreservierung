@@ -13,7 +13,7 @@ div.abstand2 {margin-top:50px;}
 </head>
 
 <body>
-<f:view>
+
 <table width="900">
 <col width="250">
 <col width="650">
@@ -24,52 +24,64 @@ div.abstand2 {margin-top:50px;}
 </table>
 <hr>
 
-<h:form>
 <table width="100%" cellpadding="8">
 <col width=*>
 <col width=*>
 <tr>
 <th align="left">Customer</th>
-<th align="right"><h:commandButton value="Logout" action="Login.jsp" /></th>
+<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
-</h:form>
 
-<h:form>
+
+<form name="searchroom" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+
 <div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
-<th align="center">Roomsearch</th>
+<th>Search Room</th>
+<th></th>
 </tr>
 <tbody>
+
 <tr>
-<th align="center">Price:
-<h:inputText id="price" value=""/>
-<h:message for="price" errorClass="error" />
-Equipment: 
-<h:inputText id="equipment" value=""/>
-<h:message for="equipment" errorClass="error" />
-Number of Persons: 
-<h:inputText id="nop" value=""/>
-<h:message for="nop" errorClass="error" />
-</th>
+<th align="left">Price:</th>
+<th><input type="text" name="price" size="22" maxlength="40"></th>
 </tr>
+
+<tr>
+<th align="left">Equipment:</th>
+<th><select name="equipment">
+				 <option value="1">Superior Suite</option>
+				 <option value="2">Business Suite</option>
+ 				 <option value="3">High Class Room</option>
+ 				 <option value="4">Economy Class Room</option>
+			     </select></th></tr>
+
+<tr>
+<th align="left">Number of Persons:</th>
+<th align="right"><select name="nop">
+				 <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+				 <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+ 				 <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+			     </select></th></tr>
+
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Search"/></th>
+<th></th>
+<th><input type="submit" name="searchroom" value="SearchRoom"></th>
 </tr>
 </tfoot>
 </table>
-</center>
 </div>
-</h:form>
+</form>
 
-<h:form>
-<div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+
+<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<div class="abstand2" align="right">
+
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
 <th align="center">Cancel Booking</th>
 </tr>
@@ -87,9 +99,11 @@ Number of Persons:
 </tr>
 </tfoot>
 </table>
-</center>
+
 </div>
-</h:form>
+</form>
+
+
 
 <h:form>
 <div class="abstand2">
@@ -125,6 +139,5 @@ Number of Persons:
 </div>
 </h:form>
 
-</f:view>
 </body>
 </html>

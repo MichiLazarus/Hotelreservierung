@@ -34,6 +34,7 @@ public class MasterServlet extends HttpServlet {
 
 		if(rcv.equals("Register")){
 			Date birthday = new Date();
+			String status = request.getParameter("status");
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			String fullname = request.getParameter("fullname");
@@ -48,7 +49,13 @@ public class MasterServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			check = x.register(username, password, fullname, email, sex, birthday);		 
+			
+			if(status == "customer")
+			check = x.registerC(username, password, fullname, email, sex, birthday);
+			else if(status == "hotelier")
+			check = x.registerH(username, password, fullname, email, sex, birthday);
+			else
+			check = x.registerA(username, password, fullname, email, sex, birthday);
 		}
 
 		

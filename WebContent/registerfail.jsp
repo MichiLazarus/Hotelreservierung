@@ -48,7 +48,7 @@ function Formularüberprüfung () {
 </head>
 
 <body>
-<table width="900">
+<table width="9000">
 <col width="250">
 <col width="650">
 <tr>
@@ -75,8 +75,12 @@ function Formularüberprüfung () {
 <col width="250">
 
 <tr>
+<th></th>
+<th align="left"><font color="red" size="-0.5"> User bereits vorhanden!</font></th>
+</tr>
+<tr>
 <th align="left">User-Category:</th>
-<th align="left"><select name="status">
+<th align="left"><select name="user">
 				 <option value="customer">Customer</option>
  				 <option value="hotelier">Hotelier</option>
  				 <option value="analyst">Analyst</option>
