@@ -8,7 +8,7 @@
 h1 {color:#3399CC; font-size:42px;}
 body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
 div.abstand {margin-top:150px;}
-div.abstand2 {margin-top:50px;}
+div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </style>
 </head>
 
@@ -33,13 +33,12 @@ div.abstand2 {margin-top:50px;}
 </tr>
 </table>
 
-
+<div class="abstand2">
 <form name="searchroom" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
 
-<div class="abstand2">
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
-<th>Search Room</th>
+<th align="left">Search Room</th>
 <th></th>
 </tr>
 <tbody>
@@ -74,70 +73,61 @@ div.abstand2 {margin-top:50px;}
 </tr>
 </tfoot>
 </table>
-</div>
 </form>
 
-
 <form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
-<div class="abstand2" align="right">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
-<th align="center">Cancel Booking</th>
+<th align="left">Cancel Booking</th>
+<th></th>
 </tr>
 <tbody>
 <tr>
-<th align="center">Booking number:
-<h:inputText id="bookingnumber" value=""/>
-<h:message for="bookingnumber" errorClass="error" />
-</th>
+<th align="left">Booking number:</th>
+<th><input type="text" name="bookingnumber" size="22" maxlength="40"></th>
 </tr>
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Cancel"/></th>
+<th></th>
+<th align="center"><input type="submit" name="cancelbooking" value="CancelBooking"></th>
 </tr>
 </tfoot>
 </table>
 
-</div>
 </form>
+</div>
 
+<br><br><br><br><br><br><br><br>
 
-
-<h:form>
 <div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+<form name="searchroom" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
-<th align="center">Rate Booking</th>
+<th align="left">Rate Booking</th>
+<th></th>
 </tr>
 <tbody>
 <tr>
-<th align="center">Booking number:
-<h:inputText id="bookingnumber" value=""/>
-<h:message for="bookingnumber" errorClass="error" />
-</th>
+<th align="left">Booking number:</th>
+<th><input type="text" name="bookingnumber" size="26" maxlength="40"></th>
 </tr>
 <tr>
-<th>Rating text:</th>
+<th align="left">Rating text:</th>
+<th><textarea rows="4" placeholder="Insert Rating here..."></textarea></th>
 </tr>
-<tr>
-<th align="center"> 
-<h:inputTextarea id="rating" value="" cols="50" rows="10"/>
-<h:message for="rating" errorClass="error" />
-</th>
-</tr>
+
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Rate"/></th>
+<th></th>
+<th align="center"><input type="submit" name="cancelbooking" value="CancelBooking"></th>
 </tr>
 </tfoot>
 </table>
-</center>
+</form>
 </div>
-</h:form>
 
 </body>
 </html>
