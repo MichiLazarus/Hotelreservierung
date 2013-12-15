@@ -10,7 +10,40 @@ body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20
 div.abstand {margin-top:150px;}
 div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </style>
+
+<script type="text/javascript">
+function SearchRoomÜberprüfung () {
+  if (document.searchroom.price.value == "") {
+    alert("Please enter a price!");
+    document.searchroom.price.focus();
+    return false;
+  }
+}
+
+function CancelBookingÜberprüfung () {
+	  if (document.cancelbooking.bookingnumber.value == "") {
+	    alert("Please enter a booking number!");
+	    document.cancelbooking.bookingnumber.focus();
+	    return false;
+	  }
+	}
+	
+function RateBookingÜberprüfung () {
+	  if (document.ratebooking.bookingnumber.value == "") {
+	    alert("Please enter a booking number!");
+	    document.ratebooking.bookingnumber.focus();
+	    return false;
+	  }
+	  if (document.ratebooking.ratearea.value == "") {
+		    alert("Please enter a rating message!");
+		    document.ratebooking.ratearea.focus();
+		    return false;
+		  }
+	}
+</script>
+
 </head>
+
 
 <body>
 
@@ -34,7 +67,7 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </table>
 
 <div class="abstand2">
-<form name="searchroom" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<form name="searchroom" action="MasterServlet" method="post" onsubmit="return SearchRoomÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
@@ -75,7 +108,7 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </table>
 </form>
 
-<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
@@ -102,7 +135,7 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 <br><br><br><br><br><br><br><br>
 
 <div class="abstand2">
-<form name="searchroom" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<form name="ratebooking" action="MasterServlet" method="post" onsubmit="return RateBookingÜberprüfung()">
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
 <th align="left">Rate Booking</th>
@@ -115,14 +148,14 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </tr>
 <tr>
 <th align="left">Rating text:</th>
-<th><textarea rows="4" placeholder="Insert Rating here..."></textarea></th>
+<th><textarea rows="4" placeholder="Insert Rating here..." name="ratearea"></textarea></th>
 </tr>
 
 </tbody>
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="cancelbooking" value="CancelBooking"></th>
+<th align="center"><input type="submit" name="ratebooking" value="RateBooking"></th>
 </tr>
 </tfoot>
 </table>
