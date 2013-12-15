@@ -8,12 +8,38 @@
 h1 {color:#3399CC; font-size:42px;}
 body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
 div.abstand {margin-top:150px;}
-div.abstand2 {margin-top:50px;}
+div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 </style>
+
+<script type="text/javascript">
+function MakeNewOfferÜberprüfung () {
+	if (document.makenewoffer.roomnumber.value == "") {
+	    alert("Please enter a roomnumber!");
+	    document.makenewoffer.roomnumber.focus();
+	    return false;
+	}
+	if (document.makenewoffer.price.value == "") {
+	    alert("Please enter a price!");
+	    document.makenewoffer.price.focus();
+	    return false;
+	}
+}
+
+function ShowRatingÜberprüfung () {
+	if (document.showrating.roomnumber.value == "") {
+	    alert("Please enter a roomnumber!");
+	    document.showrating.roomnumber.focus();
+	    return false;
+	}
+}
+
+</script>
+
 </head>
 
+
 <body>
-<f:view>
+
 <table width="900">
 <col width="250">
 <col width="650">
@@ -24,98 +50,106 @@ div.abstand2 {margin-top:50px;}
 </table>
 <hr>
 
-<h:form>
 <table width="100%" cellpadding="8">
 <col width=*>
 <col width=*>
 <tr>
 <th align="left">Hotelier</th>
-<th align="right"><h:commandButton value="Logout" action="Login.jsp" /></th>
+<th align="right">
+<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+</th>
 </tr>
 </table>
-</h:form>
 
-<h:form>
 <div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+<form name="showallrooms" action="MasterServlet" method="post">
+
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
-<th align="center">Show all Rooms</th>
+<th align="left">Show all Rooms</th>
+<th></th>
 </tr>
-<tbody>
-</tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Show"/></th>
+<th></th>
+<th><input type="submit" name="showallrooms" value="ShowRooms"></th>
 </tr>
 </tfoot>
 </table>
-</center>
-</div>
-</h:form>
+</form>
 
-<h:form>
-<div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+<form name="makenewoffer" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
+
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
-<th align="center">New Offer</th>
+<th align="left">New Offer</th>
+<th></th>
 </tr>
 <tbody>
 <tr>
-<th align="center">Roomnumber:
-<h:inputText id="roomnumber" value=""/>
-<h:message for="roomnumber" errorClass="error" />
-Price: 
-<h:inputText id="price" value=""/>
-<h:message for="price" errorClass="error" />
-Equipment: 
-<h:inputText id="equipment" value=""/>
-<h:message for="equipment" errorClass="error" />
-</th>
+<th align="left">Room number:</th>
+<th><input type="text" name="roomnumber" size="22" maxlength="40"></th>
 </tr>
+
 <tr>
-<th>Number of Persons: 
-<h:inputText id="nop" value=""/>
-<h:message for="nop" errorClass="error" />
-</th>
+<th align="left">Price:</th>
+<th><input type="text" name="price" size="22" maxlength="40"></th>
 </tr>
+
+<tr>
+<th align="left">Equipment:</th>
+<th><select name="equipment">
+				 <option value="1">Superior Suite</option>
+				 <option value="2">Business Suite</option>
+ 				 <option value="3">High Class Room</option>
+ 				 <option value="4">Economy Class Room</option>
+			     </select></th></tr>
+
+<tr>
+<th align="left">Number of Persons:</th>
+<th align="right"><select name="nop">
+				 <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+				 <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+ 				 <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+			     </select></th></tr>
+
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Finish"/></th>
+<th></th>
+<th align="center"><input type="submit" name="makenewoffer" value="MakeNewOffer"></th>
 </tr>
 </tfoot>
 </table>
-</center>
-</div>
-</h:form>
 
-<h:form>
+</form>
+</div>
+
+<br><br>
+
 <div class="abstand2">
-<center>
-<table width="900"  border="1" rules="groups" cellpadding="8">
+<form name="showrating" action="MasterServlet" method="post" onsubmit="return ShowRatingÜberprüfung()">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
-<th align="center">Show Rating</th>
+<th align="left">Show Rating</th>
+<th></th>
 </tr>
 <tbody>
 <tr>
-<th align="center">Roomnumber:
-<h:inputText id="roomnumber" value=""/>
-<h:message for="roomnumber" errorClass="error" />
-</th>
+<th align="left">Room number:</th>
+<th><input type="text" name="roomnumber" size="22" maxlength="40"></th>
 </tr>
+
 </tbody>
 <tfoot>
 <tr>
-<th align="center"><h:commandButton value="Show"/></th>
+<th></th>
+<th align="center"><input type="submit" name="showrating" value="ShowRating"></th>
 </tr>
 </tfoot>
 </table>
-</center>
+</form>
 </div>
-</h:form>
 
-</f:view>
 </body>
 </html>

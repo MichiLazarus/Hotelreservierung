@@ -62,7 +62,9 @@ function RateBookingÜberprüfung () {
 <col width=*>
 <tr>
 <th align="left">Customer</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right">
+<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+</th>
 </tr>
 </table>
 
