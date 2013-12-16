@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Room implements Serializable{
 
-		private static  int roomnumber;
+		private int roomnumber;
 		private int nop; //Number of Persons
 		private String equipment;
 		private double price;
@@ -22,7 +22,7 @@ public class Room implements Serializable{
 		}
 		
 		
-		public static  int getRoomnumber(){
+		public int getRoomnumber(){
 			return roomnumber;
 		}
 		

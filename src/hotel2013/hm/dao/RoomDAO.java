@@ -94,7 +94,7 @@ public class RoomDAO {
 			throws IllegalArgumentException {
 		for (Room room : this.Roomlist) {
 
-			if (Room.getRoomnumber() == (Roomnumber)) {
+			if (room.getRoomnumber() == (Roomnumber)) {
 				return room;
 			}
 		}
