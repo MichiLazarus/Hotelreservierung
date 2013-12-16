@@ -85,8 +85,7 @@ public class BookingDAO {
 	}
 
 	
-	public Booking getBookingbyBookingnumber(int bookingnumber)
-			throws IllegalArgumentException {
+	public Booking getBookingbyBookingnumber(int bookingnumber){
 		for (Booking booking : this.Bookinglist) {
 
 			if (booking.getBookingnumber()==(bookingnumber)) {

@@ -1,6 +1,7 @@
 package hotel2013.hm;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,8 +21,10 @@ public class MasterServlet extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String check = "index.jsp";
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		String rcv = request.getParameter("submit");
 		if(rcv.equals("Login")){
 			String username = request.getParameter("username");
@@ -70,12 +73,12 @@ public class MasterServlet extends HttpServlet {
 			String xroomnumber = request.getParameter("roomnumber");
 			double priceoffer = Double.parseDouble(xpriceoffer);
 			int roomnumber = Integer.parseInt(xroomnumber);
-			//check = x.MakePriceOffer(priceoffer, roomnumber);
+			x.MakePriceOffer(priceoffer, roomnumber);
 		}
 		
 		if(rcv.equals("ShowAllRooms")){
 			check = x.ShowAllRooms();
-			//Methode
+			
 		}
 		
 		if(rcv.equals("ShowRating")){
@@ -84,7 +87,8 @@ public class MasterServlet extends HttpServlet {
 			check = x.ShowRating(roomnumber);
 		}
 		
-		if(rcv.equals("NewOffer")){
+		if(rcv.equals("MakeNewOffer")){
+			
 			String xroomnumber = request.getParameter("roomnumber");
 			String xnop = request.getParameter("nop");
 			String equipment = request.getParameter("equipment"); // muss nicht konvertiert werden
@@ -93,8 +97,8 @@ public class MasterServlet extends HttpServlet {
 			int nop = Integer.parseInt(xnop);
 			double price = Double.parseDouble(xprice);
 			String rating ="No rating available";
-			
 			check = x.NewOffer(roomnumber, nop, equipment, price, rating);
+		
 		}
 		
 		if(rcv.equals("EditRoom")){
@@ -113,14 +117,14 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("CancelBooking")){
 			String xbookingnumber = request.getParameter("bookingnumber");
 			int bookingnumber = Integer.parseInt(xbookingnumber);
-			//Methode ---- check = 
+			check = x.CancelBooking(bookingnumber);
 		}
 		
 		if(rcv.equals("RateBooking")){
 			String xbookingnumber = request.getParameter("bookingnumber");
 			String rating = request.getParameter("rating");
 			int bookingnumber = Integer.parseInt(xbookingnumber);
-			//Methode ---- check = 
+			check = x.RateBooking(bookingnumber, rating);
 		}
 		
 		if(rcv.equals("Book")){

@@ -99,16 +99,17 @@ public class Hotelmanagement {
 				if(room.getRoomnumber() == roomnumber){
 					room.setPriceOffer(priceOffer);
 					roomDAO.updateRoom(room);
-					return "Price Offer successful";
+					return "AnalystInterfaceSucess.jsp";
 				}
 			}
-			return "Could not find this room";
+			return "AnalystInterfacePriceofferfail.jsp";
 		}
-		return "No right to make a price offer";
+		return "AnalystInterfacePriceofferfail.jsp";
 	}
 	
 	//Analyst & Hotelier
 	public String ShowAllRooms(){
+		
 			String h = "";
 			for(Room room : roomlist){
 				h += room.toString();
@@ -158,17 +159,16 @@ public class Hotelmanagement {
 	
 	
 	public String CancelBooking(int bookingnumber){
-		if(session instanceof Customer){
-			for(Booking booking : bookinglist){
-				if(booking.getBookingnumber() == bookingnumber){
-					bookingDAO.deleteBooking(booking);
-					return "Booking canceled";
-				}
-			}
-			return "Booking not found";
-			
+		Booking booking = bookingDAO.getBookingbyBookingnumber(bookingnumber);
+		if(booking == null){
+			return "CustomerInterfaceFail.jsp";
 		}
-		return "You do not have the permission to edit a room";
+		
+		
+		else{
+					bookingDAO.deleteBooking(booking);
+					return "CustomerInterfaceSucess.jsp";
+				}
 	}
 	
 	public String RateBooking(int bookingnumber , String rating){

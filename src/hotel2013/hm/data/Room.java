@@ -11,7 +11,6 @@ public class Room implements Serializable{
 		private double price;
 		private double priceoffer;
 		private String rating;
-		private boolean status;
 		
 		public Room(int roomnumber, int nop, String equipment, double price, String rating){
 			setRoomnumber(roomnumber);
@@ -20,7 +19,6 @@ public class Room implements Serializable{
 			setPrice(price);
 			priceoffer = 0;
 			setRating(rating);
-			status = true;
 		}
 		
 		
@@ -49,30 +47,24 @@ public class Room implements Serializable{
 		}
 		
 		
-		
-		public boolean getStatus(){
-			return status;
-		}
-		
 		public void setRoomnumber(int x){
-			if(x <= 100 && x > 0) roomnumber = x;
-			else throw new IllegalArgumentException("Roomnumber not allowed!");
+			roomnumber = x;
+			
 		}
 		
 		public void setNop(int x){
-			if(x < 7 && x > 0) nop = x;
-			else throw new IllegalArgumentException("Max Number of Persons exceeded");	
+			nop = x;	
 		}
 		
 		public void setEquipment(String x){
-			if(x != null) equipment = x;
-			else throw new IllegalArgumentException("Please enter anything");
+			equipment = x;
+			
 		}
 		
 		
 		public void setPrice(double x){
-			if(price > 0) price = x;
-			else throw new IllegalArgumentException("Price too low");
+			price = x;
+			
 		}
 		
 		public void setPriceOffer(double x){
@@ -80,16 +72,7 @@ public class Room implements Serializable{
 		}
 		
 		public void setRating(String x){
-			if(x.contains("fuck") || x.contains("shit") || x.contains("bitch") || x.contains("piss") || x.contains("asshole")){
-			throw new IllegalArgumentException("Please don't enter swear words");
-			}
-			if(x != null) rating = x;
-		}
-		
-
-		
-		public void setStatus(boolean x){
-			status = x;
+			rating = x;
 		}
 		
 		public String toString(){

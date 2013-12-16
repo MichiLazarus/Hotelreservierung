@@ -18,8 +18,8 @@ function MakeNewOfferÜberprüfung () {
 	    document.makenewoffer.roomnumber.focus();
 	    return false;
 	}
-	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value)){
-	    alert("Please enter a price!");
+	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value) || (document.makenewoffer.price.value < 1)){
+	    alert("Please enter a valid price!");
 	    document.makenewoffer.price.focus();
 	    return false;
 	}
@@ -72,7 +72,7 @@ function ShowRatingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th><input type="submit" name="showallrooms" value="ShowRooms"></th>
+<th><input type="submit" name="ShowAllRooms" value="ShowRooms"></th>
 </tr>
 </tfoot>
 </table>
@@ -117,7 +117,7 @@ function ShowRatingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="NewOffer" value="MakeNewOffer"></th>
+<th align="center"><input type="submit" name="submit" value="MakeNewOffer"></th>
 </tr>
 </tfoot>
 </table>

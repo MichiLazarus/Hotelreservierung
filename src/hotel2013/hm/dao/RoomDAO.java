@@ -156,7 +156,7 @@ public void updateRoom(Room room)throws IllegalArgumentException {
 				r.setPrice(room.getPrice());
 				r.setPriceOffer(room.getPriceOffer());
 				r.setRating(room.getRating());
-				r.setStatus(room.getStatus());
+				
 				
 				
 				
