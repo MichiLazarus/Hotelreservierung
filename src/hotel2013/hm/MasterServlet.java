@@ -50,9 +50,9 @@ public class MasterServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			if(status == "customer")
+			if(status.equals("customer"))
 			check = x.registerC(username, password, fullname, email, sex, birthday);
-			else if(status == "hotelier")
+			else if(status.equals("hotelier"))
 			check = x.registerH(username, password, fullname, email, sex, birthday);
 			else
 			check = x.registerA(username, password, fullname, email, sex, birthday);
@@ -92,8 +92,9 @@ public class MasterServlet extends HttpServlet {
 			int roomnumber = Integer.parseInt(xroomnumber);
 			int nop = Integer.parseInt(xnop);
 			double price = Double.parseDouble(xprice);
-			//String rating    ----  Rating aus dem Room holen!
-			//Methode ---- check = 
+			String rating ="No rating available";
+			
+			check = x.NewOffer(roomnumber, nop, equipment, price, rating);
 		}
 		
 		if(rcv.equals("EditRoom")){

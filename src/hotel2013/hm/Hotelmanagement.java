@@ -48,7 +48,7 @@ public class Hotelmanagement {
 	
 	public String registerA(String username, String password, String fullName, String email, char sex, Date birthday){
 
-		Person newAnalyst =  new Customer(username, password, fullName, email, sex, birthday);
+		Person newAnalyst =  new Analyst(username, password, fullName, email, sex, birthday);
 		if(personDAO.savePerson(newAnalyst))
 		return "index.jsp";
 		else
@@ -134,9 +134,9 @@ public class Hotelmanagement {
 		if(session instanceof Hotelier){
 			Room newRoom =  new Room(roomnumber, nop, equipment, price, rating);
 			roomDAO.saveRoom(newRoom);
-			return "New offer succeeded";
+			return "HotelierInterfaceNewOffer.jsp";
 		}
-		return "You do not have the permission to make a new offer";
+		return "HotelierInterfaceNewOfferFail.jsp";
 	}
 	
 	public String EditRoom(int roomnumber, int nop, String equipment, double price, String rating){

@@ -40,6 +40,10 @@ function ShowRatingÜberprüfung () {
 
 <body>
 
+<script type="text/javascript">
+alert("Creation Failed!");
+</script>
+
 <table width="900">
 <col width="250">
 <col width="650">
@@ -78,7 +82,7 @@ function ShowRatingÜberprüfung () {
 </table>
 </form>
 
-<form name="NewOffer" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
+<form name="makenewoffer" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
@@ -117,7 +121,7 @@ function ShowRatingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="NewOffer" value="MakeNewOffer"></th>
+<th align="center"><input type="submit" name="makenewoffer" value="MakeNewOffer"></th>
 </tr>
 </tfoot>
 </table>
