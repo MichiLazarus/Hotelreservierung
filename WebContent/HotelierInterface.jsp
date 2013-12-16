@@ -13,12 +13,12 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
-	if (document.makenewoffer.roomnumber.value == "") {
+	if ((document.makenewoffer.roomnumber.value == "") || isNaN(document.makenewoffer.roomnumber.value)){
 	    alert("Please enter a roomnumber!");
 	    document.makenewoffer.roomnumber.focus();
 	    return false;
 	}
-	if (document.makenewoffer.price.value == "") {
+	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value)){
 	    alert("Please enter a price!");
 	    document.makenewoffer.price.focus();
 	    return false;
@@ -26,7 +26,7 @@ function MakeNewOfferÜberprüfung () {
 }
 
 function ShowRatingÜberprüfung () {
-	if (document.showrating.roomnumber.value == "") {
+	if ((document.showrating.roomnumber.value == "") || isNaN(document.showrating.roomnumber.value)){
 	    alert("Please enter a roomnumber!");
 	    document.showrating.roomnumber.focus();
 	    return false;
@@ -92,7 +92,7 @@ function ShowRatingÜberprüfung () {
 </tr>
 
 <tr>
-<th align="left">Price:</th>
+<th align="left">Price / Night:</th>
 <th><input type="text" name="price" size="22" maxlength="40"></th>
 </tr>
 

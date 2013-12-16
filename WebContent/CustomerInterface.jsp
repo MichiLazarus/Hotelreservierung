@@ -13,7 +13,7 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function SearchRoomÜberprüfung () {
-  if (document.searchroom.price.value == "") {
+  if ((document.searchroom.price.value == "") || isNaN(document.searchroom.price.value)) {
     alert("Please enter a price!");
     document.searchroom.price.focus();
     return false;
@@ -21,7 +21,7 @@ function SearchRoomÜberprüfung () {
 }
 
 function CancelBookingÜberprüfung () {
-	  if (document.cancelbooking.bookingnumber.value == "") {
+	  if ((document.cancelbooking.bookingnumber.value == "") || isNaN(document.cancelbooking.bookingnumber.value)) {
 	    alert("Please enter a booking number!");
 	    document.cancelbooking.bookingnumber.focus();
 	    return false;
@@ -29,7 +29,7 @@ function CancelBookingÜberprüfung () {
 	}
 	
 function RateBookingÜberprüfung () {
-	  if (document.ratebooking.bookingnumber.value == "") {
+	  if ((document.ratebooking.bookingnumber.value == "") || isNaN(document.ratebooking.bookingnumber.value)) {
 	    alert("Please enter a booking number!");
 	    document.ratebooking.bookingnumber.focus();
 	    return false;
