@@ -150,10 +150,15 @@ public class Hotelmanagement {
 	public String NewOffer(int roomnumber, int nop, String equipment, double price, String rating){
 		if(session instanceof Hotelier){
 			Room newRoom =  new Room(roomnumber, nop, equipment, price, rating);
-			roomDAO.saveRoom(newRoom);
-			return "HotelierInterfaceNewOffer.jsp";
+			String check = roomDAO.saveRoom(newRoom);
+			
+			if(check.equals("success"))
+				return "HotelierInterfaceNewOffer.jsp";
+			else 
+				return "HotelierInterfaceFail.jsp";
 		}
-		return "HotelierInterfaceNewOfferFail.jsp";
+		
+		return "HotelierInterfaceFail.jsp";
 	}
 	
 	public String EditRoom(int roomnumber, int nop, String equipment, double price, String rating){

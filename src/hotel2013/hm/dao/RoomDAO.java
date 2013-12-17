@@ -102,15 +102,16 @@ public class RoomDAO {
 		return null;
 	}
 	
-public void saveRoom(Room room)  throws IllegalArgumentException{
+public String saveRoom(Room room)  throws IllegalArgumentException{
 		
 		if (this.getRoombyRoomnumber(room.getRoomnumber()) == null) {
 			System.out.println(room.getRoomnumber() + " saved");
 			this.Roomlist.add(room);
 			this.saveFile();
+			return "success";
 		} else {
 			System.out.println(room.getRoomnumber() + " already exists");
-			throw new IllegalArgumentException("Room already exists");
+			return "failure";
 		}
 		
 			
