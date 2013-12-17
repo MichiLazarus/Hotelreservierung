@@ -18,7 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MasterServlet")
 public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
+	public static int sroomnumber;
 	
+	public static int getSroomnumber(){
+		return sroomnumber;
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -83,8 +87,8 @@ public class MasterServlet extends HttpServlet {
 		
 		if(rcv.equals("ShowRating")){
 			String xroomnumber = request.getParameter("roomnumber");
-			int roomnumber = Integer.parseInt(xroomnumber);
-			check = x.ShowRating(roomnumber);
+			sroomnumber = Integer.parseInt(xroomnumber);
+			check = "HotelierShowRating.jsp";
 		}
 		
 		if(rcv.equals("MakeNewOffer")){

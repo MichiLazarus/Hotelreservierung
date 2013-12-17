@@ -148,7 +148,7 @@ alert("New Offer created!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="showrating" value="ShowRating"></th>
+<th align="center"><input type="submit" name="submit" value="ShowRating"></th>
 </tr>
 </tfoot>
 </table>

@@ -72,7 +72,7 @@ function ShowRatingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th><input type="submit" name="ShowAllRooms" value="ShowRooms"></th>
+<th><input type="submit" name="submit" value="ShowAllRooms"></th>
 </tr>
 </tfoot>
 </table>
@@ -144,7 +144,7 @@ function ShowRatingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="showrating" value="ShowRating"></th>
+<th align="center"><input type="submit" name="submit" value="ShowRating"></th>
 </tr>
 </tfoot>
 </table>
