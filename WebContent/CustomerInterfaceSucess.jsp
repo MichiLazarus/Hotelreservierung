@@ -108,7 +108,7 @@ alert("Operation suceeded!");
 <tfoot>
 <tr>
 <th></th>
-<th><input type="submit" name="searchroom" value="SearchRoom"></th>
+<th><input type="submit" name="submit" value="SearchRoom"></th>
 </tr>
 </tfoot>
 </table>
@@ -130,7 +130,7 @@ alert("Operation suceeded!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="cancelbooking" value="CancelBooking"></th>
+<th align="center"><input type="submit" name="submit" value="CancelBooking"></th>
 </tr>
 </tfoot>
 </table>
@@ -161,7 +161,7 @@ alert("Operation suceeded!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="ratebooking" value="RateBooking"></th>
+<th align="center"><input type="submit" name="submit" value="RateBooking"></th>
 </tr>
 </tfoot>
 </table>

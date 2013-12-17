@@ -236,4 +236,20 @@ public class Hotelmanagement {
 	return "Booking not sucessfull";
 	
 	}
+	
+	public ArrayList<Room> SearchRoom(double price , String equipment, int nop ){
+		roomlist = roomDAO.getRoomlist();
+		ArrayList <Room> searchlist = new ArrayList<Room>();
+		for ( Room room : roomlist){
+			if ( room.getPrice() <= price && room.getEquipment().equals(equipment) && room.getNop() >= nop){
+				searchlist.add(room);
+				
+				
+			}
+			
+		}
+		return searchlist;
+		
+	}
+	
 }

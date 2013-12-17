@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="hotel2013.hm.dao.RoomDAO"%>
+<%@page import="hotel2013.hm.data.*"%>
+<%@page import="hotel2013.hm.*"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,6 +36,16 @@ div.abstand {margin-top:150px;}
 <th align="right"><a href="CustomerInterface.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
+<%
+	ArrayList <Room> newlist = MasterServlet.getSearchlist();
+	for (Room room : newlist){
+		out.println(room.toString());
+		out.print("<br>");
+	}
+
+
+%>
+
 </body>
 
 </html>

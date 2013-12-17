@@ -86,10 +86,10 @@ function RateBookingÜberprüfung () {
 <tr>
 <th align="left">Equipment:</th>
 <th><select name="equipment">
-				 <option value="1">Superior Suite</option>
-				 <option value="2">Business Suite</option>
- 				 <option value="3">High Class Room</option>
- 				 <option value="4">Economy Class Room</option>
+				 <option value="Superior Suite">Superior Suite</option>
+				 <option value="Business Suite">Business Suite</option>
+ 				 <option value="High Class Room">High Class Room</option>
+ 				 <option value="Economy Class Room">Economy Class Room</option>
 			     </select></th></tr>
 
 <tr>
@@ -104,7 +104,7 @@ function RateBookingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th><input type="submit" name="searchroom" value="SearchRoom"></th>
+<th><input type="submit" name="submit" value="SearchRoom"></th>
 </tr>
 </tfoot>
 </table>
@@ -157,7 +157,7 @@ function RateBookingÜberprüfung () {
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="ratebooking" value="RateBooking"></th>
+<th align="center"><input type="submit" name="submit" value="RateBooking"></th>
 </tr>
 </tfoot>
 </table>

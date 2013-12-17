@@ -1,9 +1,12 @@
 package hotel2013.hm;
 
+import hotel2013.hm.data.Room;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -20,10 +23,16 @@ public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
 	public static int sroomnumber;
 	
+	public static ArrayList <Room> searchlist = new ArrayList <Room>();
+	
 	public static int getSroomnumber(){
 		return sroomnumber;
 	}
 	
+
+	public static ArrayList <Room> getSearchlist(){
+		return searchlist;
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String check = "index.jsp";
@@ -103,6 +112,18 @@ public class MasterServlet extends HttpServlet {
 			String rating ="No rating available";
 			check = x.NewOffer(roomnumber, nop, equipment, price, rating);
 		
+		}
+		
+		if(rcv.equals("SearchRoom")){
+			String xprice = request.getParameter("price");
+			double price = Double.parseDouble(xprice);
+			String equipment = request.getParameter("equipment");
+			String xnop = request.getParameter("nop");
+			int nop = Integer.parseInt(xnop);
+			searchlist = x.SearchRoom(price, equipment, nop);
+			
+			check = "CustomerSearchRooms.jsp";
+			
 		}
 		
 		if(rcv.equals("EditRoom")){

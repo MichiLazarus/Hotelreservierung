@@ -76,7 +76,7 @@ alert("Creation Failed!");
 <tfoot>
 <tr>
 <th></th>
-<th><input type="submit" name="showallrooms" value="ShowRooms"></th>
+<th><input type="submit" name="submit" value="ShowRooms"></th>
 </tr>
 </tfoot>
 </table>
@@ -103,10 +103,10 @@ alert("Creation Failed!");
 <tr>
 <th align="left">Equipment:</th>
 <th><select name="equipment">
-				 <option value="1">Superior Suite</option>
-				 <option value="2">Business Suite</option>
- 				 <option value="3">High Class Room</option>
- 				 <option value="4">Economy Class Room</option>
+				 <option value="Superior Suite">Superior Suite</option>
+				 <option value="Business Suite">Business Suite</option>
+ 				 <option value="High Class Room">High Class Room</option>
+ 				 <option value="Economy Class Room">Economy Class Room</option>
 			     </select></th></tr>
 
 <tr>
@@ -121,7 +121,7 @@ alert("Creation Failed!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="makenewoffer" value="MakeNewOffer"></th>
+<th align="center"><input type="submit" name="submit" value="MakeNewOffer"></th>
 </tr>
 </tfoot>
 </table>
@@ -148,7 +148,7 @@ alert("Creation Failed!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="showrating" value="ShowRating"></th>
+<th align="center"><input type="submit" name="submit" value="ShowRating"></th>
 </tr>
 </tfoot>
 </table>
