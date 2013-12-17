@@ -38,12 +38,15 @@ div.abstand {margin-top:150px;}
 </table>
 
 <%
+int roomnumber = 3;
 RoomDAO r = new RoomDAO("Rooms.ser");
 ArrayList <Room> rlist = r.getRoomlist();
 for(int i = 0;i<rlist.size();i++){
-	Room room = rlist.get(i);
-	out.print(room.getRoomnumber());
+	if( rlist.get(i).getRoomnumber() == roomnumber){
+		out.print(rlist.get(i).getRating());
+	}
 }
+
 
 %>
 

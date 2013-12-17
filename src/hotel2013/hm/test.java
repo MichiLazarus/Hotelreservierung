@@ -23,15 +23,16 @@ public class test {
 			e.printStackTrace();
 		}
 		
-//		x.registerH("tester", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
+		//x.registerH("test", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
 		
-		x.login("tester", "uniwien");
+		x.login("test", "uniwien");
 //		x.NewOffer(12,3,"bett",120,"gut");
-//		x.NewOffer(13,5,"stuhl",120,"ned");
+		x.NewOffer(13,5,"stuhl",120,"ned");
 //		x.NewOffer(14,1,"lampe",120,"so");
 //		x.NewOffer(15,2,"dusche",120,"gut");
 		
-		System.out.println(x.ShowRating(14));
+		System.out.println(x.ShowRating(13));
+		System.out.println(x.ShowAllRooms());
 		
 
 	}

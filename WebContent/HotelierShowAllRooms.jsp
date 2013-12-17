@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="hotel2013.hm.dao.RoomDAO"%>
+<%@page import="hotel2013.hm.data.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,6 +33,17 @@ div.abstand {margin-top:150px;}
 <th align="left">All Rooms</th>
 <th align="right"><a href="HotelierInterface.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
+<%
+    RoomDAO r = new RoomDAO("Rooms.ser");
+	ArrayList <Room> rlist =  r.getRoomlist();
+	for(int i = 0; i < rlist.size(); i++){
+		Room room = rlist.get(i);
+		out.println(room.toString());
+		out.println("<br>");
+		
+	}
+
+%>
 </table>
 </body>
 
