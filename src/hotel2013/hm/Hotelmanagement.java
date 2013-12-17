@@ -28,7 +28,10 @@ public class Hotelmanagement {
 		
 	}
 	
+	
+			
 	public String registerC(String username, String password, String fullName, String email, char sex, Date birthday){
+	
 
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
 		if(personDAO.savePerson(newCustomer))
@@ -94,6 +97,9 @@ public class Hotelmanagement {
 	}
 	
 	public String MakePriceOffer(double priceOffer, int roomnumber){
+		
+		roomlist = roomDAO.getRoomlist();
+
 		if(session instanceof Analyst){
 			for(Room room : roomlist){
 				if(room.getRoomnumber() == roomnumber){
@@ -110,6 +116,9 @@ public class Hotelmanagement {
 	//Analyst & Hotelier
 	public String ShowAllRooms(){
 		
+		roomlist = roomDAO.getRoomlist();
+		
+		
 			String h = "";
 			for(Room room : roomlist){
 				h += room.toString();
@@ -118,8 +127,15 @@ public class Hotelmanagement {
 	}
 	
 	public String ShowRating(int roomnumber){
+		
+		roomlist = roomDAO.getRoomlist();
+		
+		
+		
 		if(session instanceof Analyst || session instanceof Hotelier){
+			System.out.println("test2");
 			for(Room room : roomlist){
+				System.out.println("test");
 				if(room.getRoomnumber() == roomnumber){
 					return room.getRating();
 				}
@@ -141,6 +157,9 @@ public class Hotelmanagement {
 	}
 	
 	public String EditRoom(int roomnumber, int nop, String equipment, double price, String rating){
+	
+		roomlist = roomDAO.getRoomlist();
+		
 		if(session instanceof Hotelier){
 			for(Room room : roomlist){
 				if(room.getRoomnumber() == roomnumber){
@@ -183,6 +202,8 @@ public class Hotelmanagement {
 	}
 	
 	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+		
+		bookinglist = bookingDAO.getBookinglist();
 		if(session instanceof Customer){
 			boolean works = true;
 			for (Booking booking : bookinglist){
