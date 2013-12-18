@@ -23,15 +23,15 @@ public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
 	public static int sroomnumber;
 	
-	public static ArrayList <Room> searchlist = new ArrayList <Room>();
+	public static ArrayList <Room> roomlist = new ArrayList <Room>();
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
 	}
 	
 
-	public static ArrayList <Room> getSearchlist(){
-		return searchlist;
+	public static ArrayList <Room> getRoomlist(){
+		return roomlist;
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -89,8 +89,15 @@ public class MasterServlet extends HttpServlet {
 			x.MakePriceOffer(priceoffer, roomnumber);
 		}
 		
-		if(rcv.equals("ShowAllRooms")){
-			check = x.ShowAllRooms();
+		if(rcv.equals("Show all Rooms")){
+			roomlist = x.ShowAllRooms();
+			check = "HotelierShowAllRooms.jsp";
+			
+		}
+		
+		if(rcv.equals("Show All Rooms")){
+			roomlist = x.ShowAllRooms();
+			check = "AnalystShowAllRooms.jsp";
 			
 		}
 		
@@ -120,23 +127,18 @@ public class MasterServlet extends HttpServlet {
 			String equipment = request.getParameter("equipment");
 			String xnop = request.getParameter("nop");
 			int nop = Integer.parseInt(xnop);
-			searchlist = x.SearchRoom(price, equipment, nop);
+			roomlist = x.SearchRoom(price, equipment, nop);
+		    
 			
 			check = "CustomerSearchRooms.jsp";
 			
 		}
 		
 		if(rcv.equals("EditRoom")){
-			String xroomnumber = request.getParameter("roomnumber");
-			String xnop = request.getParameter("nop");
-			String equipment = request.getParameter("equipment"); // muss nicht konvertiert werden
-			String xprice = request.getParameter("price");
-			int roomnumber = Integer.parseInt(xroomnumber);
-			int nop = Integer.parseInt(xnop);
-			double price = Double.parseDouble(xprice);
-			//String rating    ----  Rating aus dem Room holen!
-			//Hier evtl. andere Lösungsmöglichkeit?
-			//Methode ---- check = 
+			//String xroomnumber = request.getParameter("roomnumber");
+			//sroomnumber = Integer.parseInt(xroomnumber);
+
+			check = "HotelierShowAllRooms.jsp";
 		}
 		
 		if(rcv.equals("CancelBooking")){

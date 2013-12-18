@@ -114,16 +114,15 @@ public class Hotelmanagement {
 	}
 	
 	//Analyst & Hotelier
-	public String ShowAllRooms(){
+	public ArrayList<Room> ShowAllRooms(){
 		
 		roomlist = roomDAO.getRoomlist();
+		ArrayList <Room> roomlist = new ArrayList<Room>();
+		for ( Room room : roomlist){
+				roomlist.add(room);
+		}
+		return roomlist;
 		
-		
-			String h = "";
-			for(Room room : roomlist){
-				h += room.toString();
-			}
-			return h; 
 	}
 	
 	public String ShowRating(int roomnumber){
@@ -239,16 +238,14 @@ public class Hotelmanagement {
 	
 	public ArrayList<Room> SearchRoom(double price , String equipment, int nop ){
 		roomlist = roomDAO.getRoomlist();
-		ArrayList <Room> searchlist = new ArrayList<Room>();
+		ArrayList <Room> roomlist = new ArrayList<Room>();
+		
 		for ( Room room : roomlist){
 			if ( room.getPrice() <= price && room.getEquipment().equals(equipment) && room.getNop() >= nop){
-				searchlist.add(room);
-				
-				
+				roomlist.add(room);	
 			}
-			
 		}
-		return searchlist;
+		return roomlist;
 		
 	}
 	

@@ -118,7 +118,7 @@ public String saveRoom(Room room)  throws IllegalArgumentException{
 	}
 
 
-	public void deleteRoom(Room room) throws IllegalArgumentException {
+public void deleteRoom(Room room) throws IllegalArgumentException {
 		
 		boolean roomExists = false;
 		
