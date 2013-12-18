@@ -56,7 +56,7 @@ div.abstand {margin-top:150px;}
 </table>
 <br>
 
-<form name="EditRoom" action="MasterServlet" method="post">
+
 <table border="1" width="95%" align="center" bgcolor="#BFBFBF" cellspacing="3%">
 <colgroup>
     <col width="12%">
@@ -70,10 +70,10 @@ div.abstand {margin-top:150px;}
 <%
     RoomDAO r = new RoomDAO("Rooms.ser");
 	ArrayList <Room> rlist =  r.getRoomlist();
-	
+	String rnumber;
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
-		
+		out.println("<form name=\"EditRoom\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
 		
 		out.println("<td name=\"roomnumber\">" + room.getRoomnumber() + "</td>");
@@ -84,15 +84,21 @@ div.abstand {margin-top:150px;}
 		out.println("<td name=\"priceoffer\">" + room.getPriceOffer() + " Euro" + "</td>");
 		else
 		out.println("<td name=\"priceoffer\">" + "-" + "</td>");
+		
 		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
+		rnumber = Integer.toString(room.getRoomnumber());
+		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"EditRoom\">" + "</td>");
 		
+		
 		out.println("</tr>");
+		out.println("</form>");
+		
 	}
 
 %>
 </table>
-</form>
+
 
 </body>
 

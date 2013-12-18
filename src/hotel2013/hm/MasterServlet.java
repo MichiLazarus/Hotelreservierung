@@ -158,10 +158,25 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 		if(rcv.equals("EditRoom")){
-			String xroomnumber = request.getParameter("roomnumber");
+			String xroomnumber = request.getParameter("rnumber");
 			sroomnumber = Integer.parseInt(xroomnumber);
 
-			check = "HotelierShowAllRooms.jsp";
+			check = "HotelierEditRoom.jsp";
+		}
+		
+		if(rcv.equals("FinishEdit")){
+			String xroomnumber = request.getParameter("rnumber");
+			int roomnumber = Integer.parseInt(xroomnumber);
+			String xprice = request.getParameter("price");
+			double price = Integer.parseInt(xprice);
+			String equipment = request.getParameter("equipment");
+			String xnop = request.getParameter("nop");
+			int nop = Integer.parseInt(xnop);
+			String rating = x.ShowRating(roomnumber);
+			sroomnumber = roomnumber;
+			x.EditRoom(roomnumber, nop, equipment, price, rating);
+			System.out.println("success");
+			check = "HotelierInterface.jsp";
 		}
 		
 		if(rcv.equals("MyBookings")){
