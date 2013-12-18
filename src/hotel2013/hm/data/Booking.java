@@ -5,20 +5,23 @@ import java.util.Date;
 
 public class Booking implements Serializable{
 
-	private static int bookingnumber = 1000;
+	private  int bookingnumber;
 	private Date bookingstart;
 	private Date bookingend;
 	private boolean payment;
 	private int bnop;       // number of persons zb: 3 zimmer 2 personen
 	private int broomnumber;
+	private int x = 1050;
 	
-	public Booking(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+	public Booking(int bookingnumber, Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
 		setBnop(bnop);
 		setBroomnumber(broomnumber);
 		setBookingnumber(bookingnumber);
+		
+		
 	}
 	
     public int getBroomnumber(){
@@ -36,7 +39,7 @@ public class Booking implements Serializable{
 	
 	public void setBookingnumber(int x){
 		
-		bookingnumber = x +1;
+		bookingnumber = x;
 		
 		
 	}
@@ -75,6 +78,7 @@ public class Booking implements Serializable{
 	public void setBnop(int x){
 		bnop = x;
 
-	}	
+	}
+
 }
 

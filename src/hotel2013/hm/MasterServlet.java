@@ -135,8 +135,8 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 		if(rcv.equals("EditRoom")){
-			//String xroomnumber = request.getParameter("roomnumber");
-			//sroomnumber = Integer.parseInt(xroomnumber);
+			String xroomnumber = request.getParameter("roomnumber");
+			sroomnumber = Integer.parseInt(xroomnumber);
 
 			check = "HotelierShowAllRooms.jsp";
 		}

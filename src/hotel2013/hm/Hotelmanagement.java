@@ -22,7 +22,7 @@ public class Hotelmanagement {
 	private ArrayList <Person> personlist = new ArrayList<Person>();
 	private ArrayList <Booking> bookinglist = new ArrayList<Booking>();
 	private ArrayList <Room> roomlist = new ArrayList<Room>();
-	
+	static int sucounter = 1000;
 	
 	public Hotelmanagement(){
 		
@@ -220,8 +220,11 @@ public class Hotelmanagement {
 				}
 			}
 			if(works == true){
-				Booking newBooking =  new Booking(bookingstart, bookingend, payment, bnop, broomnumber);
-				bookingDAO.saveBooking(newBooking);
+				Integer meinInteger = new Integer(sucounter);
+
+				sucounter++;
+				Booking booking = new Booking(meinInteger, bookingstart,  bookingend , payment,bnop, broomnumber);
+				bookingDAO.saveBooking(booking);
 				return"Booking done";	
 			}
 			else {

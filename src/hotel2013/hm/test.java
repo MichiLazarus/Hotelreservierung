@@ -23,8 +23,8 @@ public class test {
 			e.printStackTrace();
 		}
 		
-		//x.registerC("test1", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
-		//x.registerH("test2", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
+//		x.registerC("test1", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
+//		x.registerH("test2", "uniwien", "check", "tuaefzu@zgfsrv.de", 'm', neu);
 		
 		x.login("test1", "uniwien");
 //		x.NewOffer(12,3,"bett",120,"gut");
