@@ -213,7 +213,7 @@ public class Hotelmanagement {
 			for (Booking booking : bookinglist){
 				if (booking.getBroomnumber()==broomnumber){
 					if((booking.getBookingstart().after(bookingstart)||booking.getBookingstart().equals(bookingstart))
-							&&(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
+							||(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
 						works = false;
 						break;
 					}

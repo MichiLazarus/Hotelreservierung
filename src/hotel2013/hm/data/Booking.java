@@ -1,8 +1,9 @@
 package hotel2013.hm.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Booking {
+public class Booking implements Serializable{
 
 	private static int bookingnumber = 1000;
 	private Date bookingstart;
@@ -12,13 +13,12 @@ public class Booking {
 	private int broomnumber;
 	
 	public Booking(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
-		setBookingnumber(bookingnumber);
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
 		setBnop(bnop);
 		setBroomnumber(broomnumber);
-		bookingnumber++;
+		setBookingnumber(bookingnumber);
 	}
 	
     public int getBroomnumber(){
@@ -26,9 +26,8 @@ public class Booking {
     }
  
     public void setBroomnumber(int x){
-    	if( x >999 && x < 10000  ) {
     		broomnumber = x;
-    	}
+    	
     }
 	
 	public int getBookingnumber(){
@@ -36,10 +35,10 @@ public class Booking {
 	}
 	
 	public void setBookingnumber(int x){
-		if(x > 999 && x < 10000){
-		bookingnumber = x;
-		}
-		else throw new IllegalArgumentException("Bookingnumber must consist of exactly 4 numbers");
+		
+		bookingnumber = x +1;
+		
+		
 	}
 	
 	public Date getBookingstart(){

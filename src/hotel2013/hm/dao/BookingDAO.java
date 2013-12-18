@@ -111,14 +111,19 @@ public class BookingDAO {
 
 
 public void saveBooking(Booking booking)  throws IllegalArgumentException{
-	
-	if (this.getBookingbyBookingnumber(booking.getBookingnumber()) == null) {
+	System.out.println("test1");
+	if (getBookingbyBookingnumber(booking.getBookingnumber()) == null) {
 		System.out.println(booking.getBookingnumber() + " saved");
 		this.Bookinglist.add(booking);
 		this.saveFile();
+		for(int i = 0;i<Bookinglist.size();++i){
+			System.out.println(Bookinglist.get(i).getBookingnumber());
+			System.out.println(Bookinglist.get(i).getBroomnumber());
+			System.out.println("next");
+		}
+		return;
 	} else {
 		System.out.println(booking.getBookingnumber() + " already exists");
-		throw new IllegalArgumentException("Bookingnumber already exists");
 	}
 	
 		
