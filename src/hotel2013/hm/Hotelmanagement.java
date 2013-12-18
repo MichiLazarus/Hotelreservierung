@@ -241,14 +241,14 @@ public class Hotelmanagement {
 	
 	public ArrayList<Room> SearchRoom(double price , String equipment, int nop ){
 		roomlist = roomDAO.getRoomlist();
-		ArrayList <Room> roomlist = new ArrayList<Room>();
+		ArrayList <Room> rlist = new ArrayList<Room>();
 		
 		for ( Room room : roomlist){
 			if ( room.getPrice() <= price && room.getEquipment().equals(equipment) && room.getNop() >= nop){
-				roomlist.add(room);	
+				rlist.add(room);	
 			}
 		}
-		return roomlist;
+		return rlist;
 		
 	}
 	

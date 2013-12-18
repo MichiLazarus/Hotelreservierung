@@ -52,9 +52,8 @@ div.abstand {margin-top:150px;}
 <th>Equipment</th>
 <th>NrOfPersons</th>
 <th>Price</th>
-<th>OfferedPrice</th>
 <th>Rating</th>
-<th>Edit</th>
+<th>Book</th>
 </table>
 <br>
 
@@ -69,25 +68,23 @@ div.abstand {margin-top:150px;}
     <col width="10%">
 </colgroup>
 <%
+	
 	ArrayList <Room> rlist =  MasterServlet.getRoomlist();
 	
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
-		
 		out.println("<tr align=\"center\">");
 		
 		out.println("<td name=\"roomnumber\">" + room.getRoomnumber() + "</td>");
 		out.println("<td name=\"equipment\">" + room.getEquipment() + "</td>");
 		out.println("<td name=\"nop\">" + room.getNop() + "</td>");
 		out.println("<td name=\"price\">" + room.getPrice() + " Euro" + "</td>");
-		if(room.getPriceOffer() != 0)
-		out.println("<td name=\"priceoffer\">" + room.getPriceOffer() + " Euro" + "</td>");
-		else
-		out.println("<td name=\"priceoffer\">" + "-" + "</td>");
+		
 		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
-		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"EditRoom\">" + "</td>");
+		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"Book\">" + "</td>");
 		
 		out.println("</tr>");
+		
 	}
 
 %>
