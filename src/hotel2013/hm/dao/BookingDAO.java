@@ -127,6 +127,27 @@ public class BookingDAO {
 		}
 		return 0;
 	}
+	
+	public String getUserbyBookingnumber(int number){
+		for(Booking booking : Bookinglist){
+			if (booking.getBookingnumber() == number ){
+				return booking.getUser();
+			}
+		}
+		return "fail";
+	}
+	
+	public ArrayList<Booking> getBookingsofUsername(String user){
+		ArrayList<Booking> Blist = new ArrayList<Booking>();
+		for (Booking booking : Bookinglist){
+			if (booking.getUser().equals(user)){
+				Blist.add(booking);
+				
+			}
+			
+		}
+		return Blist;
+	}
 
 
 	public void deleteBooking(Booking booking)  {
@@ -136,7 +157,6 @@ public class BookingDAO {
 		for(int i = 0; i < this.Bookinglist.size(); i++) {
 			
 			if (this.Bookinglist.get(i).getBookingnumber()==(booking.getBookingnumber())) {
-				System.out.println("so nicht mein freund");
 				Bookinglist.remove(i);
 				bookingExists = true;
 				this.saveFile();

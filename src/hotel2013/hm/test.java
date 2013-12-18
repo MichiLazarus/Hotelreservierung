@@ -49,7 +49,7 @@ public class test {
 //		System.out.println(x.ShowRating(13));
 //		System.out.println(x.ShowAllRooms());
 //		System.out.println(x.CancelBooking(1001));
-		System.out.println(x.CancelBooking(1000));
+		
 		
 
 	}

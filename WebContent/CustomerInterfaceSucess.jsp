@@ -73,7 +73,7 @@ alert("Operation suceeded!");
 </table>
 
 <div class="abstand2">
-<form name="searchroom" action="MasterServlet" method="post" onsubmit="return SearchRoomÜberprüfung()">
+<form name="SearchRoom" action="MasterServlet" method="post" onsubmit="return SearchRoomÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
@@ -115,23 +115,18 @@ alert("Operation suceeded!");
 </table>
 </form>
 
-<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
+<form name="mybookings" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
 <th align="left">Cancel Booking</th>
 <th></th>
 </tr>
-<tbody>
-<tr>
-<th align="left">Booking number:</th>
-<th><input type="text" name="bookingnumber" size="22" maxlength="40"></th>
-</tr>
-</tbody>
+
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="submit" value="CancelBooking"></th>
+<th align="center"><input type="submit" name="submit" value="MyBookings"></th>
 </tr>
 </tfoot>
 </table>

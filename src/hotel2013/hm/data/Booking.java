@@ -12,18 +12,26 @@ public class Booking implements Serializable{
 	private int bnop;       // number of persons zb: 3 zimmer 2 personen
 	private int broomnumber;
 	private int x = 1050;
+	private String user;
 	
-	public Booking(int bookingnumber, Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+	public Booking(int bookingnumber, Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber, String user){
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
 		setBnop(bnop);
 		setBroomnumber(broomnumber);
 		setBookingnumber(bookingnumber);
+		setUser(user);
 		
 		
 	}
+	public void setUser(String x){
+		user = x;
+	}
 	
+	public String getUser(){
+		return user;
+	}
     public int getBroomnumber(){
     	return broomnumber;
     }
@@ -79,6 +87,7 @@ public class Booking implements Serializable{
 		bnop = x;
 
 	}
+	
 
 }
 

@@ -49,12 +49,12 @@ div.abstand {margin-top:150px;}
     <col width="13%">
     <col width="10%">
  </colgroup>
+<th>BookingNr</th>
 <th>Roomnumber</th>
-<th>Equipment</th>
+<th>Start</th>
+<th>End</th>
 <th>NrOfPersons</th>
-<th>Price</th>
-<th>Rating</th>
-<th>Book</th>
+<th>Payment</th>
 </table>
 <br>
 
@@ -70,25 +70,23 @@ div.abstand {margin-top:150px;}
 </colgroup>
 <%
 	
-	ArrayList <Room> rlist =  MasterServlet.getRoomlist();
+	ArrayList <Booking> blist =  MasterServlet.getBooklist();
     
 	
-	for(int i = 0; i < rlist.size(); i++){
-		Room room = rlist.get(i);
+	for(int i = 0; i < blist.size(); i++){
+		Booking booking = blist.get(i);
 	
-		out.println("<form name=\"book\" action=\"MasterServlet\" method=\"post\">");
+		out.println("<form name=\"cancelbooking\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
-		out.println("<td name=\"roomnumber\">" + room.getRoomnumber() + "</td>");
-		out.println("<td name=\"equipment\">" + room.getEquipment() + "</td>");
-		out.println("<td name=\"nop\">" + room.getNop() + "</td>");
-		out.println("<td name=\"price\">" + room.getPrice() + " Euro" + "</td>");
-		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
+		out.println("<td name=\"bookingnumber\">" + booking.getBookingnumber() + "</td>");
+		out.println("<td name=\"roomnumber\">" + booking.getBroomnumber() + "</td>");
+		out.println("<td name=\"bookingstart\">" + booking.getBookingstart() + "</td>");
+		out.println("<td name=\"bookingend\">" + booking.getBookingend() + " Euro" + "</td>");
+		out.println("<td name=\"nop\">" + booking.getBnop() + "</td>");
 		
-		String rnumber = Integer.toString(room.getRoomnumber());
-	
-		out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser()+ ">");
-		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
-		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"Book\">" + "</td>");
+		String bookingnumber = Integer.toString(booking.getBookingnumber());
+		out.println("<input type=\"hidden\" name=\"bnumber\" value=" + bookingnumber + ">");
+		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"CancelBooking\">" + "</td>");
 		out.println("</form>");
 		
 		out.println("</tr>");

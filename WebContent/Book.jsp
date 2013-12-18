@@ -102,6 +102,7 @@ function Formularüberprüfung () {
 
 
 <%
+    out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser() + ">");
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
 	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
 	out.println(MasterServlet.getSroomnumber());%>

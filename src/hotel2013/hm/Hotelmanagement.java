@@ -15,6 +15,7 @@ import hotel2013.hm.users.Person;
 
 public class Hotelmanagement {
 	
+	private static final String String = null;
 	private Person session = null;
 	private PersonDAO personDAO = new PersonDAO("Persons.ser");
 	private BookingDAO bookingDAO = new BookingDAO("Bookings.ser");
@@ -56,6 +57,10 @@ public class Hotelmanagement {
 		return "index.jsp";
 		else
 		return "registerfail.jsp";
+	}
+	public ArrayList<Booking> getBooklist(String user){
+		ArrayList<Booking> Blist = bookingDAO.getBookingsofUsername(user);
+		return Blist;
 	}
 	
 	public String login(String username, String password){
@@ -182,7 +187,7 @@ public class Hotelmanagement {
 	
 	
 	public String CancelBooking(int xbookingnumber){
-		System.out.println("hier samma");
+		
 		Booking booking = bookingDAO.getBookingbyBookingnumber(xbookingnumber);
 		if(booking == null){
 			return "CustomerInterfaceFail.jsp";
@@ -190,6 +195,7 @@ public class Hotelmanagement {
 		
 		
 		else{
+					
 					bookingDAO.deleteBooking(booking);
 					return "CustomerInterfaceSucess.jsp";
 				}
@@ -197,16 +203,17 @@ public class Hotelmanagement {
 	
 	public String RateBooking(int bookingnumber , String rating){
 		if(session instanceof Customer){
+			System.out.println("test1");
 			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
 			Room newRoom = roomDAO.getRoombyRoomnumber(x);
 			newRoom.setRating(rating);
 			roomDAO.updateRoom(newRoom);
-			return "Rating sucessful";
+			return "CustomerInterfaceFail.jsp";
 		}
-		return "Bookingnumber not availible";
+		return "CustomerInterfaceSucess.jsp";
 	}
 	
-	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber){
+	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber, String user){
 		
 		bookinglist = bookingDAO.getBookinglist();
 		if(session instanceof Customer){
@@ -224,7 +231,7 @@ public class Hotelmanagement {
 				Integer meinInteger = new Integer(sucounter);
 
 				sucounter++;
-				Booking booking = new Booking(meinInteger, bookingstart,  bookingend , payment,bnop, broomnumber);
+				Booking booking = new Booking(meinInteger, bookingstart,  bookingend , payment,bnop, broomnumber, user );
 				bookingDAO.saveBooking(booking);
 				return"Booking done";	
 			}

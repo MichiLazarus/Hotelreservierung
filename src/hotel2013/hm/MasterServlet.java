@@ -1,6 +1,8 @@
 package hotel2013.hm;
 
+import hotel2013.hm.data.Booking;
 import hotel2013.hm.data.Room;
+import hotel2013.hm.users.Person;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,17 +24,33 @@ import javax.servlet.http.HttpServletResponse;
 public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
 	public static int sroomnumber;
+	static String user ;
+	
+	public static String getUser(){
+		return user;
+	}
 	
 	public static ArrayList <Room> roomlist = new ArrayList <Room>();
+	private static ArrayList<Booking> booklist =  new ArrayList <Booking>();
+
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
 	}
+	public static ArrayList<Booking> getBooklist(){
+	
+		return booklist;
+		
+	}
+	
 	
 
 	public static ArrayList <Room> getRoomlist(){
 		return roomlist;
 	}
+
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String check = "index.jsp";
@@ -44,7 +62,9 @@ public class MasterServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			
 		   check = x.login(username, password);
-
+		   if ( check != "index.jsp"){
+		   user = username;
+		   }
 		}
 		
 
@@ -144,10 +164,15 @@ public class MasterServlet extends HttpServlet {
 			check = "HotelierShowAllRooms.jsp";
 		}
 		
+		if(rcv.equals("MyBookings")){
+			 booklist = x.getBooklist(user);
+			check = "CustomerCancelBooking.jsp";
+		}
+		
 		if(rcv.equals("CancelBooking")){
-			String xbookingnumber = request.getParameter("bookingnumber");
-			int bookingnumber = Integer.parseInt(xbookingnumber);
-			check = x.CancelBooking(bookingnumber);
+			String b = request.getParameter("bnumber");
+			int i = Integer.parseInt(b);
+			check = x.CancelBooking(i);
 		}
 		
 		if(rcv.equals("RateBooking")){
@@ -156,6 +181,7 @@ public class MasterServlet extends HttpServlet {
 			int bookingnumber = Integer.parseInt(xbookingnumber);
 			check = x.RateBooking(bookingnumber, rating);
 		}
+		
 		
 		if(rcv.equals("Book")){
 			String xroomnumber = request.getParameter("rnumber");
@@ -196,8 +222,9 @@ public class MasterServlet extends HttpServlet {
 			int bnop = Integer.parseInt(xbnop);
 			
 			int broomnumber = Integer.parseInt(xbroomnumber);
+			String user = request.getParameter("user");
 			
-			x.Book(bookingstart, bookingend, payment, bnop, broomnumber);
+			x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user);
 			
 			check = "BookSuccess.jsp";
 		}
