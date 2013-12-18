@@ -13,9 +13,9 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function SearchRoomÜberprüfung () {
-  if ((document.searchroom.price.value == "") || isNaN(document.searchroom.price.value)) {
+  if ((document.SearchRoom.price.value == "") || isNaN(document.searchroom.price.value)) {
     alert("Please enter a price!");
-    document.searchroom.price.focus();
+    document.SearchRoom.price.focus();
     return false;
   }
 }
@@ -46,9 +46,8 @@ function RateBookingÜberprüfung () {
 
 
 <body>
-
 <script type="text/javascript">
-alert("Operation suceeded!");
+alert("Booking Successful!");
 </script>
 
 <table width="900">
@@ -73,7 +72,7 @@ alert("Operation suceeded!");
 </table>
 
 <div class="abstand2">
-<form name="searchroom" action="MasterServlet" method="post" onsubmit="return SearchRoomÜberprüfung()">
+<form name="SearchRoom" action="MasterServlet" method="post" onsubmit="return SearchRoomÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
 <tr>
@@ -115,7 +114,7 @@ alert("Operation suceeded!");
 </table>
 </form>
 
-<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
+<form name="cancelbooking" action="CustomerSearchRooms.jsp" method="post" onsubmit="return CancelBookingÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>

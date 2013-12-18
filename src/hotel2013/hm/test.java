@@ -29,7 +29,7 @@ public class test {
 		x.login("test1", "uniwien");
 //		x.NewOffer(12,3,"bett",120,"gut");
 		String start = "02.02.2014";
-		String end = "03.02.2014";
+		String end = "03.02. 2014";
 		Date sstart = new Date();
 		Date send = new Date();
 		try {
@@ -45,7 +45,6 @@ public class test {
 		System.out.println(x.Book(sstart,send,true,1,25));
 //		System.out.println(x.NewOffer(24,1,"lampe",120,"so"));
 //		System.out.println(x.NewOffer(25,2,"dusche",120,"gut"));
-		
 //		System.out.println(x.ShowRating(13));
 //		System.out.println(x.ShowAllRooms());
 		

@@ -89,6 +89,7 @@ alert("Operation Failed!");
 <tr>
 <th align="left">Equipment:</th>
 <th><select name="equipment">
+				 <option value="Default">*</option>
 				 <option value="Superior Suite">Superior Suite</option>
 				 <option value="Business Suite">Business Suite</option>
  				 <option value="High Class Room">High Class Room</option>

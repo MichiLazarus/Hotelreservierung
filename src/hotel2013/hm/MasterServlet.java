@@ -123,7 +123,10 @@ public class MasterServlet extends HttpServlet {
 		
 		if(rcv.equals("SearchRoom")){
 			String xprice = request.getParameter("price");
-			double price = Double.parseDouble(xprice);
+			double price = 0;
+			if(xprice != null){
+				price = Double.parseDouble(xprice);
+			}
 			String equipment = request.getParameter("equipment");
 			String xnop = request.getParameter("nop");
 			int nop = Integer.parseInt(xnop);
@@ -155,28 +158,48 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 		if(rcv.equals("Book")){
+			String xroomnumber = request.getParameter("rnumber");
+			sroomnumber = Integer.parseInt(xroomnumber);
+			check = "Book.jsp";
+		}
+		
+		if(rcv.equals("Finish")){
+			Date bookingstart = null;
+			Date bookingend = null;
+			System.out.println("test1");
 			String xbookingstart = request.getParameter("bookingstart");
+			System.out.println("test2");
 			String xbookingend = request.getParameter("bookingend");
+			System.out.println("test3");
 			String xpayment = request.getParameter("payment");
+			System.out.println("test4");
 			String xbnop = request.getParameter("bnop");
+			System.out.println("test5");
 			String xbroomnumber = request.getParameter("broomnumber");
+			System.out.println("test6");
 			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+			System.out.println("test7");
 			try {
-				Date bookingstart = sdf.parse(xbookingstart);
+				bookingstart = sdf.parse(xbookingstart);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				Date bookingend = sdf.parse(xbookingend);
+				bookingend = sdf.parse(xbookingend);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			boolean payment = Boolean.parseBoolean(xpayment);
+			System.out.println("test8");
 			int bnop = Integer.parseInt(xbnop);
+			System.out.println("test9");
 			int broomnumber = Integer.parseInt(xbroomnumber);
-			//Methode ---- check = 
+			System.out.println("test1");
+			x.Book(bookingstart, bookingend, payment, bnop, broomnumber);
+			System.out.println("test2");
+			check = "BookSuccess.jsp";
 		}
 		
 	response.sendRedirect(check);

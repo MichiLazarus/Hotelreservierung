@@ -242,11 +242,34 @@ public class Hotelmanagement {
 	public ArrayList<Room> SearchRoom(double price , String equipment, int nop ){
 		roomlist = roomDAO.getRoomlist();
 		ArrayList <Room> rlist = new ArrayList<Room>();
+		if(equipment.equals("Default") && price == 0){
+			for ( Room room : roomlist){
+				if ( room.getNop() >= nop){
+					rlist.add(room);	
+				}
+		}
+		}
+		else if(equipment.equals("Default")){
+			for ( Room room : roomlist){
+				if ( room.getPrice() <= price && room.getNop() >= nop){
+					rlist.add(room);	
+				}
+		}
+		}
+		else if(price == 0){
+			for ( Room room : roomlist){
+				if (room.getEquipment().equals(equipment) && room.getNop() >= nop){
+					rlist.add(room);	
+				}
+			}
+		}
 		
+		else{
 		for ( Room room : roomlist){
 			if ( room.getPrice() <= price && room.getEquipment().equals(equipment) && room.getNop() >= nop){
 				rlist.add(room);	
 			}
+		}
 		}
 		return rlist;
 		

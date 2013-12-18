@@ -73,15 +73,17 @@ div.abstand {margin-top:150px;}
 	
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
+		out.println("<form name=\"book\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
-		
 		out.println("<td name=\"roomnumber\">" + room.getRoomnumber() + "</td>");
 		out.println("<td name=\"equipment\">" + room.getEquipment() + "</td>");
 		out.println("<td name=\"nop\">" + room.getNop() + "</td>");
 		out.println("<td name=\"price\">" + room.getPrice() + " Euro" + "</td>");
-		
 		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
+		String rnumber = Integer.toString(room.getRoomnumber());
+		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"Book\">" + "</td>");
+		out.println("</form>");
 		
 		out.println("</tr>");
 		

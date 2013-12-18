@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="hotel2013.hm.*" %>
+<%@ page import="hotel2013.hm.data.*" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,7 +51,7 @@ function Formularüberprüfung () {
 </head>
 
 <body>
-<table width="9000">
+<table width="900">
 <col width="250">
 <col width="650">
 <tr>
@@ -69,53 +72,43 @@ function Formularüberprüfung () {
 
 <p>Please enter your register data:</p>
 
-<form name="register" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<form name="book" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
 
 <tr>
-<th></th>
-<th align="left"><font color="red" size="-0.5"> User bereits vorhanden!</font></th>
+<th align="left">Bookingstart</th>
+<th align="left"><input type="text" name="bookingstart" size="40" maxlength="40"></th>
 </tr>
 <tr>
-<th align="left">User-Category:</th>
-<th align="left"><select name="status">
-				 <option value="customer">Customer</option>
- 				 <option value="hotelier">Hotelier</option>
- 				 <option value="analyst">Analyst</option>
+<th align="left">Bookingend</th>
+<th align="left"><input type="text" name="bookingend" size="40" maxlength="40"></th>
+</tr>
+<tr>
+<th align="left">Payment-Method</th>
+<th align="left"><select name="payment">
+				 <option value="Bar">Bar</option>
+ 				 <option value="CreditCard">CreditCard</option>
 			     </select></th>
 </tr>
 <tr>
-<th align="left">Username:</th>
-<th align="left"><input type="text" name="username" size="40" maxlength="40"></th>
-</tr>
-<tr>
-<th align="left">Password:</th>
-<th align="left"><input type="text" name="password" size="40" maxlength="40"></th>
-</tr>
-<tr>
-<th align="left">FullName:</th>
-<th align="left"><input type="text" name="fullname" size="40" maxlength="40"></th>
-</tr>
-<tr>
-<th align="left">E-Mail:</th>
-<th align="left"><input type="text" size="40" maxlength="40" name="email"></th>
-</tr>
-<tr>
-<th align="left">Sex:</th>
-<th align="left"><select name="sex">
-				 <option value="f">Female</option>
- 				 <option value="m">Male</option>
-			     </select></th>
-</tr>
-<tr>
-<th align="left"><font size="-0.5">Birthday: (DD.MM.YYYY)</font></th>
-<th align="left"><input type="text" name="birthday" size="40" maxlength="40"></th>
-</tr>
+<th align="left">Number of Persons:</th>
+<th align="right"><select name="bnop">
+				 <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+				 <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+ 				 <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+			     </select></th></tr>
+
+
+<%
+	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
+	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
+	out.println(MasterServlet.getSroomnumber());%>
+
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="Register"><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="Finish"><input type="reset" value="Cancel"></th>
 </tr>
 </table>
 </form>
