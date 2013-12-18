@@ -111,7 +111,7 @@ function RateBookingÜberprüfung () {
 </table>
 </form>
 
-<form name="cancelbooking" action="CustomerSearchRooms.jsp" method="post" onsubmit="return CancelBookingÜberprüfung()">
+<form name="cancelbooking" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>

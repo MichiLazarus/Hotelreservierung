@@ -166,19 +166,19 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("Finish")){
 			Date bookingstart = null;
 			Date bookingend = null;
-			System.out.println("test1");
+			
 			String xbookingstart = request.getParameter("bookingstart");
-			System.out.println("test2");
+			
 			String xbookingend = request.getParameter("bookingend");
-			System.out.println("test3");
+			
 			String xpayment = request.getParameter("payment");
-			System.out.println("test4");
+			
 			String xbnop = request.getParameter("bnop");
-			System.out.println("test5");
+			
 			String xbroomnumber = request.getParameter("broomnumber");
-			System.out.println("test6");
+			
 			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-			System.out.println("test7");
+			
 			try {
 				bookingstart = sdf.parse(xbookingstart);
 			} catch (ParseException e) {
@@ -192,13 +192,13 @@ public class MasterServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			boolean payment = Boolean.parseBoolean(xpayment);
-			System.out.println("test8");
+			
 			int bnop = Integer.parseInt(xbnop);
-			System.out.println("test9");
+			
 			int broomnumber = Integer.parseInt(xbroomnumber);
-			System.out.println("test1");
+			
 			x.Book(bookingstart, bookingend, payment, bnop, broomnumber);
-			System.out.println("test2");
+			
 			check = "BookSuccess.jsp";
 		}
 		

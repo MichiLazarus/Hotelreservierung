@@ -103,7 +103,7 @@ public class BookingDAO {
 	}
 	
 	public void saveBooking(Booking booking) {
-		 System.out.println("test1");
+		
 		if (this.getBookingbyBookingnumber(booking.getBookingnumber()) == null) {
 			System.out.println(booking.getBookingnumber() + " saved");
 			this.Bookinglist.add(booking);
@@ -129,13 +129,14 @@ public class BookingDAO {
 	}
 
 
-	public void deleteBooking(Booking booking) throws IllegalArgumentException {
+	public void deleteBooking(Booking booking)  {
 		
 		boolean bookingExists = false;
 		
 		for(int i = 0; i < this.Bookinglist.size(); i++) {
 			
 			if (this.Bookinglist.get(i).getBookingnumber()==(booking.getBookingnumber())) {
+				System.out.println("so nicht mein freund");
 				Bookinglist.remove(i);
 				bookingExists = true;
 				this.saveFile();
@@ -145,7 +146,7 @@ public class BookingDAO {
 		}
 		
 		if(bookingExists != true) {
-			throw new IllegalArgumentException("Inserted Booking to delete was not found !");
+			System.out.println("Inserted Booking to delete was not found !");
 		}
 		
 	}

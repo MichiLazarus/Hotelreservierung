@@ -181,8 +181,9 @@ public class Hotelmanagement {
 	//Customer
 	
 	
-	public String CancelBooking(int bookingnumber){
-		Booking booking = bookingDAO.getBookingbyBookingnumber(bookingnumber);
+	public String CancelBooking(int xbookingnumber){
+		System.out.println("hier samma");
+		Booking booking = bookingDAO.getBookingbyBookingnumber(xbookingnumber);
 		if(booking == null){
 			return "CustomerInterfaceFail.jsp";
 		}
