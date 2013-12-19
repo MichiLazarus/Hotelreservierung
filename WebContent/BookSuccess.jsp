@@ -83,7 +83,7 @@ alert("Booking Successful!");
 
 <tr>
 <th align="left">Price:</th>
-<th><input type="text" name="price" size="22" maxlength="40"></th>
+<th><input type="text" name="price" size="22" maxlength="40" value="0"></th>
 </tr>
 
 <tr>
@@ -114,23 +114,18 @@ alert("Booking Successful!");
 </table>
 </form>
 
-<form name="cancelbooking" action="CustomerSearchRooms.jsp" method="post" onsubmit="return CancelBookingÜberprüfung()">
+<form name="mybookings" action="MasterServlet" method="post" onsubmit="return CancelBookingÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
 <th align="left">Cancel Booking</th>
 <th></th>
 </tr>
-<tbody>
-<tr>
-<th align="left">Booking number:</th>
-<th><input type="text" name="bookingnumber" size="22" maxlength="40"></th>
-</tr>
-</tbody>
+
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="submit" value="CancelBooking"></th>
+<th align="center"><input type="submit" name="submit" value="MyBookings"></th>
 </tr>
 </tfoot>
 </table>

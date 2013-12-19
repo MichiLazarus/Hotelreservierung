@@ -213,7 +213,7 @@ public class Hotelmanagement {
 		return "CustomerInterfaceSucess.jsp";
 	}
 	
-	public String Book(Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber, String user){
+	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
 		
 		bookinglist = bookingDAO.getBookinglist();
 		if(session instanceof Customer){

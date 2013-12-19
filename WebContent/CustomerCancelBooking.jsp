@@ -42,11 +42,11 @@ div.abstand {margin-top:150px;}
 <table border="1" width="95%" align="center" bgcolor="#BFBFBF"  cellspacing="3%">
 <colgroup>
     <col width="12%">
-    <col width="18%">
+    <col width="10%">
     <col width="10%">
     <col width="9%">
     <col width="10%">
-    <col width="13%">
+    <col width="10%">
     <col width="10%">
  </colgroup>
 <th>BookingNr</th>
@@ -55,17 +55,18 @@ div.abstand {margin-top:150px;}
 <th>End</th>
 <th>NrOfPersons</th>
 <th>Payment</th>
+<th>CancelBooking</th>
 </table>
 <br>
 
 <table border="1" width="95%" align="center" bgcolor="#BFBFBF" cellspacing="3%">
 <colgroup>
     <col width="12%">
-    <col width="18%">
+    <col width="10%">
     <col width="10%">
     <col width="9%">
     <col width="10%">
-    <col width="13%">
+    <col width="10%">
     <col width="10%">
 </colgroup>
 <%
@@ -83,6 +84,7 @@ div.abstand {margin-top:150px;}
 		out.println("<td name=\"bookingstart\">" + booking.getBookingstart() + "</td>");
 		out.println("<td name=\"bookingend\">" + booking.getBookingend() + " Euro" + "</td>");
 		out.println("<td name=\"nop\">" + booking.getBnop() + "</td>");
+		out.println("<td name=\"nop\">" + booking.getPayment() + "</td>");
 		
 		String bookingnumber = Integer.toString(booking.getBookingnumber());
 		out.println("<input type=\"hidden\" name=\"bnumber\" value=" + bookingnumber + ">");

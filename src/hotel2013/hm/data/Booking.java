@@ -8,13 +8,13 @@ public class Booking implements Serializable{
 	private  int bookingnumber;
 	private Date bookingstart;
 	private Date bookingend;
-	private boolean payment;
+	private String payment;
 	private int bnop;       // number of persons zb: 3 zimmer 2 personen
 	private int broomnumber;
 	private int x = 1050;
 	private String user;
 	
-	public Booking(int bookingnumber, Date bookingstart, Date bookingend , boolean payment, int bnop, int broomnumber, String user){
+	public Booking(int bookingnumber, Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
@@ -71,11 +71,11 @@ public class Booking implements Serializable{
 		else throw new IllegalArgumentException("Bookinend must be after Bookingstart");
 	}
 	
-	public boolean getPayment(){
+	public String getPayment(){
 		return payment;
 	}
 	
-	public void setPayment(boolean x){
+	public void setPayment(String x){
 		payment = x;
 	}
 	

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="hotel2013.hm.*" %>
+<%@ page import="hotel2013.hm.*"%>
+<%@ page import="hotel2013.hm.data.*"%>
+<%@ page import="hotel2013.hm.dao.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,27 +11,15 @@
 h1 {color:#3399CC; font-size:42px;}
 body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
 div.abstand {margin-top:150px;}
-div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
+div.abstand2 {margin-top:50px; margin-left:150px; margin-right:150px;}
 </style>
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
-	if ((document.makenewoffer.roomnumber.value == "") || isNaN(document.makenewoffer.roomnumber.value)){
-	    alert("Please enter a roomnumber!");
-	    document.makenewoffer.roomnumber.focus();
-	    return false;
-	}
-	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value) || (document.makenewoffer.price.value < 1)){
-	    alert("Please enter a valid price!");
-	    document.makenewoffer.price.focus();
-	    return false;
-	}
-}
 
-function ShowRatingÜberprüfung () {
-	if ((document.showrating.roomnumber.value == "") || isNaN(document.showrating.roomnumber.value)){
-	    alert("Please enter a roomnumber!");
-	    document.showrating.roomnumber.focus();
+	if ((document.EditRoom.price.value == "") || isNaN(document.EditRoom.price.value) || (document.EditRoom.price.value < 1)){
+	    alert("Please enter a valid price!");
+	    document.EditRoom.price.focus();
 	    return false;
 	}
 }
@@ -62,21 +52,23 @@ function ShowRatingÜberprüfung () {
 </tr>
 </table>
 
+<br><br>
+<center>
 
 <form name="EditRoom" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
 
-<table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
+<table width="350"  border="1" rules="groups" cellpadding="8">
 <tr>
 <th align="left">Edit Room</th>
 <th></th>
 </tr>
 <tbody>
 <tr>
-<th align="left">Roomnumber:
+<th align="left">Roomnumber:</th>
 <%
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
-	out.println(rnumber);
-	out.println("</th>"); 
+	out.println("<td align=\"right\">"+rnumber+"</td>");
+
 	out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
 	%>
 </tr>
@@ -113,10 +105,7 @@ function ShowRatingÜberprüfung () {
 </table>
 
 </form>
-</div>
-
-<br><br>
-
+</center>
 
 </body>
 </html>

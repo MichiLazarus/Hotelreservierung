@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.security.auth.x500.X500Principal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,11 +33,11 @@ public class MasterServlet extends HttpServlet {
 	
 	public static ArrayList <Room> roomlist = new ArrayList <Room>();
 	private static ArrayList<Booking> booklist =  new ArrayList <Booking>();
-
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
 	}
+
 	public static ArrayList<Booking> getBooklist(){
 	
 		return booklist;
@@ -160,7 +161,7 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("EditRoom")){
 			String xroomnumber = request.getParameter("rnumber");
 			sroomnumber = Integer.parseInt(xroomnumber);
-
+			
 			check = "HotelierEditRoom.jsp";
 		}
 		
@@ -212,7 +213,7 @@ public class MasterServlet extends HttpServlet {
 			
 			String xbookingend = request.getParameter("bookingend");
 			
-			String xpayment = request.getParameter("payment");
+			String payment = request.getParameter("payment");
 			
 			String xbnop = request.getParameter("bnop");
 			
@@ -232,7 +233,6 @@ public class MasterServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			boolean payment = Boolean.parseBoolean(xpayment);
 			
 			int bnop = Integer.parseInt(xbnop);
 			

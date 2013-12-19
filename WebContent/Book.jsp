@@ -15,36 +15,24 @@ div.abstand {margin-top:150px;}
 </style>
 
 <script type="text/javascript">
-function Formularüberprüfung () {
-  if (document.register.username.value == "") {
-    alert("Please enter username!");
-    document.register.usename.focus();
+function Bookingüberprüfung () {
+	var bookingstart = document.book.bookingstart.value;
+	var bookingend = document.book.bookingend.value;
+
+  if (bookingstart.length != 10 || bookingstart.charAt(2) != "." || bookingstart.charAt(5) != "." 
+		  || isNaN(bookingstart.substring(0,2)) || isNaN(bookingstart.substring(3,5)) || isNaN(bookingstart.substr(6,4))
+		  || bookingstart.substring(0,2) > 31 || bookingstart.substring(3,5) > 12 ) {
+    alert("Please enter valid Bookingtstart (DD.MM.YYYY)!");
+    document.book.bookingstart.focus();
     return false;
   }
-  if (document.register.password.value == "") {
-    alert("Please enter password!");
-    document.register.password.focus();
-    return false;
-  }
-  if (document.register.fullname.value == "") {
-	    alert("Please enter full name!");
-	    document.register.fullname.focus();
-	    return false;
-	  }
-  if (document.register.email.value == "") {
-    alert("Please enter email!");
-    document.register.email.focus();
-    return false;
-  }
-  if (document.register.email.value.indexOf("@") == -1) {
-    alert("Not an email-adress!");
-    document.register.email.focus();
-    return false;
-  }
-  if (document.register.birthday.value == "") {
-    alert("Please enter birthday!");
-    document.register.birthday.focus();
-    return false;
+  
+  if (bookingend.length != 10 || bookingend.charAt(2) != "." || bookingend.charAt(5) != "." 
+	  || isNaN(bookingend.substring(0,2)) || isNaN(bookingend.substring(3,5)) || isNaN(bookingend.substr(6,4))
+	  || bookingend.substring(0,2) > 31 || bookingend.substring(3,5) > 12 ) {
+	alert("Please enter valid bookingend (DD.MM.YYYY)!");
+	document.book.bookingend.focus();
+	return false;
   }
 }
 </script>
@@ -72,18 +60,18 @@ function Formularüberprüfung () {
 
 <p>Please enter your register data:</p>
 
-<form name="book" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
+<form name="book" action="MasterServlet" method="post" onsubmit="return Bookingüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
 
 <tr>
 <th align="left">Bookingstart</th>
-<th align="left"><input type="text" name="bookingstart" size="40" maxlength="40"></th>
+<th align="left"><input type="text" name="bookingstart" size="40" maxlength="40" value="DD.MM.YYYY"></th>
 </tr>
 <tr>
 <th align="left">Bookingend</th>
-<th align="left"><input type="text" name="bookingend" size="40" maxlength="40"></th>
+<th align="left"><input type="text" name="bookingend" size="40" maxlength="40" value="DD.MM.YYYY"></th>
 </tr>
 <tr>
 <th align="left">Payment-Method</th>

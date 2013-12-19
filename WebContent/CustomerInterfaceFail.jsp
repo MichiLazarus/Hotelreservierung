@@ -83,7 +83,7 @@ alert("Operation Failed!");
 
 <tr>
 <th align="left">Price:</th>
-<th><input type="text" name="price" size="22" maxlength="40"></th>
+<th><input type="text" name="price" size="22" maxlength="40" value="0"></th>
 </tr>
 
 <tr>

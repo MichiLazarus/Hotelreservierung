@@ -87,7 +87,9 @@ div.abstand {margin-top:150px;}
 		
 		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
 		rnumber = Integer.toString(room.getRoomnumber());
+		
 		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
+		
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"EditRoom\">" + "</td>");
 		
 		
