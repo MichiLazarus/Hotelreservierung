@@ -221,7 +221,7 @@ public class Hotelmanagement {
 			for (Booking booking : bookinglist){
 				if (booking.getBroomnumber()==broomnumber){
 					if((booking.getBookingstart().after(bookingstart)||booking.getBookingstart().equals(bookingstart))
-							||(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
+							&&(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
 						works = false;
 						break;
 					}
@@ -233,17 +233,17 @@ public class Hotelmanagement {
 				sucounter++;
 				Booking booking = new Booking(meinInteger, bookingstart,  bookingend , payment,bnop, broomnumber, user );
 				bookingDAO.saveBooking(booking);
-				return"Booking done";	
+				return"BookSuccess.jsp";	
 			}
 			else {
-				return "Room is occupied during this time";
+				return "BookFail.jsp";
 			}
 			
 		
 			
 		}
 	
-	return "Booking not sucessfull";
+	return "BookFail.jsp";
 	
 	}
 	

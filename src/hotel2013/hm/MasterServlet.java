@@ -239,9 +239,8 @@ public class MasterServlet extends HttpServlet {
 			int broomnumber = Integer.parseInt(xbroomnumber);
 			String user = request.getParameter("user");
 			
-			x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user);
+			check = x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user);
 			
-			check = "BookSuccess.jsp";
 		}
 		
 	response.sendRedirect(check);
