@@ -1,8 +1,8 @@
 package hotel2013.hm.data;
 
 import java.io.Serializable;
-import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Room implements Serializable{
 
 		private int roomnumber;
