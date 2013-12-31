@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Booking</title>
 
 <style type="text/css">
 h1 {color:#3399CC; font-size:42px;}
@@ -39,9 +39,7 @@ function Bookingüberprüfung () {
 </head>
 
 <body>
-<script type="text/javascript">
-alert("Room is not available during the period you entered!");
-</script>
+
 <table width="900">
 <col width="250">
 <col width="650">
@@ -56,8 +54,8 @@ alert("Room is not available during the period you entered!");
 <col width=*>
 <col width=*>
 <tr>
-<th align="left">Register</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="left">Booking</th>
+<th align="right"><a href="CustomerSearchRooms.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
 
@@ -104,6 +102,10 @@ alert("Room is not available during the period you entered!");
 </tr>
 </table>
 </form>
+
+<script type="text/javascript">
+alert("Room is not available during the period you entered!");
+</script>
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Booking</title>
 
 <style type="text/css">
 h1 {color:#3399CC; font-size:42px;}
@@ -53,12 +53,12 @@ function Bookingüberprüfung () {
 <col width=*>
 <col width=*>
 <tr>
-<th align="left">Register</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="left">Booking</th>
+<th align="right"><a href="CustomerSearchRooms.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
 
-<p>Please enter your register data:</p>
+<p>Please enter your booking data:</p>
 
 <form name="book" action="MasterServlet" method="post" onsubmit="return Bookingüberprüfung()">
 <table width="500">

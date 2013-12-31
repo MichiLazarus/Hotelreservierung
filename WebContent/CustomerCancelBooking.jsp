@@ -4,6 +4,8 @@
 <%@page import="hotel2013.hm.data.*"%>
 <%@page import="hotel2013.hm.users.*"%>
 <%@page import="hotel2013.hm.*"%>
+<%@page import="java.util.Date" %>
+<%@page import="java.util.*" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,14 +50,14 @@ div.abstand {margin-top:150px;}
     <col width="10%">
     <col width="10%">
     <col width="10%">
- </colgroup>
+ </colgroup><tr>
 <th>BookingNr</th>
-<th>Roomnumber</th>
+<th>Roomnr</th>
 <th>Start</th>
 <th>End</th>
 <th>NrOfPersons</th>
 <th>Payment</th>
-<th>CancelBooking</th>
+<th>CancelBooking</th></tr>
 </table>
 <br>
 
@@ -76,13 +78,26 @@ div.abstand {margin-top:150px;}
 	
 	for(int i = 0; i < blist.size(); i++){
 		Booking booking = blist.get(i);
-	
+		
+		Date bookingst = booking.getBookingstart();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(bookingst);
+			int startmonth = cal.get(Calendar.MONTH) + 1;
+			int startday = cal.get(Calendar.DAY_OF_MONTH);
+			int startyear = cal.get(Calendar.YEAR);
+				
+		Date bookingend = booking.getBookingend();
+		cal.setTime(bookingend);
+			int endmonth = cal.get(Calendar.MONTH) + 1;
+			int endday = cal.get(Calendar.DAY_OF_MONTH);
+			int endyear = cal.get(Calendar.YEAR);
+			
 		out.println("<form name=\"cancelbooking\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
 		out.println("<td name=\"bookingnumber\">" + booking.getBookingnumber() + "</td>");
 		out.println("<td name=\"roomnumber\">" + booking.getBroomnumber() + "</td>");
-		out.println("<td name=\"bookingstart\">" + booking.getBookingstart() + "</td>");
-		out.println("<td name=\"bookingend\">" + booking.getBookingend() + " Euro" + "</td>");
+		out.println("<td name=\"bookingstart\">" + startday + "." + startmonth + "." + startyear + "</td>");
+		out.println("<td name=\"bookingend\">" + endday + "." + endmonth + "." + endyear + "</td>");
 		out.println("<td name=\"nop\">" + booking.getBnop() + "</td>");
 		out.println("<td name=\"nop\">" + booking.getPayment() + "</td>");
 		
