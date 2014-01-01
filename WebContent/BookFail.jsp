@@ -59,12 +59,20 @@ function Bookingüberprüfung () {
 </tr>
 </table>
 
-<p>Please enter your register data:</p>
+<p>Please enter your booking data:</p>
 
 <form name="book" action="MasterServlet" method="post" onsubmit="return Bookingüberprüfung()">
 <table width="500">
 <col width="250">
 <col width="250">
+
+<tr><th align="left">Roomnr: </th>
+<td align="right"><%
+    out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser() + ">");
+	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
+	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
+	out.println(MasterServlet.getSroomnumber());
+%></td></tr>
 
 <tr>
 <th align="left">Bookingstart</th>
@@ -88,13 +96,6 @@ function Bookingüberprüfung () {
 				 <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
  				 <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
 			     </select></th></tr>
-
-
-<%
-    out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser() + ">");
-	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
-	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
-	out.println(MasterServlet.getSroomnumber());%>
 
 <tr>
 <th align="left"></th>

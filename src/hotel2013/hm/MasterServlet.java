@@ -145,7 +145,7 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("SearchRoom")){
 			String xprice = request.getParameter("price");
 			double price = 0;
-			if(xprice != null){
+			if(!(xprice.equals("*")) && (xprice != null)){
 				price = Double.parseDouble(xprice);
 			}
 			String equipment = request.getParameter("equipment");
