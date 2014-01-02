@@ -98,7 +98,7 @@ function Bookingüberprüfung () {
 
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="Finish"><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="FinishBooking"><input type="reset" value="Cancel"></th>
 </tr>
 </table>
 </form>

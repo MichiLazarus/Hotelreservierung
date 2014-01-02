@@ -23,7 +23,7 @@ public class Hotelmanagement {
 	private ArrayList <Person> personlist = new ArrayList<Person>();
 	private ArrayList <Booking> bookinglist = new ArrayList<Booking>();
 	private ArrayList <Room> roomlist = new ArrayList<Room>();
-	static int sucounter = 1000;
+	static int bookingnrcounter = 1000;
 	
 	public Hotelmanagement(){
 		
@@ -228,15 +228,15 @@ public class Hotelmanagement {
 				}
 			}
 			if(works == true){
-				Integer meinInteger = new Integer(sucounter);
-
-				sucounter++;
-				Booking booking = new Booking(meinInteger, bookingstart,  bookingend , payment,bnop, broomnumber, user );
+				Booking booking = new Booking(bookingnrcounter, bookingstart,  bookingend , payment,bnop, broomnumber, user );
 				bookingDAO.saveBooking(booking);
-				return"BookSuccess.jsp";	
+				
+				bookingnrcounter++;
+				
+				return"CustomerBookSuccess.jsp";	
 			}
 			else {
-				return "BookFail.jsp";
+				return "CustomerBookFail.jsp";
 			}
 			
 		

@@ -13,14 +13,14 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
-	if ((document.makenewoffer.roomnumber.value == "") || isNaN(document.makenewoffer.roomnumber.value)){
+	if ((document.NewOffer.roomnumber.value == "") || isNaN(document.NewOffer.roomnumber.value)){
 	    alert("Please enter a roomnumber!");
-	    document.makenewoffer.roomnumber.focus();
+	    document.NewOffer.roomnumber.focus();
 	    return false;
 	}
-	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value) || (document.makenewoffer.price.value < 1)){
+	if ((document.NewOffer.price.value == "") || isNaN(document.NewOffer.price.value) || (document.NewOffer.price.value < 1)){
 	    alert("Please enter a valid price!");
-	    document.makenewoffer.price.focus();
+	    document.NewOffer.price.focus();
 	    return false;
 	}
 }

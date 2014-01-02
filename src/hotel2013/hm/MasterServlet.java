@@ -202,10 +202,10 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("Book")){
 			String xroomnumber = request.getParameter("rnumber");
 			sroomnumber = Integer.parseInt(xroomnumber);
-			check = "Book.jsp";
+			check = "CustomerBook.jsp";
 		}
 		
-		if(rcv.equals("Finish")){
+		if(rcv.equals("FinishBooking")){
 			Date bookingstart = null;
 			Date bookingend = null;
 			
@@ -224,14 +224,16 @@ public class MasterServlet extends HttpServlet {
 			try {
 				bookingstart = sdf.parse(xbookingstart);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				check = "CustomerBookFail.jsp";
+				response.sendRedirect(check);
+				return;
 			}
 			try {
 				bookingend = sdf.parse(xbookingend);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				check = "CustomerBookFail.jsp";
+				response.sendRedirect(check);
+				return;
 			}
 			
 			int bnop = Integer.parseInt(xbnop);

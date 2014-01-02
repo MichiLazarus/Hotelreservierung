@@ -38,34 +38,34 @@ div.abstand {margin-top:150px;}
 <br>
 <table border="1" width="95%" align="center" bgcolor="#BFBFBF"  cellspacing="3%">
 <colgroup>
-    <col width="12%">
-    <col width="18%">
-    <col width="10%">
-    <col width="9%">
-    <col width="10%">
     <col width="13%">
-    <col width="10%">
- </colgroup>
-<th>Roomnumber</th>
+    <col width="19%">
+    <col width="15%">
+    <col width="13%">
+    <col width="13%">
+    <col width="13%">
+    <col width="17%">
+ </colgroup><tr>
+<th>Roomnr</th>
 <th>Equipment</th>
 <th>NrOfPersons</th>
 <th>Price</th>
 <th>OfferedPrice</th>
 <th>Rating</th>
-<th>Edit</th>
+<th>Edit</th></tr>
 </table>
 <br>
 
 
 <table border="1" width="95%" align="center" bgcolor="#BFBFBF" cellspacing="3%">
 <colgroup>
-    <col width="12%">
-    <col width="18%">
-    <col width="10%">
-    <col width="9%">
-    <col width="10%">
     <col width="13%">
-    <col width="10%">
+    <col width="19%">
+    <col width="15%">
+    <col width="13%">
+    <col width="13%">
+    <col width="13%">
+    <col width="17%">
 </colgroup>
 <%
     RoomDAO r = new RoomDAO("Rooms.ser");
@@ -73,6 +73,10 @@ div.abstand {margin-top:150px;}
 	String rnumber;
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
+		String str = room.getRating();
+		char [] temp = str.toCharArray();
+		String rating = new String(temp,0,19);
+		
 		out.println("<form name=\"EditRoom\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
 		
@@ -85,7 +89,7 @@ div.abstand {margin-top:150px;}
 		else
 		out.println("<td name=\"priceoffer\">" + "-" + "</td>");
 		
-		out.println("<td name=\"rating\">" + room.getRating() + "</td>");
+		out.println("<td name=\"rating\">" + rating + "...</td>");
 		rnumber = Integer.toString(room.getRoomnumber());
 		
 		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
