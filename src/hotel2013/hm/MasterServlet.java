@@ -2,16 +2,14 @@ package hotel2013.hm;
 
 import hotel2013.hm.data.Booking;
 import hotel2013.hm.data.Room;
-import hotel2013.hm.users.Person;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.security.auth.x500.X500Principal;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,11 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MasterServlet
  */
+@SuppressWarnings("serial")
 @WebServlet("/MasterServlet")
 public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
 	public static int sroomnumber;
-	static String user ;
+	static String user;
 	
 	public static String getUser(){
 		return user;
@@ -56,16 +55,17 @@ public class MasterServlet extends HttpServlet {
 		
 		String check = "index.jsp";
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+
 		String rcv = request.getParameter("submit");
+		
 		if(rcv.equals("Login")){
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			
-		   check = x.login(username, password);
-		   if ( check != "index.jsp"){
-		   user = username;
-		   }
+			check = x.login(username, password);
+			if ( check != "LoginFail.jsp"){
+				user = username;
+			}
 		}
 		
 

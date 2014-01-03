@@ -40,10 +40,6 @@ function ShowRatingÜberprüfung () {
 
 <body>
 
-<script type="text/javascript">
-alert("Creation Failed!");
-</script>
-
 <table width="900">
 <col width="250">
 <col width="650">
@@ -154,6 +150,10 @@ alert("Creation Failed!");
 </table>
 </form>
 </div>
+
+<script type="text/javascript">
+alert("Creation Failed!");
+</script>
 
 </body>
 </html>

@@ -47,10 +47,6 @@ function RateBookingÜberprüfung () {
 
 <body>
 
-<script type="text/javascript">
-alert("Operation suceeded!");
-</script>
-
 <table width="900">
 <col width="250">
 <col width="650">
@@ -163,6 +159,10 @@ alert("Operation suceeded!");
 </table>
 </form>
 </div>
+
+<script type="text/javascript">
+alert("Operation suceeded!");
+</script>
 
 </body>
 </html>

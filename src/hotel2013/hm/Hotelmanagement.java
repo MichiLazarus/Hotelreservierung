@@ -15,12 +15,10 @@ import hotel2013.hm.users.Person;
 
 public class Hotelmanagement {
 	
-	private static final String String = null;
 	private Person session = null;
 	private PersonDAO personDAO = new PersonDAO("Persons.ser");
 	private BookingDAO bookingDAO = new BookingDAO("Bookings.ser");
 	private RoomDAO roomDAO = new RoomDAO("Rooms.ser");	
-	private ArrayList <Person> personlist = new ArrayList<Person>();
 	private ArrayList <Booking> bookinglist = new ArrayList<Booking>();
 	private ArrayList <Room> roomlist = new ArrayList<Room>();
 	static int bookingnrcounter = 1000;
@@ -28,8 +26,6 @@ public class Hotelmanagement {
 	public Hotelmanagement(){
 		
 	}
-	
-	
 			
 	public String registerC(String username, String password, String fullName, String email, char sex, Date birthday){
 	
@@ -67,7 +63,7 @@ public class Hotelmanagement {
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
-			return "loginfail.jsp";
+			return "LoginFail.jsp";
 		}
 			if(person.verifyPassword(password)){
 			session = person;
@@ -80,7 +76,7 @@ public class Hotelmanagement {
 				return "AnalystInterface.jsp";
 		}
 		
-		return "index.jsp";
+		return "LoginFail.jsp";
 	}
 	
 	
