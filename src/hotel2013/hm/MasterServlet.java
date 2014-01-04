@@ -63,7 +63,7 @@ public class MasterServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			
 			check = x.login(username, password);
-			if ( check != "LoginFail.jsp"){
+			if ( check != "loginfail.jsp"){
 				user = username;
 			}
 		}

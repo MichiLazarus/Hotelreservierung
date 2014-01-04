@@ -63,7 +63,7 @@ public class Hotelmanagement {
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
-			return "LoginFail.jsp";
+			return "loginfail.jsp";
 		}
 			if(person.verifyPassword(password)){
 			session = person;
@@ -76,7 +76,7 @@ public class Hotelmanagement {
 				return "AnalystInterface.jsp";
 		}
 		
-		return "LoginFail.jsp";
+		return "loginfail.jsp";
 	}
 	
 	
