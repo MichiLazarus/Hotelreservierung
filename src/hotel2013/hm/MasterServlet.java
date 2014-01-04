@@ -23,28 +23,42 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MasterServlet")
 public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
+	
 	public static int sroomnumber;
+	public static double sprice;
+	public static String sequipment;
+	public static int snop;
+	
+	public static int getSroomnumber(){
+		return sroomnumber;
+	}
+	public static double getSprice() {
+		return sprice;
+	}
+	public static String getSequipment() {
+		return sequipment;
+	}
+	public static int getSnop() {
+		return snop;
+	}
+	
+	
+	
 	static String user;
 	
 	public static String getUser(){
 		return user;
 	}
 	
+	
+	
 	public static ArrayList <Room> roomlist = new ArrayList <Room>();
 	private static ArrayList<Booking> booklist =  new ArrayList <Booking>();
-	
-	public static int getSroomnumber(){
-		return sroomnumber;
-	}
 
 	public static ArrayList<Booking> getBooklist(){
-	
 		return booklist;
 		
 	}
-	
-	
-
 	public static ArrayList <Room> getRoomlist(){
 		return roomlist;
 	}
@@ -161,6 +175,11 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("EditRoom")){
 			String xroomnumber = request.getParameter("rnumber");
 			sroomnumber = Integer.parseInt(xroomnumber);
+			String xprice = request.getParameter("price");
+			sprice = Double.parseDouble(xprice);
+			String sequipment = request.getParameter("equipment");
+			String xnop = request.getParameter("nop");
+			snop = Integer.parseInt(xnop);
 			
 			check = "HotelierEditRoom.jsp";
 		}
@@ -176,7 +195,6 @@ public class MasterServlet extends HttpServlet {
 			String rating = x.ShowRating(roomnumber);
 			sroomnumber = roomnumber;
 			x.EditRoom(roomnumber, nop, equipment, price, rating);
-			System.out.println("success");
 			check = "HotelierInterface.jsp";
 		}
 		

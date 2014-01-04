@@ -48,7 +48,7 @@ function Formularüberprüfung () {
 </head>
 
 <body>
-<table width="9000">
+<table width="900">
 <col width="250">
 <col width="650">
 <tr>

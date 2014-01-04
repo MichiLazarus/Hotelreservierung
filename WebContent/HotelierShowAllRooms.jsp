@@ -70,7 +70,7 @@ div.abstand {margin-top:150px;}
 <%
     RoomDAO r = new RoomDAO("Rooms.ser");
 	ArrayList <Room> rlist =  r.getRoomlist();
-	String rnumber;
+
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
 		String str = room.getRating();
@@ -90,9 +90,16 @@ div.abstand {margin-top:150px;}
 		out.println("<td name=\"priceoffer\">" + "-" + "</td>");
 		
 		out.println("<td name=\"rating\">" + rating + "...</td>");
-		rnumber = Integer.toString(room.getRoomnumber());
+		
+		String rnumber = Integer.toString(room.getRoomnumber());
+		String price = Double.toString(room.getPrice());
+		String equipment = Integer.toString(room.getRoomnumber());
+		String nop = Integer.toString(room.getNop());
 		
 		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
+		out.println("<input type=\"hidden\" name=\"price\" value=" + price + ">");
+		out.println("<input type=\"hidden\" name=\"equipment\" value=" + equipment + ">");
+		out.println("<input type=\"hidden\" name=\"nop\" value=" + nop + ">");
 		
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"EditRoom\">" + "</td>");
 		

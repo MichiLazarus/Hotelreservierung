@@ -57,7 +57,7 @@ function MakeNewOfferÜberprüfung () {
 
 <form name="EditRoom" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
 
-<table width="350"  border="1" rules="groups" cellpadding="8">
+<table width="600"  border="1" rules="groups" cellpadding="8">
 <tr>
 <th align="left">Edit Room</th>
 <th></th>
@@ -67,33 +67,42 @@ function MakeNewOfferÜberprüfung () {
 <th align="left">Roomnumber:</th>
 <%
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
-	out.println("<td align=\"right\">"+rnumber+"</td>");
-
+	out.println("<td align=\"left\">"+rnumber+"</td>");
 	out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
+	
+	String price = Double.toString(MasterServlet.getSprice());
+	String equipment = MasterServlet.getSequipment();
+	String nop = Integer.toString(MasterServlet.getSnop());
 	%>
 </tr>
 
 <tr>
 <th align="left">Price / Night:</th>
-<th><input type="text" name="price" size="22" maxlength="40"></th>
+<th align="left"><input type="text" name="price" size="22" maxlength="40">
+<%out.println("<td align=\"left\">Current: " + price + "</td>");%>
+</th>
 </tr>
 
 <tr>
 <th align="left">Equipment:</th>
-<th><select name="equipment">
-				 <option value="Superior Suite">Superior Suite</option>
-				 <option value="Business Suite">Business Suite</option>
- 				 <option value="High Class Room">High Class Room</option>
- 				 <option value="Economy Class Room">Economy Class Room</option>
-			     </select></th></tr>
+<th align="left"><select name="equipment">
+	<option value="Superior Suite">Superior Suite</option>
+	<option value="Business Suite">Business Suite</option>
+	<option value="High Class Room">High Class Room</option>
+	<option value="Economy Class Room">Economy Class Room</option>
+	</select></th>
+<%out.println("<td align=\"left\">Current: " + equipment + "</td>");%>
+</tr>
 
 <tr>
 <th align="left">Number of Persons:</th>
-<th align="right"><select name="nop">
+<th align="left"><select name="nop">
 				 <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
 				 <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
  				 <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
-			     </select></th></tr>
+			     </select></th>
+<%out.println("<td align=\"left\">Current: " + nop + "</td>");%>			     
+</tr>
 
 </tbody>
 <tfoot>
