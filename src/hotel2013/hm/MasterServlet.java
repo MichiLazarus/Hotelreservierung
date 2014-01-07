@@ -211,7 +211,7 @@ public class MasterServlet extends HttpServlet {
 		
 		if(rcv.equals("RateBooking")){
 			String xbookingnumber = request.getParameter("bookingnumber");
-			String rating = request.getParameter("rating");
+			String rating = request.getParameter("ratearea");
 			int bookingnumber = Integer.parseInt(xbookingnumber);
 			check = x.RateBooking(bookingnumber, rating);
 		}

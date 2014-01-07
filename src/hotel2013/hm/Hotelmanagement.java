@@ -198,15 +198,17 @@ public class Hotelmanagement {
 	}
 	
 	public String RateBooking(int bookingnumber , String rating){
+		System.out.println(bookingnumber + rating);
 		if(session instanceof Customer){
 			System.out.println("test1");
 			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
+			System.out.println(x);
 			Room newRoom = roomDAO.getRoombyRoomnumber(x);
 			newRoom.setRating(rating);
 			roomDAO.updateRoom(newRoom);
-			return "CustomerInterfaceFail.jsp";
+			return "CustomerInterfaceSucess.jsp";
 		}
-		return "CustomerInterfaceSucess.jsp";
+		return "CustomerInterfaceFail.jsp";
 	}
 	
 	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){

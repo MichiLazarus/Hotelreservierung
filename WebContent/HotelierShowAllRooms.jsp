@@ -73,10 +73,8 @@ div.abstand {margin-top:150px;}
 
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
-		String str = room.getRating();
-		char [] temp = str.toCharArray();
-		String rating = new String(temp,0,19);
 		
+
 		out.println("<form name=\"EditRoom\" action=\"MasterServlet\" method=\"post\">");
 		out.println("<tr align=\"center\">");
 		
@@ -89,7 +87,7 @@ div.abstand {margin-top:150px;}
 		else
 		out.println("<td name=\"priceoffer\">" + "-" + "</td>");
 		
-		out.println("<td name=\"rating\">" + rating + "...</td>");
+		out.println("<td name=\"rating\">" + room.getRating() + "...</td>");
 		
 		String rnumber = Integer.toString(room.getRoomnumber());
 		String price = Double.toString(room.getPrice());
