@@ -1,6 +1,8 @@
 package hotel2013.hm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import hotel2013.hm.dao.BookingDAO;
@@ -81,27 +83,93 @@ public class Hotelmanagement {
 	
 	
 	//Analyst
-	public int ShowStatistic(String type){
-		if(session instanceof Analyst){
-			if(type.contains("Season")){
-				return ((Analyst) session).SeasonStatistic();
-			}
-			else if(type.contains("Occupancy")){
-				return ((Analyst) session).OccupancyStatistic();
-			}
-			else if(type.contains("Customer")){
-				return ((Analyst) session).CustomerStatistic();
-			}
-			else throw new IllegalArgumentException("No statistic available with these parameters");
+	public int [][]ShowStatistic(String type){
+		//if(session instanceof Analyst){
+			if(type.equals("Season")){
+				bookinglist = bookingDAO.getBookinglist();
+				
+				int [][] season= new int [2][12];
+				System.out.println("test");
+				Date dateNow = new Date();
+				Calendar timeref = Calendar.getInstance();
+				timeref.setTime(dateNow);
+				int refyear = timeref.get(Calendar.YEAR);
+				for(Booking booking : bookinglist){
+					Date start = booking.getBookingstart();
+					timeref.setTime(start);
+					int year = timeref.get(Calendar.YEAR);
+					int month = timeref.get(Calendar.MONTH) +1;
+					System.out.println(month);
+					if(refyear == year){
+						if(month == 1){
+							season[0][0] += 1;
+							season[1][0] += booking.getBnop();
+						}
+						else if(month == 2){
+							season[0][1] += 1;
+							season[1][1] += booking.getBnop();
+						}
+						else if(month == 3){
+							season[0][2] += 1;
+							season[1][2] += booking.getBnop();
+						}
+						else if(month == 4){
+							season[0][3] += 1;
+							season[1][3] += booking.getBnop();
+						}
+						else if(month == 5){
+							season[0][4] += 1;
+							season[1][4] += booking.getBnop();
+						}
+						else if(month == 6){
+							season[0][5] += 1;
+							season[1][5] += booking.getBnop();
+						}
+						else if(month == 7){
+							season[0][6] += 1;
+							season[1][6] += booking.getBnop();
+						}
+						else if(month == 8){
+							season[0][7] += 1;
+							season[1][7] += booking.getBnop();
+						}
+						else if(month == 9){
+							season[0][8] += 1;
+							season[1][8] += booking.getBnop();
+						}
+						else if(month == 10){
+							season[0][9] += 1;
+							season[1][9] += booking.getBnop();
+						}
+						else if(month == 11){
+							season[0][10] += 1;
+							season[1][10] += booking.getBnop();
+						}
+						else if(month == 12){
+							season[0][11] += 1;
+							season[1][11] += booking.getBnop();
+						}
+					}
+				}
+				return season;
+			//}
+//			else if(type.contains("Occupancy")){
+//				return ((Analyst) session).OccupancyStatistic();
+//			}
+//			else if(type.contains("Customer")){
+//				return ((Analyst) session).CustomerStatistic();
+//			}
+//			else throw new IllegalArgumentException("No statistic available with these parameters");
+//		}
 		}
-		return 0;
+			int [][] hallo= new int[1][1];
+		return hallo;
 	}
 	
 	public String MakePriceOffer(double priceOffer, int roomnumber){
-		
-		roomlist = roomDAO.getRoomlist();
 
 		if(session instanceof Analyst){
+			roomlist = roomDAO.getRoomlist();
 			for(Room room : roomlist){
 				if(room.getRoomnumber() == roomnumber){
 					room.setPriceOffer(priceOffer);
@@ -133,9 +201,9 @@ public class Hotelmanagement {
 		
 		
 		if(session instanceof Analyst || session instanceof Hotelier){
-			System.out.println("test2");
+			
 			for(Room room : roomlist){
-				System.out.println("test");
+				
 				if(room.getRoomnumber() == roomnumber){
 					return room.getRating();
 				}
@@ -200,7 +268,7 @@ public class Hotelmanagement {
 	public String RateBooking(int bookingnumber , String rating){
 		System.out.println(bookingnumber + rating);
 		if(session instanceof Customer){
-			System.out.println("test1");
+			
 			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
 			System.out.println(x);
 			Room newRoom = roomDAO.getRoombyRoomnumber(x);

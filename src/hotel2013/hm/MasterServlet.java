@@ -110,10 +110,8 @@ public class MasterServlet extends HttpServlet {
 		}
 
 		
-		if(rcv.equals("ShowStatistics")){
-			String type = request.getParameter("type");
-			//check = x.ShowStatistic(type);
-			//oder hier andere Art des Aufrufs
+		if(rcv.equals("SeasonStatistic")){
+			check = "AnalystSeason.jsp";
 		}
 		
 		if(rcv.equals("MakePriceOffer")){

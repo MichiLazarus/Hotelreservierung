@@ -47,7 +47,7 @@ div.abstand2 {
 				<tr>
 					<th align="left">Analyst</th>
 					<th align="right"><h:commandButton value="Logout"
-							action="Login.jsp" /></th>
+							action="index.jsp" /></th>
 				</tr>
 			</table>
 		</h:form>
@@ -85,15 +85,11 @@ div.abstand2 {
 						</tr>
 						<tbody>
 							<tr>
-								<th align="center">Show Statistic: <h:selectOneMenu
-										id="statistic" value="">
-										<f:selectItem id="item1" itemLabel="SeasonStatistic"
-											itemValue="1" />
-										<f:selectItem id="item2" itemLabel="OccupancyStatistic"
-											itemValue="2" />
-										<f:selectItem id="item3" itemLabel="CustomerStatistic"
-											itemValue="3" />
-									</h:selectOneMenu> <h:message for="roomnumber" errorClass="error" />
+								<th align="center">
+										SeasonStatistic:
+										<form name="ShowStatistic" action="MasterServlet" method="post" onsubmit="">
+										<input type="submit" name="submit" value="SeasonStatistic">
+									</form>
 								</th>
 							</tr>
 						</tbody>
