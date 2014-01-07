@@ -28,6 +28,7 @@ public class MasterServlet extends HttpServlet {
 	public static double sprice;
 	public static String sequipment;
 	public static int snop;
+	public static int [][]sstat;
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
@@ -41,7 +42,9 @@ public class MasterServlet extends HttpServlet {
 	public static int getSnop() {
 		return snop;
 	}
-	
+	public static int[][] getSstat(){
+		return sstat;
+	}
 	
 	
 	static String user;
@@ -111,6 +114,9 @@ public class MasterServlet extends HttpServlet {
 
 		
 		if(rcv.equals("SeasonStatistic")){
+			String xyear = request.getParameter("year");
+			int year = Integer.parseInt(xyear);
+			sstat = x.ShowStatistic("Season",year);
 			check = "AnalystSeason.jsp";
 		}
 		

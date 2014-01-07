@@ -85,13 +85,23 @@ div.abstand2 {
 						</tr>
 						<tbody>
 							<tr>
-								<th align="center">
+								<th align="left">
 										SeasonStatistic:
 										<form name="ShowStatistic" action="MasterServlet" method="post" onsubmit="">
-										<input type="submit" name="submit" value="SeasonStatistic">
-									</form>
-								</th>
+
+								
+								<tr>
+<th align="left">Year:</th>
+<th align="center"><select name="year">
+				 <option value="2014">2014</option>
+				 <option value="2015">2015</option>
+				 <option value="2016">2016</option>
+			     </select></th>
+			     <th><input type="submit" name="submit" value="SeasonStatistic"></th>
+							</th></tr>
+			     
 							</tr>
+							</form>
 						</tbody>
 						<tfoot>
 							<tr>

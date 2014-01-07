@@ -83,19 +83,17 @@ public class Hotelmanagement {
 	
 	
 	//Analyst
-	public int [][]ShowStatistic(String type){
+	public int [][]ShowStatistic(String type, int refyear){
 		//if(session instanceof Analyst){
 			if(type.equals("Season")){
 				bookinglist = bookingDAO.getBookinglist();
 				
 				int [][] season= new int [2][12];
 				System.out.println("test");
-				Date dateNow = new Date();
-				Calendar timeref = Calendar.getInstance();
-				timeref.setTime(dateNow);
-				int refyear = timeref.get(Calendar.YEAR);
+				
 				for(Booking booking : bookinglist){
 					Date start = booking.getBookingstart();
+					Calendar timeref = Calendar.getInstance();
 					timeref.setTime(start);
 					int year = timeref.get(Calendar.YEAR);
 					int month = timeref.get(Calendar.MONTH) +1;
@@ -162,7 +160,7 @@ public class Hotelmanagement {
 //			else throw new IllegalArgumentException("No statistic available with these parameters");
 //		}
 		}
-			int [][] hallo= new int[1][1];
+		int [][] hallo= new int[2][12];
 		return hallo;
 	}
 	
@@ -282,10 +280,24 @@ public class Hotelmanagement {
 	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
 		
 		bookinglist = bookingDAO.getBookinglist();
+		roomlist = roomDAO.getRoomlist();
+		Date dateNow = new Date();
+		
 		if(session instanceof Customer){
+			
+		if(bookingstart.before(dateNow)){
+			return "CustomerBookFail.jsp";
+		}
+		if(bookingend.before(dateNow)){
+			return "CustomerBookFail.jsp";
+		}
+		if(bookingend.before(bookingstart) || bookingend.equals(bookingstart)){
+			return "CustomerBookFail.jsp";
+		}
+		
 			boolean works = true;
 			for (Booking booking : bookinglist){
-				if (booking.getBroomnumber()==broomnumber){
+				if (booking.getBroomnumber()==broomnumber){	
 					if((booking.getBookingstart().after(bookingstart)||booking.getBookingstart().equals(bookingstart))
 							&&(booking.getBookingend().before(bookingend)||booking.getBookingend().equals(bookingend))){
 						works = false;
@@ -294,13 +306,18 @@ public class Hotelmanagement {
 				}
 			}
 			if(works == true){
+				Room room = roomDAO.getRoombyRoomnumber(broomnumber);
+					if(room.getNop() >= bnop){
+
 				Booking booking = new Booking(bookingnrcounter, bookingstart,  bookingend , payment,bnop, broomnumber, user );
 				bookingDAO.saveBooking(booking);
 				
 				bookingnrcounter++;
 				
-				return"CustomerBookSuccess.jsp";	
+				return"CustomerBookSuccess.jsp";
+					}
 			}
+			
 			else {
 				return "CustomerBookFail.jsp";
 			}
@@ -309,7 +326,7 @@ public class Hotelmanagement {
 			
 		}
 	
-	return "BookFail.jsp";
+	return "CustomerBookFail.jsp";
 	
 	}
 	

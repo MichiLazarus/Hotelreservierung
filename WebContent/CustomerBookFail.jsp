@@ -105,7 +105,7 @@ function Bookingüberprüfung () {
 </form>
 
 <script type="text/javascript">
-alert("Room is not available during the period you entered!");
+alert("Room is not available during the period you entered / Number of Persons exceeds limit!");
 </script>
 
 </body>

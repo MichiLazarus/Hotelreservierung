@@ -87,8 +87,7 @@ div.abstand2 {
 </tr>
 
 <%
-	Hotelmanagement x = new Hotelmanagement();
-	int [][] stat = x.ShowStatistic("Season");
+	int [][] stat = MasterServlet.getSstat();
 	out.println("<td name=\"month\">");
 	out.println("Bookings");
 	for(int i = 0; i < 12; ++i){

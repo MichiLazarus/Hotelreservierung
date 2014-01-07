@@ -57,9 +57,8 @@ public class Booking implements Serializable{
 	}
 	
 	public void setBookingstart(Date i){
-		Date dateNow = new Date();
-		if(i.after(dateNow) || i.equals(dateNow)) bookingstart = i;
-		else throw new IllegalArgumentException("Please enter valid Date");
+		bookingstart = i;
+		
 	}
 	
 	public Date getBookingend(){
@@ -68,7 +67,7 @@ public class Booking implements Serializable{
 	
 	public void setBookingend(Date x){
 		if(x.after(bookingstart)) bookingend = x;
-		else throw new IllegalArgumentException("Bookinend must be after Bookingstart");
+		
 	}
 	
 	public String getPayment(){
