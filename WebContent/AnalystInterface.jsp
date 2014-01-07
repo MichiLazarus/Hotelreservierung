@@ -139,24 +139,23 @@ div.abstand2 {
 			</div>
 		</h:form>
 
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show all Rooms</th>
-						</tr>
-						<tbody>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
+		<div class="abstand2">
+<form name="showallrooms" action="AnalystShowAllRooms.jsp" method="post">
+
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
+<tr>
+<th align="left">Show all Rooms</th>
+<th></th>
+</tr>
+<tfoot>
+<tr>
+<th></th>
+<th><input type="submit" name="submit" value="Show all Rooms"></th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>
 
 	</f:view>
 </body>

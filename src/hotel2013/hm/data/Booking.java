@@ -66,7 +66,7 @@ public class Booking implements Serializable{
 	}
 	
 	public void setBookingend(Date x){
-		if(x.after(bookingstart)) bookingend = x;
+		bookingend = x;
 		
 	}
 	

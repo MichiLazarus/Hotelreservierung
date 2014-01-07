@@ -122,10 +122,10 @@ public class MasterServlet extends HttpServlet {
 		
 		if(rcv.equals("MakePriceOffer")){
 			String xpriceoffer = request.getParameter("priceoffer");
-			String xroomnumber = request.getParameter("roomnumber");
+			String xroomnumber = request.getParameter("rnumber");
 			double priceoffer = Double.parseDouble(xpriceoffer);
 			int roomnumber = Integer.parseInt(xroomnumber);
-			x.MakePriceOffer(priceoffer, roomnumber);
+			check = x.MakePriceOffer(priceoffer, roomnumber);
 		}
 		
 		if(rcv.equals("Show all Rooms")){
