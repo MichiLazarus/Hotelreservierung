@@ -13,7 +13,7 @@ div.abstand {margin-top:150px;}
 function Formularüberprüfung () {
   if (document.login.username.value == "") {
     alert("Please enter username!");
-    document.login.usenamer.focus();
+    document.login.username.focus();
     return false;
   }
   if (document.login.password.value == "") {
