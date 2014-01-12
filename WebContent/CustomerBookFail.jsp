@@ -16,24 +16,18 @@ div.abstand {margin-top:150px;}
 
 <script type="text/javascript">
 function Bookingüberprüfung () {
-	var bookingstart = document.book.bookingstart.value;
-	var bookingend = document.book.bookingend.value;
+	check = /^\d{2}\.\d{2}\.\d{4}$/;
 
-  if (bookingstart.length != 10 || bookingstart.charAt(2) != "." || bookingstart.charAt(5) != "." 
-		  || isNaN(bookingstart.substring(0,2)) || isNaN(bookingstart.substring(3,5)) || isNaN(bookingstart.substr(6,4))
-		  || bookingstart.substring(0,2) > 31 || bookingstart.substring(3,5) > 12 ) {
-    alert("Please enter valid Bookingtstart (DD.MM.YYYY)!");
-    document.book.bookingstart.focus();
-    return false;
-  }
-  
-  if (bookingend.length != 10 || bookingend.charAt(2) != "." || bookingend.charAt(5) != "." 
-	  || isNaN(bookingend.substring(0,2)) || isNaN(bookingend.substring(3,5)) || isNaN(bookingend.substr(6,4))
-	  || bookingend.substring(0,2) > 31 || bookingend.substring(3,5) > 12 ) {
-	alert("Please enter valid bookingend (DD.MM.YYYY)!");
-	document.book.bookingend.focus();
-	return false;
-  }
+	  if(!document.book.bookingstart.value.match(check)) {
+	    alert("Invalid date format: " + document.book.bookingstart.value);
+	    document.book.bookingstart.focus();
+	    return false;
+	  }
+	  if(!document.book.bookingend.value.match(check)) {
+		    alert("Invalid date format: " + document.book.bookingend.value);
+		    document.book.bookingend.focus();
+		    return false;
+		  }
 }
 </script>
 </head>
@@ -99,7 +93,7 @@ function Bookingüberprüfung () {
 
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="Finish"><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="FinishBooking"><input type="reset" value="Cancel"></th>
 </tr>
 </table>
 </form>

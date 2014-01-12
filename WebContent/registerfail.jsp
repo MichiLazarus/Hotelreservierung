@@ -12,38 +12,57 @@ div.abstand {margin-top:150px;}
 </style>
 
 <script type="text/javascript">
-function Formularüberprüfung () {
-  if (document.register.username.value == "") {
-    alert("Please enter username!");
-    document.register.usename.focus();
-    return false;
-  }
-  if (document.register.password.value == "") {
-    alert("Please enter password!");
-    document.register.password.focus();
-    return false;
-  }
-  if (document.register.fullname.value == "") {
-	    alert("Please enter full name!");
-	    document.register.fullname.focus();
-	    return false;
-	  }
-  if (document.register.email.value == "") {
-    alert("Please enter email!");
-    document.register.email.focus();
-    return false;
-  }
-  if (document.register.email.value.indexOf("@") == -1) {
-    alert("Not an email-adress!");
-    document.register.email.focus();
-    return false;
-  }
-  if (document.register.birthday.value == "") {
-    alert("Please enter birthday!");
-    document.register.birthday.focus();
-    return false;
-  }
-}
+
+	function Formularüberprüfung () {
+		 if (document.register.username.value == "" ||document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
+		    alert("Please enter valid username!");
+		    document.register.username.focus();
+		    return false;
+		  }
+		  if (document.register.password.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
+		    alert("Please enter password!");
+		    document.register.password.focus();
+		    return false;
+		  }
+		  if (document.register.fullname.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1       ||document.register.username.value.indexOf("0") != -1
+				  ||document.register.username.value.indexOf("1") != -1 ||document.register.username.value.indexOf("2") != -1 ||document.register.username.value.indexOf("3") != -1 ||document.register.username.value.indexOf("4") != -1 ||document.register.username.value.indexOf("5") != -1 ||document.register.username.value.indexOf("6") != -1 ||document.register.username.value.indexOf("7") != -1
+				  ||document.register.username.value.indexOf("8") != -1 ||document.register.username.value.indexOf("9") != -1 ) {
+			    alert("Please enter full name!");
+			    document.register.fullname.focus();
+			    return false;
+			  }
+		  if (document.register.email.value == "") {
+		    alert("Please enter email!");
+		    document.register.email.focus();
+		    return false;
+		  }
+			mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+		  if(!document.register.email.value.match(mailformat))  {
+		    alert("Not an email-adress!");
+		    document.register.email.focus();
+		    return false;
+		  }
+		  check = /^\d{2}\.\d{2}\.\d{4}$/;
+
+		  if(!document.register.birthday.value.match(check)) {
+		    alert("Invalid date format: " + document.register.birthday.value);
+		    document.register.birthday.focus();
+		    return false;
+		  }
+	
+	}
 </script>
 </head>
 

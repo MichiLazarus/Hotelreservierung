@@ -146,7 +146,7 @@ public class MasterServlet extends HttpServlet {
 			check = "HotelierShowRating.jsp";
 		}
 		
-		if(rcv.equals("MakeNewOffer")){
+		if(rcv.equals("Create")){
 			
 			String xroomnumber = request.getParameter("roomnumber");
 			String xnop = request.getParameter("nop");
@@ -181,7 +181,7 @@ public class MasterServlet extends HttpServlet {
 			sroomnumber = Integer.parseInt(xroomnumber);
 			String xprice = request.getParameter("price");
 			sprice = Double.parseDouble(xprice);
-			String sequipment = request.getParameter("equipment");
+			 sequipment = request.getParameter("equipment");
 			String xnop = request.getParameter("nop");
 			snop = Integer.parseInt(xnop);
 			

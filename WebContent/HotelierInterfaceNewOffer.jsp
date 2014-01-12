@@ -86,7 +86,7 @@ alert("New Offer created!");
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
-<th align="left">New Offer</th>
+<th align="left">New Room</th>
 <th></th>
 </tr>
 <tbody>
@@ -121,7 +121,7 @@ alert("New Offer created!");
 <tfoot>
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="submit" value="MakeNewOffer"></th>
+<th align="center"><input type="submit" name="submit" value="Create"></th>
 </tr>
 </tfoot>
 </table>

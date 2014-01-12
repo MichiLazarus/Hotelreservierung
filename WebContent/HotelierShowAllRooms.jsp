@@ -91,7 +91,7 @@ div.abstand {margin-top:150px;}
 		
 		String rnumber = Integer.toString(room.getRoomnumber());
 		String price = Double.toString(room.getPrice());
-		String equipment = Integer.toString(room.getRoomnumber());
+		String equipment = room.getEquipment();
 		String nop = Integer.toString(room.getNop());
 		
 		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
