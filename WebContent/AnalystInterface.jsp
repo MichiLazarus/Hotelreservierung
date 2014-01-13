@@ -46,8 +46,9 @@ div.abstand2 {
 				<col width=*>
 				<tr>
 					<th align="left">Analyst</th>
-					<th align="right"><h:commandButton value="Logout"
-							action="index.jsp" /></th>
+					<th align="right">
+					<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+					</th>
 				</tr>
 			</table>
 		</h:form>
@@ -113,31 +114,7 @@ div.abstand2 {
 			</div>
 		</h:form>
 
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Make Price Offer</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-									Price: <h:inputText id="priceoffer" value="" /> <h:message
-										for="priceoffer" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Offer" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
+
 
 		<div class="abstand2">
 <form name="showallrooms" action="AnalystShowAllRooms.jsp" method="post">

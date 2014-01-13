@@ -49,8 +49,9 @@ alert("Price Offer succeeded");
 				<col width=*>
 				<tr>
 					<th align="left">Analyst</th>
-					<th align="right"><h:commandButton value="Logout"
-							action="Login.jsp" /></th>
+					<th align="right">
+					<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+					</th>
 				</tr>
 			</table>
 		</h:form>
