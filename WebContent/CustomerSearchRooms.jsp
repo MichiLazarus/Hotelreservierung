@@ -67,7 +67,7 @@ div.abstand {margin-top:150px;}
     <col width="20%">
 </colgroup>
 <%
-	
+	String user = (String) session.getAttribute("person");
 	ArrayList <Room> rlist =  MasterServlet.getRoomlist();
     
 	
@@ -85,7 +85,7 @@ div.abstand {margin-top:150px;}
 		
 		String rnumber = Integer.toString(room.getRoomnumber());
 	
-		out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser()+ ">");
+		out.println("<input type=\"hidden\" name=\"user\" value=" + user + ">");
 		out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"Book\">" + "</td>");
 		out.println("</form>");

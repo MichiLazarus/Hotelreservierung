@@ -21,7 +21,7 @@ import java.util.Date;
 public class PersonDAO {
 
 	private String Path;
-	private ArrayList<Person> Personlist = new ArrayList<Person>();
+	private static ArrayList<Person> Personlist = new ArrayList<Person>();
 	private InputStream in;
 	private OutputStream out;
 	private ObjectInputStream objInput;
@@ -91,9 +91,9 @@ public class PersonDAO {
 	 * method that returns an Personobject by searching for it with the Personname
 	 * in the PersonobejctArraylist
 	 */
-	public Person getPersonbyUsername(String username)
+	public static Person getPersonbyUsername(String username)
 			throws IllegalArgumentException {
-		for (Person person : this.Personlist) {
+		for (Person person : Personlist) {
 
 			if (person.getUsername().equals(username)) {
 				return person;

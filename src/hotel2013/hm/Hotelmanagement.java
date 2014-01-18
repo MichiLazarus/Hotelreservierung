@@ -61,24 +61,24 @@ public class Hotelmanagement {
 		return Blist;
 	}
 	
-	public String login(String username, String password){
+	public Person login(String username, String password){
 		
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
-			return "loginfail.jsp";
+			return null;
 		}
 			if(person.verifyPassword(password)){
-			session = person;
+			return person;
 			
-			if(person instanceof Customer)
-				return "CustomerInterface.jsp";
-			if(person instanceof Hotelier)
-				return "HotelierInterface.jsp";
-			if(person instanceof Analyst)
-				return "AnalystInterface.jsp";
+//			if(person instanceof Customer)
+//				return "CustomerInterface.jsp";
+//			if(person instanceof Hotelier)
+//				return "HotelierInterface.jsp";
+//			if(person instanceof Analyst)
+//				return "AnalystInterface.jsp";
 		}
 		
-		return "loginfail.jsp";
+		return null;
 	}
 	
 	
@@ -166,7 +166,7 @@ public class Hotelmanagement {
 	
 	public String MakePriceOffer(double priceOffer, int roomnumber){
 
-		if(session instanceof Analyst){
+//		if(session instanceof Analyst){
 			roomlist = roomDAO.getRoomlist();
 			for(Room room : roomlist){
 				if(room.getRoomnumber() == roomnumber){
@@ -177,8 +177,8 @@ public class Hotelmanagement {
 			}
 			return "AnalystInterfacePriceofferfail.jsp";
 		}
-		return "AnalystInterfacePriceofferfail.jsp";
-	}
+//		return "AnalystInterfacePriceofferfail.jsp";
+//	}
 	
 	//Analyst & Hotelier
 	public ArrayList<Room> ShowAllRooms(){
@@ -198,7 +198,7 @@ public class Hotelmanagement {
 		
 		
 		
-		if(session instanceof Analyst || session instanceof Hotelier){
+//		if(session instanceof Analyst || session instanceof Hotelier){
 			
 			for(Room room : roomlist){
 				
@@ -208,13 +208,13 @@ public class Hotelmanagement {
 			}
 			return "Could not find this room";
 		}
-		return "You do not have the permission to watch ratings";
-	}
+//		return "You do not have the permission to watch ratings";
+//	}
 	
 	
 	//Hotelier
 	public String NewOffer(int roomnumber, int nop, String equipment, double price, String rating){
-		if(session instanceof Hotelier){
+//		if(session instanceof Hotelier){
 			Room newRoom =  new Room(roomnumber, nop, equipment, price, rating);
 			String check = roomDAO.saveRoom(newRoom);
 			
@@ -224,14 +224,14 @@ public class Hotelmanagement {
 				return "HotelierInterfaceFail.jsp";
 		}
 		
-		return "HotelierInterfaceFail.jsp";
-	}
+//		return "HotelierInterfaceFail.jsp";
+//	}
 	
 	public String EditRoom(int roomnumber, int nop, String equipment, double price, String rating){
 	
 		roomlist = roomDAO.getRoomlist();
 		
-		if(session instanceof Hotelier){
+//		if(session instanceof Hotelier){
 			for(Room room : roomlist){
 				if(room.getRoomnumber() == roomnumber){
 					Room newRoom = new Room(roomnumber, nop, equipment, price, rating);
@@ -241,8 +241,8 @@ public class Hotelmanagement {
 			}
 			return "Room not found";
 		}
-		return "You do not have the permission to edit a room";
-	}
+//		return "You do not have the permission to edit a room";
+//	}
 	
 	
 	//Customer
@@ -265,7 +265,7 @@ public class Hotelmanagement {
 	
 	public String RateBooking(int bookingnumber , String rating){
 		System.out.println(bookingnumber + rating);
-		if(session instanceof Customer){
+//		if(session instanceof Customer){
 			
 			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
 			System.out.println(x);
@@ -274,8 +274,8 @@ public class Hotelmanagement {
 			roomDAO.updateRoom(newRoom);
 			return "CustomerInterfaceSucess.jsp";
 		}
-		return "CustomerInterfaceFail.jsp";
-	}
+//		return "CustomerInterfaceFail.jsp";
+//	}
 	
 	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
 		
@@ -283,7 +283,7 @@ public class Hotelmanagement {
 		roomlist = roomDAO.getRoomlist();
 		Date dateNow = new Date();
 		
-		if(session instanceof Customer){
+//		if(session instanceof Customer){
 			
 		if(bookingstart.before(dateNow)){
 			return "CustomerBookFail.jsp";
@@ -318,13 +318,13 @@ public class Hotelmanagement {
 					}
 			}
 			
-			else {
-				return "CustomerBookFail.jsp";
-			}
-			
-		
-			
-		}
+//			else {
+//				return "CustomerBookFail.jsp";
+//			}
+//			
+//		
+//			
+//		}
 	
 	return "CustomerBookFail.jsp";
 	

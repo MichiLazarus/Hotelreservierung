@@ -72,7 +72,7 @@ div.abstand {margin-top:150px;}
     <col width="10%">
 </colgroup>
 <%
-	
+	String user = (String) session.getAttribute("person");
 	ArrayList <Booking> blist =  MasterServlet.getBooklist();
     
 	

@@ -61,7 +61,9 @@ function Bookingüberprüfung () {
 
 <tr><th align="left">Roomnr: </th>
 <td align="right"><%
-    out.println("<input type=\"hidden\" name=\"user\" value=" + MasterServlet.getUser() + ">");
+	String user = (String) session.getAttribute("person");
+	
+    out.println("<input type=\"hidden\" name=\"user\" value=" + user + ">");
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
 	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
 	out.println(MasterServlet.getSroomnumber());
