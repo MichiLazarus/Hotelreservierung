@@ -34,6 +34,7 @@ public class MasterServlet extends HttpServlet {
 	public static String sequipment;
 	public static int snop;
 	public static int [][]sstat;
+	public static double[] pstat;
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
@@ -49,6 +50,9 @@ public class MasterServlet extends HttpServlet {
 	}
 	public static int[][] getSstat(){
 		return sstat;
+	}
+	public static double[] getPstat(){
+		return pstat;
 	}
 	
 	
@@ -136,7 +140,7 @@ public class MasterServlet extends HttpServlet {
 			if(person instanceof Analyst){
 			String xyear = request.getParameter("year");
 			int year = Integer.parseInt(xyear);
-			sstat = x.ShowStatistic("Season",year);
+			sstat = x.SeasonStatistic(year);
 			check = "AnalystSeason.jsp";
 			}
 			else{
@@ -144,12 +148,14 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("OccupancyStatistic")){
+		if(rcv.equals("PriceStatistic")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
-			sstat = x.ShowStatistic("Occupancy",0);
-			check = "AnalystOccupancy.jsp";
+				String xyear = request.getParameter("year");
+				int year = Integer.parseInt(xyear);
+			pstat = x.PriceStatistic(year);
+			check = "AnalystPrice.jsp";
 			}
 			else{
 				check = "index.jsp";
@@ -200,7 +206,7 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("ShowRating")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
-			if(person instanceof Analyst || person instanceof Hotelier){
+			if(person instanceof Hotelier){
 			String xroomnumber = request.getParameter("roomnumber");
 			sroomnumber = Integer.parseInt(xroomnumber);
 			check = "HotelierShowRating.jsp";
@@ -210,6 +216,18 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
+		if(rcv.equals("ShowRatingAnalyst")){
+			String type = (String)session.getAttribute("person");
+			Person person = PersonDAO.getPersonbyUsername(type);
+			if(person instanceof Analyst ){
+			String xroomnumber = request.getParameter("roomnumber");
+			sroomnumber = Integer.parseInt(xroomnumber);
+			check = "AnalystShowRating.jsp";
+			}
+			else{
+				check = "index.jsp";
+			}
+		}
 		if(rcv.equals("Create")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
@@ -382,8 +400,11 @@ public class MasterServlet extends HttpServlet {
 			
 			int broomnumber = Integer.parseInt(xbroomnumber);
 			String user = request.getParameter("user");
+			long difference = bookingend.getTime() - bookingstart.getTime();
+			long day = (((((difference / 1000 )/60)/60)/24));
+		
 			
-			check = x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user);
+			check = x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user, day);
 			}
 			else{
 				check = "index.jsp";

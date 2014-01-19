@@ -8,6 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>All Rooms</title>
 
+<script type="text/javascript">
+function PriceOfferCheck () {
+
+	if ((document.PriceOffer.priceoffer.value <1 ) || isNaN(document.PriceOffer.priceoffer.value)){
+	    alert("Please enter a valid Offer!");
+	    document.PriceOffer.priceoffer.focus();
+	    return false;
+	}
+}
+
+</script>
 <style type="text/css">
 h1 {color:#3399CC; font-size:42px;}
 body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
@@ -31,7 +42,7 @@ div.abstand {margin-top:150px;}
 <col width=*>
 <tr>
 <th align="left">All Rooms</th>
-<th align="right"><a href="HotelierInterface.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right"><a href="AnalystInterface.jsp"><input type="button" value="Back" name="Back"/></a></th>
 </tr>
 </table>
 
@@ -75,7 +86,7 @@ div.abstand {margin-top:150px;}
 		Room room = rlist.get(i);
 		
 
-		out.println("<form name=\"PriceOffer\" action=\"MasterServlet\" method=\"post\">");
+		out.println("<form name=\"PriceOffer\" action=\"MasterServlet\" method=\"post\" onsubmit=\"return PriceOfferCheck()\">" );
 		out.println("<tr align=\"center\">");
 		
 		out.println("<td name=\"roomnumber\">" + room.getRoomnumber() + "</td>");

@@ -92,9 +92,8 @@ public class Hotelmanagement {
 	
 	
 	//Analyst
-	public int [][]ShowStatistic(String type, int refyear){
+	public int [][]SeasonStatistic(int refyear){
 		//if(session instanceof Analyst){
-			if(type.equals("Season")){
 				bookinglist = bookingDAO.getBookinglist();
 				
 				int [][] season= new int [2][12];
@@ -159,19 +158,65 @@ public class Hotelmanagement {
 					}
 				}
 				return season;
-			//}
-//			else if(type.contains("Occupancy")){
-//				return ((Analyst) session).OccupancyStatistic();
-//			}
-//			else if(type.contains("Customer")){
-//				return ((Analyst) session).CustomerStatistic();
-//			}
-//			else throw new IllegalArgumentException("No statistic available with these parameters");
-//		}
 		}
-		int [][] hallo= new int[2][12];
-		return hallo;
-	}
+	
+	public double []PriceStatistic(int refyear){
+		//if(session instanceof Analyst){
+				bookinglist = bookingDAO.getBookinglist();
+				
+				double [] pricestat= new double [12];
+				System.out.println("test");
+				
+				for(Booking booking : bookinglist){
+					Date start = booking.getBookingstart();
+					Calendar timeref = Calendar.getInstance();
+					timeref.setTime(start);
+					int year = timeref.get(Calendar.YEAR);
+					int month = timeref.get(Calendar.MONTH) +1;
+					System.out.println(month);
+					if(refyear == year){
+						if(month == 1){
+							pricestat[0] = booking.getMoney();
+						}
+						else if(month == 2){
+							pricestat[1] = booking.getMoney();
+						}
+						else if(month == 3){
+							pricestat[2] = booking.getMoney();
+						}
+						else if(month == 4){
+							pricestat[3] = booking.getMoney();
+						}
+						else if(month == 5){
+							pricestat[4] = booking.getMoney();
+						}
+						else if(month == 6){
+							pricestat[5] = booking.getMoney();
+						}
+						else if(month == 7){
+							pricestat[6] = booking.getMoney();
+						}
+						else if(month == 8){
+							pricestat[7] = booking.getMoney();
+						}
+						else if(month == 9){
+							pricestat[8] = booking.getMoney();
+						}
+						else if(month == 10){
+							pricestat[9] = booking.getMoney();
+						}
+						else if(month == 11){
+							pricestat[10] = booking.getMoney();
+						}
+						else if(month == 12){
+							pricestat[11] = booking.getMoney();
+						}
+					}
+				}
+				return pricestat;
+		}
+
+
 	
 	public String MakePriceOffer(double priceOffer, int roomnumber){
 
@@ -290,7 +335,7 @@ public class Hotelmanagement {
 //		return "CustomerInterfaceFail.jsp";
 //	}
 	
-	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
+	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user,long day){
 		
 		bookinglist = bookingDAO.getBookinglist();
 		roomlist = roomDAO.getRoomlist();
@@ -321,8 +366,9 @@ public class Hotelmanagement {
 			if(works == true){
 				Room room = roomDAO.getRoombyRoomnumber(broomnumber);
 					if(room.getNop() >= bnop){
-
-				Booking booking = new Booking(bookingnrcounter, bookingstart,  bookingend , payment,bnop, broomnumber, user );
+						double money = day * room.getPrice();
+	
+				Booking booking = new Booking(bookingnrcounter, bookingstart,  bookingend , payment,bnop, broomnumber, user , money );
 				bookingDAO.saveBooking(booking);
 				
 				bookingnrcounter++;

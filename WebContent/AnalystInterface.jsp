@@ -55,26 +55,28 @@ div.abstand2 {
 
 		<h:form>
 			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show Rating</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
+<form name="showrating" action="MasterServlet" method="post" onsubmit="return ShowRatingÜberprüfung()">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
+<tr>
+<th align="left">Show Rating</th>
+<th></th>
+</tr>
+<tbody>
+<tr>
+<th align="left">Room number:</th>
+<th><input type="text" name="roomnumber" size="22" maxlength="40"></th>
+</tr>
+
+</tbody>
+<tfoot>
+<tr>
+<th></th>
+<th align="center"><input type="submit" name="submit" value="ShowRatingAnalyst"></th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>
 		</h:form>
 
 		<h:form>
@@ -104,7 +106,7 @@ div.abstand2 {
 							</tr>
 				<th align="left">
 					OccupancyStatistic
-					<input type="submit" name="submit" value="OccupancyStatistic">
+					<input type="submit" name="submit" value="PriceStatistic">
 					</th>
 							</form>
 						</tbody>

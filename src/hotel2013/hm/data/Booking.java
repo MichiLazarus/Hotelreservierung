@@ -13,8 +13,9 @@ public class Booking implements Serializable{
 	private int broomnumber;
 	private int x = 1050;
 	private String user;
+	private double money;
 	
-	public Booking(int bookingnumber, Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user){
+	public Booking(int bookingnumber, Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user,double money2){
 		setBookingstart(bookingstart);
 		setBookingend(bookingend);
 		setPayment(payment);
@@ -22,8 +23,14 @@ public class Booking implements Serializable{
 		setBroomnumber(broomnumber);
 		setBookingnumber(bookingnumber);
 		setUser(user);
+		setMoney(money2);
 		
-		
+	}
+	public void setMoney(double x ){
+		money = x;
+	}
+	public double getMoney( ){
+		return money;
 	}
 	public void setUser(String x){
 		user = x;

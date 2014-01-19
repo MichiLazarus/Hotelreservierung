@@ -28,10 +28,11 @@ div.abstand2 {
 </style>
 </head>
 
-<body>
 <script type="text/javascript">
-alert("Price Offer succeeded");
+alert("Operation suceeded!");
 </script>
+
+<body>
 	<f:view>
 		<table width="900">
 			<col width="250">
@@ -58,26 +59,28 @@ alert("Price Offer succeeded");
 
 		<h:form>
 			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show Rating</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
+<form name="showrating" action="MasterServlet" method="post" onsubmit="return ShowRatingÜberprüfung()">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
+<tr>
+<th align="left">Show Rating</th>
+<th></th>
+</tr>
+<tbody>
+<tr>
+<th align="left">Room number:</th>
+<th><input type="text" name="roomnumber" size="22" maxlength="40"></th>
+</tr>
+
+</tbody>
+<tfoot>
+<tr>
+<th></th>
+<th align="center"><input type="submit" name="submit" value="ShowRatingAnalyst"></th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>
 		</h:form>
 
 		<h:form>
@@ -89,17 +92,27 @@ alert("Price Offer succeeded");
 						</tr>
 						<tbody>
 							<tr>
-								<th align="center">Show Statistic: <h:selectOneMenu
-										id="statistic" value="">
-										<f:selectItem id="item1" itemLabel="SeasonStatistic"
-											itemValue="1" />
-										<f:selectItem id="item2" itemLabel="OccupancyStatistic"
-											itemValue="2" />
-										<f:selectItem id="item3" itemLabel="CustomerStatistic"
-											itemValue="3" />
-									</h:selectOneMenu> <h:message for="roomnumber" errorClass="error" />
-								</th>
+								<th align="left">
+										SeasonStatistic:
+										<form name="ShowStatistic" action="MasterServlet" method="post" onsubmit="">
+
+								
+								<tr>
+<th align="left">Year:</th>
+<th align="center"><select name="year">
+				 <option value="2014">2014</option>
+				 <option value="2015">2015</option>
+				 <option value="2016">2016</option>
+			     </select></th>
+			     <th><input type="submit" name="submit" value="SeasonStatistic"></th>
+							</th></tr>
+			     
 							</tr>
+				<th align="left">
+					OccupancyStatistic
+					<input type="submit" name="submit" value="OccupancyStatistic">
+					</th>
+							</form>
 						</tbody>
 						<tfoot>
 							<tr>
@@ -111,50 +124,25 @@ alert("Price Offer succeeded");
 			</div>
 		</h:form>
 
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Make Price Offer</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-									Price: <h:inputText id="priceoffer" value="" /> <h:message
-										for="priceoffer" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Offer" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
 
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show all Rooms</th>
-						</tr>
-						<tbody>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
+
+		<div class="abstand2">
+<form name="showallrooms" action="AnalystShowAllRooms.jsp" method="post">
+
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;">
+<tr>
+<th align="left">Show all Rooms</th>
+<th></th>
+</tr>
+<tfoot>
+<tr>
+<th></th>
+<th><input type="submit" name="submit" value="Show all Rooms"></th>
+</tr>
+</tfoot>
+</table>
+</form>
+</div>
 
 	</f:view>
 </body>
