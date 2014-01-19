@@ -60,7 +60,7 @@ alert("New Offer created!");
 <tr>
 <th align="left">Hotelier</th>
 <th align="right">
-<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+<a href="index.jsp"><input type="button" value="Logout" name="Logout"/></a>
 </th>
 </tr>
 </table>

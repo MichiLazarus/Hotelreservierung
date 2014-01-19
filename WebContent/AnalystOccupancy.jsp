@@ -47,7 +47,7 @@ div.abstand2 {
 				<col width=*>
 				<col width=*>
 				<tr>
-					<th align="left">IncomeStatistic</th>
+					<th align="left">OccupancyStatistic</th>
 					<th align="right"><a href="AnalystInterface.jsp"><input type="button" value="Back" name="Back"/></a>
 					</th>
 				</tr>
@@ -59,39 +59,22 @@ div.abstand2 {
 <colgroup>
     <col width="10%">
     <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
-    <col width="7%">
+
  </colgroup><tr>
 <th></th>
-<th>Jan</th>
-<th>Feb</th>
-<th>Mar</th>
-<th>Apr</th>
-<th>May</th>
-<th>Jun</th>
-<th>Jul</th>
-<th>Aug</th>
-<th>Sep</th>
-<th>Oct</th>
-<th>Nov</th>
-<th>Dec</th>
+<th>Roomnumber</th>
+<th>Nr of Bookings</th>
 </tr>
 
 <%
-	double[] stat = MasterServlet.getPstat();
-	out.println("<td name=\"month\">");
-	out.println("Income");
-	for(int i = 0; i < 12; ++i){
-		out.println("<td name=\"month\">" + stat[i] + "</td>");
+	int[][] stat = MasterServlet.getOstat();
+	out.println("<td name=\"Room\">");
+	out.println("Occupancy");
+	for(int i = 0; i < stat.length; ++i){
+		out.println("<tr>");
+		out.println("<td name=\"room\">" + stat[i][0] + "</td>");
+		out.println("<td name=\"occ\">" + stat[i][1] + "</td>");
+		out.println("<\tr>");
 	}
 	
  %>

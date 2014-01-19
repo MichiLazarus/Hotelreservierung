@@ -29,12 +29,13 @@ import javax.servlet.http.HttpSession;
 public class MasterServlet extends HttpServlet {
 	Hotelmanagement x = new Hotelmanagement();
 	
-	public static int sroomnumber;
-	public static double sprice;
-	public static String sequipment;
-	public static int snop;
-	public static int [][]sstat;
-	public static double[] pstat;
+	private static int sroomnumber;
+	private static double sprice;
+	private static String sequipment;
+	private static int snop;
+	private static int [][]sstat;
+	private static double[] pstat;
+	private static int[][] ostat;
 	
 	public static int getSroomnumber(){
 		return sroomnumber;
@@ -53,6 +54,9 @@ public class MasterServlet extends HttpServlet {
 	}
 	public static double[] getPstat(){
 		return pstat;
+	}
+	public static int[][] getOstat(){
+		return ostat;
 	}
 	
 	
@@ -156,6 +160,20 @@ public class MasterServlet extends HttpServlet {
 				int year = Integer.parseInt(xyear);
 			pstat = x.PriceStatistic(year);
 			check = "AnalystPrice.jsp";
+			}
+			else{
+				check = "index.jsp";
+			}
+		}
+		
+		if(rcv.equals("OccStatistic")){
+			String type = (String)session.getAttribute("person");
+			Person person = PersonDAO.getPersonbyUsername(type);
+			if(person instanceof Analyst){
+				String xyear = request.getParameter("year");
+				int year = Integer.parseInt(xyear);
+			ostat = x.OccupancyStatistic(year);
+			check = "AnalystOccupancy.jsp";
 			}
 			else{
 				check = "index.jsp";
@@ -401,7 +419,7 @@ public class MasterServlet extends HttpServlet {
 			int broomnumber = Integer.parseInt(xbroomnumber);
 			String user = request.getParameter("user");
 			long difference = bookingend.getTime() - bookingstart.getTime();
-			long day = (((((difference / 1000 )/60)/60)/24));
+			long day = ((((difference / 1000 )/60)/60)/24);
 		
 			
 			check = x.Book(bookingstart, bookingend, payment, bnop, broomnumber,user, day);

@@ -95,7 +95,7 @@ div.abstand {margin-top:150px;}
 
 <tr>
 <th></th>
-<th align="left"><font color="red" size="-0.5">User bereits vorhanden!</font></th>
+<th align="left"><font color="red" size="-0.5">User bereits vorhanden oder Sie sind unter 18!</font></th>
 </tr>
 <tr>
 <th align="left">User-Category:</th>

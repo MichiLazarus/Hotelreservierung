@@ -63,7 +63,7 @@ function RateBookingÜberprüfung () {
 <tr>
 <th align="left">Customer</th>
 <th align="right">
-<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+<a href="index.jsp"><input type="button" value="Logout" name="Logout"/></a>
 </th>
 </tr>
 </table>
@@ -115,7 +115,7 @@ function RateBookingÜberprüfung () {
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
-<th align="left">Cancel Booking</th>
+<th align="left">MyBookings</th>
 <th></th>
 </tr>
 

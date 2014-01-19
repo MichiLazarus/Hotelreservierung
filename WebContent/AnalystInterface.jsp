@@ -47,7 +47,7 @@ div.abstand2 {
 				<tr>
 					<th align="left">Analyst</th>
 					<th align="right">
-					<a href="index.jsp"><input type="button" value="Back" name="Back"/></a>
+					<a href="index.jsp"><input type="button" value="Logout" name="Logout"/></a>
 					</th>
 				</tr>
 			</table>
@@ -108,6 +108,11 @@ div.abstand2 {
 					OccupancyStatistic
 					<input type="submit" name="submit" value="PriceStatistic">
 					</th>
+					<th align="left">
+					OccupancyStatistic
+					<input type="submit" name="submit" value="OccStatistic">
+					</th>
+					
 							</form>
 						</tbody>
 						<tfoot>

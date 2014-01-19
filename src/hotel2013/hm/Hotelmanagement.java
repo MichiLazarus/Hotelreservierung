@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import hotel2013.hm.dao.BookingDAO;
 import hotel2013.hm.dao.PersonDAO;
@@ -34,9 +35,16 @@ public class Hotelmanagement {
 	
 
 		Person newCustomer =  new Customer(username, password, fullName, email, sex, birthday);
+			 
+		long difference = new Date().getTime() - birthday.getTime();
+		long age = (((((difference / 1000 )/60)/60)/24)/365);
+		if(age > 17){
+
 		if(personDAO.savePerson(newCustomer))
 		return "index.jsp";
 		else
+		return "registerfail.jsp";
+		}
 		return "registerfail.jsp";
 	}
 	
@@ -176,44 +184,70 @@ public class Hotelmanagement {
 					System.out.println(month);
 					if(refyear == year){
 						if(month == 1){
-							pricestat[0] = booking.getMoney();
+							pricestat[0] += booking.getMoney();
 						}
 						else if(month == 2){
-							pricestat[1] = booking.getMoney();
+							pricestat[1] += booking.getMoney();
 						}
 						else if(month == 3){
-							pricestat[2] = booking.getMoney();
+							pricestat[2] += booking.getMoney();
 						}
 						else if(month == 4){
-							pricestat[3] = booking.getMoney();
+							pricestat[3] += booking.getMoney();
 						}
 						else if(month == 5){
-							pricestat[4] = booking.getMoney();
+							pricestat[4] += booking.getMoney();
 						}
 						else if(month == 6){
-							pricestat[5] = booking.getMoney();
+							pricestat[5] += booking.getMoney();
 						}
 						else if(month == 7){
-							pricestat[6] = booking.getMoney();
+							pricestat[6] += booking.getMoney();
 						}
 						else if(month == 8){
-							pricestat[7] = booking.getMoney();
+							pricestat[7] += booking.getMoney();
 						}
 						else if(month == 9){
-							pricestat[8] = booking.getMoney();
+							pricestat[8] += booking.getMoney();
 						}
 						else if(month == 10){
-							pricestat[9] = booking.getMoney();
+							pricestat[9] += booking.getMoney();
 						}
 						else if(month == 11){
-							pricestat[10] = booking.getMoney();
+							pricestat[10] += booking.getMoney();
 						}
 						else if(month == 12){
-							pricestat[11] = booking.getMoney();
+							pricestat[11] += booking.getMoney();
 						}
 					}
 				}
 				return pricestat;
+		}
+	
+	public int [][]OccupancyStatistic(int refyear){
+		roomlist = roomDAO.getRoomlist();
+		bookinglist = bookingDAO.getBookinglist();
+		
+		int ocstat [][] = new int [roomlist.size()][2];
+		int i = 0;
+		int a = 0;
+
+		for ( Room room : roomlist){
+			ocstat [i][0] = room.getRoomnumber();
+			++i;
+		}
+		for (int b = 0; b < i ; b++ ){
+		for (Booking booking : bookinglist){
+			if ( b < i){
+				if(booking.getBroomnumber() == ocstat [b][0]){
+					ocstat [b][1] +=1;
+				}
+			}
+		}
+		}
+			
+		
+		return ocstat;
 		}
 
 
