@@ -144,6 +144,18 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
+		if(rcv.equals("OccupancyStatistic")){
+			String type = (String)session.getAttribute("person");
+			Person person = PersonDAO.getPersonbyUsername(type);
+			if(person instanceof Analyst){
+			sstat = x.ShowStatistic("Occupancy",0);
+			check = "AnalystOccupancy.jsp";
+			}
+			else{
+				check = "index.jsp";
+			}
+		}
+		
 		if(rcv.equals("MakePriceOffer")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);

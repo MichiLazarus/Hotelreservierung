@@ -102,6 +102,10 @@ div.abstand2 {
 							</th></tr>
 			     
 							</tr>
+				<th align="left">
+					OccupancyStatistic
+					<input type="submit" name="submit" value="OccupancyStatistic">
+					</th>
 							</form>
 						</tbody>
 						<tfoot>

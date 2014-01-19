@@ -25,6 +25,7 @@ public class Hotelmanagement {
 	private ArrayList <Room> roomlist = new ArrayList<Room>();
 	static int bookingnrcounter = 1000;
 	
+	
 	public Hotelmanagement(){
 		
 	}
@@ -66,6 +67,14 @@ public class Hotelmanagement {
 		Person person = personDAO.getPersonbyUsername(username);
 		if(person == null){
 			return null;
+		}
+		bookinglist = bookingDAO.getBookinglist();
+		int x = 1000;
+		if(!bookinglist.isEmpty()){
+		for(Booking booking : bookinglist){
+			x = booking.getBookingnumber();
+			bookingnrcounter = x;
+		}
 		}
 			if(person.verifyPassword(password)){
 			return person;
@@ -266,13 +275,17 @@ public class Hotelmanagement {
 	public String RateBooking(int bookingnumber , String rating){
 		System.out.println(bookingnumber + rating);
 //		if(session instanceof Customer){
-			
 			int x = bookingDAO.getRoombyBookingnumber(bookingnumber);
+			if(x != 0){
 			System.out.println(x);
 			Room newRoom = roomDAO.getRoombyRoomnumber(x);
 			newRoom.setRating(rating);
 			roomDAO.updateRoom(newRoom);
 			return "CustomerInterfaceSucess.jsp";
+			}
+			else{
+				return "CustomerInterfaceFail.jsp";
+			}
 		}
 //		return "CustomerInterfaceFail.jsp";
 //	}
