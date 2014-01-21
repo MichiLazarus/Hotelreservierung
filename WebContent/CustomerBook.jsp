@@ -15,20 +15,76 @@ div.abstand {margin-top:150px;}
 </style>
 
 <script type="text/javascript">
-function Bookingüberprüfung () {
-	check = /^\d{2}\.\d{2}\.\d{4}$/;
+function Bookingueberpruefung (){
 
-	  if(!document.book.bookingstart.value.match(check)) {
-	    alert("Invalid date format: " + document.book.bookingstart.value);
-	    document.book.bookingstart.focus();
-	    return false;
+	  //Ueberpruefung, ob das Datum syntaktisch und semantisch richtig ist.
+	  if((document.book.bookingstart.value.length != 10) || isNaN(document.book.bookingstart.value.substring(0,2)) || isNaN(document.book.bookingstart.value.substring(3,5)) || isNaN(document.book.bookingstart.value.substr(6,4)) || document.book.bookingstart.value.charAt(2) != "." || document.book.bookingstart.value.charAt(5) != "." ) {
+		    alert("Invalid date format: Use DD.MM.YYYY");
+		    document.book.bookingstart.focus();
+		    return false;
 	  }
-	  if(!document.book.bookingend.value.match(check)) {
-		    alert("Invalid date format: " + document.book.bookingend.value);
+	  
+	  if((document.book.bookingstart.value.substring(0,2)>31) || (document.book.bookingstart.value.substring(3,5)>12) || (document.book.bookingstart.value.substr(6,4)>2016)){
+		  alert("Invalid date: " + document.book.bookingstart.value + "\n Hint: You can only book before 2017 !");
+		  document.book.bookingstart.focus();
+		  return false;
+	  }
+		  
+	  //Ueberpruefung, ob das Datum im Februar liegt und ob der Februar ein Schaltjahr ist.
+	  if(document.book.bookingstart.value.substring(0,2)>28){
+		  if(document.book.bookingstart.value.substring(3,5)==2){
+		    if((document.book.bookingstart.value.substr(6,4)%4 != 0) || (document.book.bookingstart.value.substring(0,2)!=29)){
+			    alert("Invalid date: " + document.book.bookingstart.value + "\n February has only 28 days exept for leapyears !");
+			    document.book.bookingstart.focus();
+			    return false;
+		    }
+  		  }
+	  }
+	  
+	  //Ueberpruefung, ob der Tag eines Datums 31 ist und ob dieser in einem Monat mit nur 30 Tagen liegt.
+	  if(document.book.bookingstart.value.substring(0,2)>30){
+		  if(document.book.bookingstart.value.substring(3,5) == 4 || document.book.bookingstart.value.substring(3,5) == 6 || document.book.bookingstart.value.substring(3,5) == 9 || document.book.bookingstart.value.substring(3,5) == 11){
+		    alert("Invalid date: " + document.book.bookingstart.value + "\n This month has only 30 days !");
+		    document.book.bookingstart.focus();
+		    return false;
+	  		  }
+		  }
+	  
+	  
+	//Ueberpruefung, ob das Datum syntaktisch und semantisch richtig ist.
+	  if((document.book.bookingend.value.length != 10) || isNaN(document.book.bookingend.value.substring(0,2)) || isNaN(document.book.bookingend.value.substring(3,5)) || isNaN(document.book.bookingend.value.substr(6,4)) || document.book.bookingend.value.charAt(2) != "." || document.book.bookingend.value.charAt(5) != "." ) {
+		    alert("Invalid date format: Use DD.MM.YYYY");
 		    document.book.bookingend.focus();
 		    return false;
+	  }
+	  
+	  if((document.book.bookingend.value.substring(0,2)>31) || (document.book.bookingend.value.substring(3,5)>12) || (document.book.bookingend.value.substr(6,4)>2016)){
+		  alert("Invalid date: " + document.book.bookingend.value + "\n Hint: You can only book before 2017 !");
+		  document.book.bookingend.focus();
+		  return false;
+	  }
+		  
+	  //Ueberpruefung, ob das Datum im Februar liegt und ob der Februar ein Schaltjahr ist.
+	  if(document.book.bookingend.value.substring(0,2)>28){
+		  if(document.book.bookingend.value.substring(3,5)==2){
+		    if((document.book.bookingend.value.substr(6,4)%4 != 0) || (document.book.bookingend.value.substring(0,2)!=29)){
+			    alert("Invalid date: " + document.book.bookingend.value + "\n February has only 28 days exept for leapyears !");
+			    document.book.bookingend.focus();
+			    return false;
+		    }
+  		  }
+	  }
+	  
+	  //Ueberpruefung, ob der Tag eines Datums 31 ist und ob dieser in einem Monat mit nur 30 Tagen liegt.
+	  if(document.book.bookingend.value.substring(0,2)>30){
+		  if(document.book.bookingend.value.substring(3,5) == 4 || document.book.bookingend.value.substring(3,5) == 6 || document.book.bookingend.value.substring(3,5) == 9 || document.book.bookingend.value.substring(3,5) == 11){
+		    alert("Invalid date: " + document.book.bookingend.value + "\n This month has only 30 days !");
+		    document.book.bookingend.focus();
+		    return false;
+	  		  }
 		  }
-}
+
+} 
 </script>
 </head>
 
@@ -54,7 +110,7 @@ function Bookingüberprüfung () {
 
 <p>Please enter your booking data:</p>
 
-<form name="book" action="MasterServlet" method="post" onsubmit="return Bookingüberprüfung()">
+<form name="book" action="MasterServlet" method="post" onsubmit="return Bookingueberpruefung()">
 <table width="500">
 <col width="250">
 <col width="250">

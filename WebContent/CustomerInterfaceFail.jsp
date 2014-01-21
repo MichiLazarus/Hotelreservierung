@@ -13,10 +13,12 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function SearchRoomÜberprüfung () {
-  if ((document.searchroom.price.value == "") || isNaN(document.searchroom.price.value)) {
-    alert("Please enter a price!");
-    document.searchroom.price.focus();
-    return false;
+  if ((document.SearchRoom.price.value == "") || isNaN(document.SearchRoom.price.value) || (document.SearchRoom.price.value < 0)) {
+    if(document.SearchRoom.price.value != "*"){
+		alert("Please enter a valid price!");
+	    document.SearchRoom.price.focus();
+	    return false;
+    }
   }
 }
 

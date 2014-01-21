@@ -13,14 +13,14 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
-	if ((document.makenewoffer.roomnumber.value == "") || isNaN(document.makenewoffer.roomnumber.value)){
-	    alert("Please enter a roomnumber!");
-	    document.makenewoffer.roomnumber.focus();
+	if ((document.NewOffer.roomnumber.value == "") || isNaN(document.NewOffer.roomnumber.value) || (document.NewOffer.roomnumber.value < 1)){
+	    alert("Please enter a valid roomnumber!");
+	    document.NewOffer.roomnumber.focus();
 	    return false;
 	}
-	if ((document.makenewoffer.price.value == "") || isNaN(document.makenewoffer.price.value)){
-	    alert("Please enter a price!");
-	    document.makenewoffer.price.focus();
+	if ((document.NewOffer.price.value == "") || isNaN(document.NewOffer.price.value) || (document.NewOffer.price.value < 1)){
+	    alert("Please enter a valid price!");
+	    document.NewOffer.price.focus();
 	    return false;
 	}
 }
@@ -39,10 +39,6 @@ function ShowRatingÜberprüfung () {
 
 
 <body>
-
-<script type="text/javascript">
-alert("New Offer created!");
-</script>
 
 <table width="900">
 <col width="250">
@@ -82,7 +78,7 @@ alert("New Offer created!");
 </table>
 </form>
 
-<form name="makenewoffer" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
+<form name="NewOffer" action="MasterServlet" method="post" onsubmit="return MakeNewOfferÜberprüfung()">
 
 <table width="350"  border="1" rules="groups" cellpadding="8" style="float:right;">
 <tr>
@@ -154,6 +150,10 @@ alert("New Offer created!");
 </table>
 </form>
 </div>
+
+<script type="text/javascript">
+alert("New Offer created!");
+</script>
 
 </body>
 </html>

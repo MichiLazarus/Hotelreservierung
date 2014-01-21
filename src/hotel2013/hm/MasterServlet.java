@@ -94,8 +94,9 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("Login")){
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			
+			check = "loginfail.jsp";
 			Person person = x.login(username, password);
+			
 			if(person != null){
 			session.setAttribute("person", person.getUsername());
 			if(person instanceof Customer)

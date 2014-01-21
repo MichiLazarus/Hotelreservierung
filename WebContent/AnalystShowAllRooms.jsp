@@ -81,10 +81,19 @@ div.abstand {margin-top:150px;}
 <%
     RoomDAO r = new RoomDAO("Rooms.ser");
 	ArrayList <Room> rlist =  r.getRoomlist();
-
+	String rating;
+	char [] temp;
+	String str;
 	for(int i = 0; i < rlist.size(); i++){
 		Room room = rlist.get(i);
 		
+		str = room.getRating();
+		if(str.length() <19)
+			rating = str;
+		else{
+		temp = str.toCharArray();
+		rating = new String(temp,0,19);
+		}
 
 		out.println("<form name=\"PriceOffer\" action=\"MasterServlet\" method=\"post\" onsubmit=\"return PriceOfferCheck()\">" );
 		out.println("<tr align=\"center\">");

@@ -13,8 +13,8 @@ div.abstand2 {margin-top:50px; margin-left:100px; margin-right:100px;}
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
-	if ((document.NewOffer.roomnumber.value == "") || isNaN(document.NewOffer.roomnumber.value)){
-	    alert("Please enter a roomnumber!");
+	if ((document.NewOffer.roomnumber.value == "") || isNaN(document.NewOffer.roomnumber.value) || (document.NewOffer.roomnumber.value < 1)){
+	    alert("Please enter a valid roomnumber!");
 	    document.NewOffer.roomnumber.focus();
 	    return false;
 	}

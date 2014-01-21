@@ -46,13 +46,11 @@ div.abstand {margin-top:150px;}
     <col width="20%">
     <col width="18%">
     <col width="15%">
-    <col width="20%">
  </colgroup><tr>
 <th>Roomnr</th>
 <th>Equipment</th>
 <th>NrOfPersons</th>
 <th>Price</th>
-<th>Rating</th>
 <th>Book</th></tr>
 </table>
 <br>
@@ -64,7 +62,6 @@ div.abstand {margin-top:150px;}
     <col width="20%">
     <col width="18%">
     <col width="15%">
-    <col width="20%">
 </colgroup>
 <%
 	String user = (String) session.getAttribute("person");
@@ -81,7 +78,6 @@ div.abstand {margin-top:150px;}
 		out.println("<td name=\"equipment\">" + room.getEquipment() + "</td>");
 		out.println("<td name=\"nop\">" + room.getNop() + "</td>");
 		out.println("<td name=\"price\">" + room.getPrice() + " Euro" + "</td>");
-		out.println("<td name=\"rating\">" + room.getRating() + "...</td>");
 		
 		String rnumber = Integer.toString(room.getRoomnumber());
 	

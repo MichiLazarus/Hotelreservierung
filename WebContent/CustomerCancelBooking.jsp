@@ -58,6 +58,7 @@ div.abstand {margin-top:150px;}
 <th>NrOfPersons</th>
 <th>Payment</th>
 <th>Cost</th>
+<th>My Rating</th>
 <th>CancelBooking</th></tr>
 </table>
 <br>
@@ -102,7 +103,7 @@ div.abstand {margin-top:150px;}
 		out.println("<td name=\"bookingend\">" + endday + "." + endmonth + "." + endyear + "</td>");
 		out.println("<td name=\"nop\">" + booking.getBnop() + "</td>");
 		out.println("<td name=\"payment\">" + booking.getPayment() + "</td>");
-		out.println("<td name=\"money\">" + booking.getMoney() + "</td>");
+		out.println("<td name=\"money\">" + booking.getMoney() + " Euro</td>");
 		String bookingnumber = Integer.toString(booking.getBookingnumber());
 		out.println("<input type=\"hidden\" name=\"bnumber\" value=" + bookingnumber + ">");
 		out.println("<td>" + "<input type=\"submit\" name=\"submit\" value=\"CancelBooking\">" + "</td>");
