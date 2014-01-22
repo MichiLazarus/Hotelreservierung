@@ -49,7 +49,6 @@ function Formularüberprüfung () {
 <center>
 
 <form name="login" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
-
 <table width="450" rules="groups" cellpadding="8">
 
 <tr>
