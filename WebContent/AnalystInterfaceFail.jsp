@@ -133,5 +133,9 @@ function ShowRatingÜberprüfung () {
 </table>
 </form>
 
+<script type="text/javascript">
+alert("Operation failed!");
+</script>
+
 </body>
 </html>

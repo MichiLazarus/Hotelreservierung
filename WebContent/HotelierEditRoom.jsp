@@ -8,11 +8,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HotelierInterface</title>
 <style type="text/css">
-h1 {color:#3399CC; font-size:42px;}
-body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
+h1 {color:#FFD801; font-size:48px;}
+body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
 div.abstand {margin-top:150px;}
-div.abstand2 {margin-top:50px; margin-left:150px; margin-right:150px;}
+#Kopfzeile {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; border-radius: 10px; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; margin-top:30px;}
+#Kopfzeile1 {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; border:0px;}
+#Seiteninfo {margin-left:auto; margin-right:auto;}
+#Tabellenposition {margin-left:10%; margin-right:10%;}
+#Tabellenformat {background-color:#E5E4E2; border-width:3px; width:80%; margin-left:auto; margin-right:auto;}
 </style>
+
+<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
 
 <script type="text/javascript">
 function MakeNewOfferÜberprüfung () {
@@ -25,29 +33,28 @@ function MakeNewOfferÜberprüfung () {
 }
 
 </script>
-
 </head>
 
-
 <body>
-
-<table width="900">
-<col width="250">
-<col width="650">
-<tr>
-<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
-<th align="left"><h1>Orbit Hotel</h1></th>
-</tr>
+<div id="Kopfzeile">
+<table width="900" id="Kopfzeile1">
+	<col width="150">
+	<col width="750">
+	<tr>
+		<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
+		<th align="left"><h1>Orbit Hotel</h1></th>
+	</tr>
 </table>
+</div>
 <hr>
 
-<table width="100%" cellpadding="8">
-<col width=*>
-<col width=*>
+<table width="90%" id="Seiteninfo">
+<col width=350>
+<col width=650>
 <tr>
-<th align="left">Hotelier</th>
+<th align="left">Edit Room</th>
 <th align="right">
-<a href="HotelierShowAllRooms.jsp"><input type="button" value="Back" name="Back"/></a>
+<a href="HotelierShowAllRooms.jsp"><input type="button" value="Back" name="Back" class="button small"/></a>
 </th>
 </tr>
 </table>
@@ -60,14 +67,14 @@ function MakeNewOfferÜberprüfung () {
 <table width="600"  border="1" rules="groups" cellpadding="8">
 <tr>
 <th align="left">Edit Room</th>
-<th></th>
+<th></th><th></th>
 </tr>
 <tbody>
 <tr>
 <th align="left">Roomnumber:</th>
 <%
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
-	out.println("<td align=\"left\">"+rnumber+"</td>");
+	out.println("<th align=\"left\">"+rnumber+"</th>");
 	out.println("<input type=\"hidden\" name=\"rnumber\" value=" + rnumber + ">");
 	
 	String price = Double.toString(MasterServlet.getSprice());
@@ -105,10 +112,11 @@ function MakeNewOfferÜberprüfung () {
 </tr>
 
 </tbody>
-<tfoot>
+<tfoot style="background-color: #B6B6B4">
 <tr>
 <th></th>
-<th align="center"><input type="submit" name="submit" value="FinishEdit"></th>
+<th><input type="submit" name="submit" value="FinishEdit" class="button small"></th>
+<th></th>
 </tr>
 </tfoot>
 </table>

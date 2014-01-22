@@ -185,13 +185,14 @@ public class MasterServlet extends HttpServlet {
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
-			String xpriceoffer = request.getParameter("priceoffer");
-			String xroomnumber = request.getParameter("rnumber");
-			double priceoffer = Double.parseDouble(xpriceoffer);
-			int roomnumber = Integer.parseInt(xroomnumber);
-			check = x.MakePriceOffer(priceoffer, roomnumber);
-			}
-			else{
+				String xpriceoffer = request.getParameter("priceoffer");
+				String xroomnumber = request.getParameter("rnumber");
+				double priceoffer = Double.parseDouble(xpriceoffer);
+				
+				int roomnumber = Integer.parseInt(xroomnumber);
+				check = x.MakePriceOffer(priceoffer, roomnumber);
+
+			}else{
 				check = "index.jsp";
 			}
 		}
@@ -225,28 +226,31 @@ public class MasterServlet extends HttpServlet {
 		if(rcv.equals("ShowRating")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
+			
 			if(person instanceof Hotelier){
-			String xroomnumber = request.getParameter("roomnumber");
-			sroomnumber = Integer.parseInt(xroomnumber);
-			check = "HotelierShowRating.jsp";
-			}
-			else{
-				check = "index.jsp";
+				String xroomnumber = request.getParameter("roomnumber");
+				sroomnumber = Integer.parseInt(xroomnumber);
+			if(x.ShowRating(sroomnumber))
+				check = "HotelierShowRating.jsp";
+			else
+				check = "HotelierInterfaceFail.jsp";
 			}
 		}
 		
-		if(rcv.equals("ShowRatingAnalyst")){
+		if(rcv.equals("Show Rating")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
+			
 			if(person instanceof Analyst ){
-			String xroomnumber = request.getParameter("roomnumber");
-			sroomnumber = Integer.parseInt(xroomnumber);
-			check = "AnalystShowRating.jsp";
-			}
-			else{
-				check = "index.jsp";
+				String xroomnumber = request.getParameter("roomnumber");
+				sroomnumber = Integer.parseInt(xroomnumber);
+			if(x.ShowRating(sroomnumber))
+				check = "AnalystShowRating.jsp";
+			else
+				check = "AnalystInterfaceFail.jsp";
 			}
 		}
+		
 		if(rcv.equals("Create")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
@@ -317,7 +321,7 @@ public class MasterServlet extends HttpServlet {
 			String equipment = request.getParameter("equipment");
 			String xnop = request.getParameter("nop");
 			int nop = Integer.parseInt(xnop);
-			String rating = x.ShowRating(roomnumber);
+			String rating = x.SetRating(roomnumber);
 			sroomnumber = roomnumber;
 			x.EditRoom(roomnumber, nop, equipment, price, rating);
 			check = "HotelierInterface.jsp";

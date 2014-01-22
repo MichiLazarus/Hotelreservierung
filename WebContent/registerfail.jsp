@@ -6,90 +6,102 @@
 <title>Register</title>
 
 <style type="text/css">
-h1 {color:#3399CC; font-size:42px;}
-body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
+h1 {color:#FFD801; font-size:48px;}
+body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
 div.abstand {margin-top:150px;}
+#Kopfzeile {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; border-radius: 10px; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; margin-top:30px;}
+#Kopfzeile1 {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; border:0px;}
+#Seiteninfo {margin-left:auto; margin-right:auto;}em;}
 </style>
 
+<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
+
 <script type="text/javascript">
+function Formularüberprüfung () {
+	 if (document.register.username.value == "" ||document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+			  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+			  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+			  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+			  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
+	    alert("Please enter valid username!");
+	    document.register.username.focus();
+	    return false;
+	  }
+	  if (document.register.password.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+			  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+			  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+			  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+			  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
+	    alert("Please enter password!");
+	    document.register.password.focus();
+	    return false;
+	  }
+	  if (document.register.fullname.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
+			  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
+			  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
+			  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
+			  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1       ||document.register.username.value.indexOf("0") != -1
+			  ||document.register.username.value.indexOf("1") != -1 ||document.register.username.value.indexOf("2") != -1 ||document.register.username.value.indexOf("3") != -1 ||document.register.username.value.indexOf("4") != -1 ||document.register.username.value.indexOf("5") != -1 ||document.register.username.value.indexOf("6") != -1 ||document.register.username.value.indexOf("7") != -1
+			  ||document.register.username.value.indexOf("8") != -1 ||document.register.username.value.indexOf("9") != -1 ) {
+		    alert("Please enter full name!");
+		    document.register.fullname.focus();
+		    return false;
+		  }
+	  if (document.register.email.value == "") {
+	    alert("Please enter email!");
+	    document.register.email.focus();
+	    return false;
+	  }
+		mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+	  if(!document.register.email.value.match(mailformat))  {
+	    alert("Not an email-adress!");
+	    document.register.email.focus();
+	    return false;
+	  }
+	  check = /^\d{2}\.\d{2}\.\d{4}$/;
 
-	function Formularüberprüfung () {
-		 if (document.register.username.value == "" ||document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
-				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
-				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
-				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
-				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
-		    alert("Please enter valid username!");
-		    document.register.username.focus();
-		    return false;
-		  }
-		  if (document.register.password.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
-				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
-				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
-				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
-				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1) {
-		    alert("Please enter password!");
-		    document.register.password.focus();
-		    return false;
-		  }
-		  if (document.register.fullname.value == "" || document.register.username.value.indexOf("+") != -1 ||document.register.username.value.indexOf("#")!= -1||document.register.username.value.indexOf("-") != -1||document.register.username.value.indexOf("*")!= -1 ||document.register.username.value.indexOf("=")!= -1
-				  ||document.register.username.value.indexOf("&") != -1||document.register.username.value.indexOf("%") != -1 ||document.register.username.value.indexOf("!") != -1||document.register.username.value.indexOf("§") != -1||document.register.username.value.indexOf("(")!= -1 ||document.register.username.value.indexOf(")")!= -1
-				  ||document.register.username.value.indexOf(".") != -1||document.register.username.value.indexOf(";") != -1||document.register.username.value.indexOf("ß") != -1||document.register.username.value.indexOf("<") != -1
-				  ||document.register.username.value.indexOf(">") != -1||document.register.username.value.indexOf("|") != -1||document.register.username.value.indexOf("µ") != -1||document.register.username.value.indexOf("{") != -1||document.register.username.value.indexOf("}")!= -1
-				  ||document.register.username.value.indexOf("[") != -1 ||document.register.username.value.indexOf("]") != -1||document.register.username.value.indexOf("@") != -1||document.register.username.value.indexOf("~") != -1||document.register.username.value.indexOf("'")!= -1       ||document.register.username.value.indexOf("0") != -1
-				  ||document.register.username.value.indexOf("1") != -1 ||document.register.username.value.indexOf("2") != -1 ||document.register.username.value.indexOf("3") != -1 ||document.register.username.value.indexOf("4") != -1 ||document.register.username.value.indexOf("5") != -1 ||document.register.username.value.indexOf("6") != -1 ||document.register.username.value.indexOf("7") != -1
-				  ||document.register.username.value.indexOf("8") != -1 ||document.register.username.value.indexOf("9") != -1 ) {
-			    alert("Please enter full name!");
-			    document.register.fullname.focus();
-			    return false;
-			  }
-		  if (document.register.email.value == "") {
-		    alert("Please enter email!");
-		    document.register.email.focus();
-		    return false;
-		  }
-			mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
-		  if(!document.register.email.value.match(mailformat))  {
-		    alert("Not an email-adress!");
-		    document.register.email.focus();
-		    return false;
-		  }
-		  check = /^\d{2}\.\d{2}\.\d{4}$/;
+	  if(!document.register.birthday.value.match(check)) {
+	    alert("Invalid date format: " + document.register.birthday.value);
+	    document.register.birthday.focus();
+	    return false;
+	  }
 
-		  if(!document.register.birthday.value.match(check)) {
-		    alert("Invalid date format: " + document.register.birthday.value);
-		    document.register.birthday.focus();
-		    return false;
-		  }
-	
-	}
+}
 </script>
 </head>
 
 <body>
-<table width="900">
-<col width="250">
-<col width="650">
-<tr>
-<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
-<th align="left"><h1>Orbit Hotel</h1></th>
-</tr>
+<div id="Kopfzeile">
+<table width="900" id="Kopfzeile1">
+	<col width="150">
+	<col width="750">
+	<tr>
+		<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
+		<th align="left"><h1>Orbit Hotel</h1></th>
+	</tr>
 </table>
-<hr>
+</div>
+<hr><br>
 
-<table width="100%" cellpadding="8">
-<col width=*>
-<col width=*>
+<table width="90%" id="Seiteninfo">
+<col width=350>
+<col width=650>
 <tr>
 <th align="left">Register</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back" class="button small"/></a></th>
+</tr>
+<tr>
+<td>
+Please enter your register data:
+</td>
+<td></td>
 </tr>
 </table>
 
-<p>Please enter your register data:</p>
-
 <form name="register" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
-<table width="500">
+<table width="500" style="padding-top: 0.1rem;" class="small-5 small-centered columns">
 <col width="250">
 <col width="250">
 
@@ -97,6 +109,7 @@ div.abstand {margin-top:150px;}
 <th></th>
 <th align="left"><font color="red" size="-0.5">User bereits vorhanden oder Sie sind unter 18!</font></th>
 </tr>
+
 <tr>
 <th align="left">User-Category:</th>
 <th align="left"><select name="status">
@@ -134,7 +147,7 @@ div.abstand {margin-top:150px;}
 </tr>
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="Register"><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="Register" class="button small"> <input type="reset" value="Cancel" class="button small"></th>
 </tr>
 </table>
 </form>

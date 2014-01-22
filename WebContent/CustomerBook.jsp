@@ -9,10 +9,19 @@
 <title>Booking</title>
 
 <style type="text/css">
-h1 {color:#3399CC; font-size:42px;}
-body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
+h1 {color:#FFD801; font-size:48px;}
+body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
 div.abstand {margin-top:150px;}
+#Kopfzeile {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; border-radius: 10px; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; margin-top:30px;}
+#Kopfzeile1 {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; border:0px;}
+#Seiteninfo {margin-left:auto; margin-right:auto;}
+#Tabellenposition {margin-left:10%; margin-right:10%;}
+#Tabellenformat {background-color:#E5E4E2; border-width:3px; width:70%; margin-left:auto; margin-right:auto;}
 </style>
+
+<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
 
 <script type="text/javascript">
 function Bookingueberpruefung (){
@@ -89,41 +98,47 @@ function Bookingueberpruefung (){
 </head>
 
 <body>
-<table width="900">
-<col width="250">
-<col width="650">
-<tr>
-<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
-<th align="left"><h1>Orbit Hotel</h1></th>
-</tr>
+<div id="Kopfzeile">
+<table width="900" id="Kopfzeile1">
+	<col width="150">
+	<col width="750">
+	<tr>
+		<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
+		<th align="left"><h1>Orbit Hotel</h1></th>
+	</tr>
 </table>
+</div>
 <hr>
 
-<table width="100%" cellpadding="8">
-<col width=*>
-<col width=*>
+<table width="90%" id="Seiteninfo">
+<col width=350>
+<col width=650>
 <tr>
 <th align="left">Booking</th>
-<th align="right"><a href="CustomerSearchRooms.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right"><a href="CustomerSearchRooms.jsp"><input type="button" value="Back" name="Back" class="button small"/></a></th>
+</tr>
+<tr>
+<td>
+Please enter your booking data:
+</td>
+<td></td>
 </tr>
 </table>
 
-<p>Please enter your booking data:</p>
-
 <form name="book" action="MasterServlet" method="post" onsubmit="return Bookingueberpruefung()">
-<table width="500">
+<table width="500" class="small-5 small-centered columns">
 <col width="250">
 <col width="250">
 
 <tr><th align="left">Roomnr: </th>
-<td align="right"><%
+<th align="right"><%
 	String user = (String) session.getAttribute("person");
 	
     out.println("<input type=\"hidden\" name=\"user\" value=" + user + ">");
 	String rnumber = Integer.toString(MasterServlet.getSroomnumber());
 	out.println("<input type=\"hidden\" name=\"broomnumber\" value=" + rnumber + ">");
 	out.println(MasterServlet.getSroomnumber());
-%></td></tr>
+%></th></tr>
 
 <tr>
 <th align="left">Bookingstart</th>
@@ -149,8 +164,8 @@ function Bookingueberpruefung (){
 			     </select></th></tr>
 
 <tr>
-<th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="FinishBooking"><input type="reset" value="Cancel"></th>
+<th align="right"><input type="submit" name="submit" value="FinishBooking" class="button small"></th>
+<th align="left"><input type="reset" value="Cancel" class="button small"></th>
 </tr>
 </table>
 </form>

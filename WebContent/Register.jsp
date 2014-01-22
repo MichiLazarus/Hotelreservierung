@@ -6,10 +6,17 @@
 <title>Register</title>
 
 <style type="text/css">
-h1 {color:#3399CC; font-size:42px;}
-body {background-color:#CCC; margin-left:100px; margin-right:100px; font-size:20px;}
+h1 {color:#FFD801; font-size:48px;}
+body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
 div.abstand {margin-top:150px;}
+#Kopfzeile {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; border-radius: 10px; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; margin-top:30px;}
+#Kopfzeile1 {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; border:0px;}
+#Seiteninfo {margin-left:auto; margin-right:auto;}
 </style>
+
+<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
 
 <script type="text/javascript">
 function Formularüberprüfung () {
@@ -66,29 +73,35 @@ function Formularüberprüfung () {
 </head>
 
 <body>
-<table width="900">
-<col width="250">
-<col width="650">
-<tr>
-<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
-<th align="left"><h1>Orbit Hotel</h1></th>
-</tr>
+<div id="Kopfzeile">
+<table width="900" id="Kopfzeile1">
+	<col width="150">
+	<col width="750">
+	<tr>
+		<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
+		<th align="left"><h1>Orbit Hotel</h1></th>
+	</tr>
 </table>
-<hr>
+</div>
+<hr><br>
 
-<table width="100%" cellpadding="8">
-<col width=*>
-<col width=*>
+<table width="90%" id="Seiteninfo">
+<col width=350>
+<col width=650>
 <tr>
 <th align="left">Register</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back"/></a></th>
+<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back" class="button small"/></a></th>
+</tr>
+<tr>
+<td>
+Please enter your register data:
+</td>
+<td></td>
 </tr>
 </table>
 
-<p>Please enter your register data:</p>
-
 <form name="register" action="MasterServlet" method="post" onsubmit="return Formularüberprüfung()">
-<table width="500">
+<table width="500" style="padding-top: 0.1rem;" class="small-5 small-centered columns">
 <col width="250">
 <col width="250">
 
@@ -129,7 +142,7 @@ function Formularüberprüfung () {
 </tr>
 <tr>
 <th align="left"></th>
-<th align="left"><input type="submit" name="submit" value="Register"><input type="reset" value="Cancel"></th>
+<th align="left"><input type="submit" name="submit" value="Register" class="button small"> <input type="reset" value="Cancel" class="button small"></th>
 </tr>
 </table>
 </form>

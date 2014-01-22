@@ -6,156 +6,136 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>AnalystInterface</title>
 <style type="text/css">
-h1 {
-	color: #3399CC;
-	font-size: 42px;
-}
-
-body {
-	background-color: #CCC;
-	margin-left: 100px;
-	margin-right: 100px;
-	font-size: 20px;
-}
-
-div.abstand {
-	margin-top: 150px;
-}
-
-div.abstand2 {
-	margin-top: 50px;
-}
+h1 {color:#FFD801; font-size:48px;}
+body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
+div.abstand {margin-top:150px;}
+#Kopfzeile {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; border-radius: 10px; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; margin-top:30px;}
+#Kopfzeile1 {background-image:url("Kopfzeile-Schwarz.png");background-repeat:repeat-x; font-family: 'Hammersmith One'; margin-left:5rem; margin-right:5rem; border:0px;}
+#Seiteninfo {margin-left:auto; margin-right:auto;}
+#Tabellenposition {margin-left:10%; margin-right:10%;}
 </style>
+
+<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
+
+<script type="text/javascript">
+
+function ShowRatingÜberprüfung () {
+	if ((document.showrating.roomnumber.value == "") || isNaN(document.showrating.roomnumber.value)){
+	    alert("Please enter a roomnumber!");
+	    document.showrating.roomnumber.focus();
+	    return false;
+	}
+}
+</script>
+
 </head>
 
 <body>
+<div id="Kopfzeile">
+<table width="900" id="Kopfzeile1">
+	<col width="150">
+	<col width="750">
+	<tr>
+		<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
+		<th align="left"><h1>Orbit Hotel</h1></th>
+	</tr>
+</table>
+</div>
+<hr>
+
+<table width="90%" id="Seiteninfo">
+<col width=350>
+<col width=650>
+	<tr>
+		<th align="left">Analyst</th>
+		<th align="right">
+		<a href="index.jsp"><input type="button" value="Logout" name="Logout" class="button small"/></a>
+		</th>
+	</tr>
+</table>
+
+
+<form name="showrating" action="MasterServlet" method="post" onsubmit="return ShowRatingÜberprüfung()">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;" id="Tabellenposition">
+<tr>
+<th align="left">Show Rating</th>
+<th></th>
+</tr>
+<tbody>
+<tr>
+<th align="left">Room number:</th>
+<th><input type="text" name="roomnumber" size="22" maxlength="40"></th>
+</tr>
+
+</tbody>
+<tfoot style="background-color: #B6B6B4">
+<tr>
+<th></th>
+<th align="center"><input type="submit" name="submit" value="Show Rating" class="button tiny"></th>
+</tr>
+</tfoot>
+</table>
+</form>
+
+
+
+<form name="showallrooms" action="AnalystShowAllRooms.jsp" method="post">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;" id="Tabellenposition">
+	<tr>
+		<th align="left">Show all Rooms</th><th></th>
+	</tr>
+<tfoot style="background-color: #B6B6B4">
+	<tr>
+		<th></th>
+		<th><input type="submit" name="submit" value="Show all Rooms" class="button tiny"></th>
+	</tr>
+</tfoot>
+</table>
+</form>
+
+<form name="ShowStatistic" action="MasterServlet" method="post">
+<table width="900" border="1" rules="groups" cellpadding="8" id="Tabellenposition">
+	<tr>
+		<th></th>
+		<th align="center">Show Statistic</th>
+		<th></th>
+	</tr>
+<tbody>
+	<tr>
+		<th align="center">Season Statistic</th>
+		<th align="center">Price Statistic</th>
+		<th align="center">Occupancy Statistic</th>
+	</tr>								
+	<tr>
+		<td align="left">Year: </td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><select name="year">
+				 <option value="2014">2014</option>
+				 <option value="2015">2015</option>
+				 <option value="2016">2016</option>
+		</select></td>
+		<td></td>
+		<td></td>
+	
+</tbody>
+<tfoot style="background-color: #B6B6B4">
+	<tr>
+		<td style="text-align:center;"><input type="submit" name="submit" value="SeasonStatistic" class="button tiny"></td>
+		<td style="text-align:center;"><input type="submit" name="submit" value="PriceStatistic" class="button tiny"></td>
+		<td style="text-align:center;"><input type="submit" name="submit" value="OccStatistic" class="button tiny"></td>						
+	</tr>
+</tfoot>
+</table>
+</form>
+
 <script type="text/javascript">
-alert("Price Offer failed");
+alert("Create Price Offer operation failed!");
 </script>
-	<f:view>
-		<table width="900">
-			<col width="250">
-			<col width="650">
-			<tr>
-				<th align="left"><img alt="Logo" src="Logo.png" width="100" /></th>
-				<th align="left"><h1>Orbit Hotel</h1></th>
-			</tr>
-		</table>
-		<hr>
 
-		<h:form>
-			<table width="100%" cellpadding="8">
-				<col width=*>
-				<col width=*>
-				<tr>
-					<th align="left">Analyst</th>
-					<th align="right">
-					<a href="index.jsp"><input type="button" value="Logout" name="Logout"/></a>
-					</th>
-				</tr>
-			</table>
-		</h:form>
-
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show Rating</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
-
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show Statistic</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Show Statistic: <h:selectOneMenu
-										id="statistic" value="">
-										<f:selectItem id="item1" itemLabel="SeasonStatistic"
-											itemValue="1" />
-										<f:selectItem id="item2" itemLabel="OccupancyStatistic"
-											itemValue="2" />
-										<f:selectItem id="item3" itemLabel="CustomerStatistic"
-											itemValue="3" />
-									</h:selectOneMenu> <h:message for="roomnumber" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
-
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Make Price Offer</th>
-						</tr>
-						<tbody>
-							<tr>
-								<th align="center">Roomnumber: <h:inputText id="roomnumber"
-										value="" /> <h:message for="roomnumber" errorClass="error" />
-									Price: <h:inputText id="priceoffer" value="" /> <h:message
-										for="priceoffer" errorClass="error" />
-								</th>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Offer" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
-
-		<h:form>
-			<div class="abstand2">
-				<center>
-					<table width="900" border="1" rules="groups" cellpadding="8">
-						<tr>
-							<th align="center">Show all Rooms</th>
-						</tr>
-						<tbody>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th align="center"><h:commandButton value="Show" /></th>
-							</tr>
-						</tfoot>
-					</table>
-				</center>
-			</div>
-		</h:form>
-
-	</f:view>
 </body>
 </html>

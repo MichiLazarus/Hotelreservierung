@@ -280,14 +280,9 @@ public class Hotelmanagement {
 		
 	}
 	
-	public String ShowRating(int roomnumber){
-		
+	public String SetRating(int roomnumber){
 		roomlist = roomDAO.getRoomlist();
-		
-		
-		
-//		if(session instanceof Analyst || session instanceof Hotelier){
-			
+
 			for(Room room : roomlist){
 				
 				if(room.getRoomnumber() == roomnumber){
@@ -295,9 +290,19 @@ public class Hotelmanagement {
 				}
 			}
 			return "Could not find this room";
-		}
-//		return "You do not have the permission to watch ratings";
-//	}
+	}
+	
+	public boolean ShowRating(int roomnumber){
+		roomlist = roomDAO.getRoomlist();
+
+			for(Room room : roomlist){
+				
+				if(room.getRoomnumber() == roomnumber){
+					return true;
+				}
+			}
+			return false;
+	}
 	
 	
 	//Hotelier
