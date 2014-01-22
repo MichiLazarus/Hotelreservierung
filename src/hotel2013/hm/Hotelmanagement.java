@@ -105,7 +105,7 @@ public class Hotelmanagement {
 				bookinglist = bookingDAO.getBookinglist();
 				
 				int [][] season= new int [2][12];
-				System.out.println("test");
+				System.out.println("test");				
 				
 				for(Booking booking : bookinglist){
 					Date start = booking.getBookingstart();
@@ -113,6 +113,7 @@ public class Hotelmanagement {
 					timeref.setTime(start);
 					int year = timeref.get(Calendar.YEAR);
 					int month = timeref.get(Calendar.MONTH) +1;
+					
 					System.out.println(month);
 					if(refyear == year){
 						if(month == 1){
@@ -165,6 +166,7 @@ public class Hotelmanagement {
 						}
 					}
 				}
+				
 				return season;
 		}
 	
@@ -172,7 +174,7 @@ public class Hotelmanagement {
 		//if(session instanceof Analyst){
 				bookinglist = bookingDAO.getBookinglist();
 				
-				double [] pricestat= new double [12];
+				double [] pricestat = new double [36];
 				System.out.println("test");
 				
 				for(Booking booking : bookinglist){
@@ -185,39 +187,76 @@ public class Hotelmanagement {
 					if(refyear == year){
 						if(month == 1){
 							pricestat[0] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[12] += 1;
+							else pricestat[13] += 1;
+							
 						}
 						else if(month == 2){
 							pricestat[1] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[14] += 1;
+							else pricestat[15] += 1;
 						}
 						else if(month == 3){
 							pricestat[2] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[16] += 1;
+							else pricestat[17] += 1;
 						}
 						else if(month == 4){
 							pricestat[3] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[18] += 1;
+							else pricestat[19] += 1;
 						}
 						else if(month == 5){
 							pricestat[4] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[20] += 1;
+							else pricestat[21] += 1;
 						}
 						else if(month == 6){
 							pricestat[5] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[22] += 1;
+							else pricestat[23] += 1;
 						}
 						else if(month == 7){
 							pricestat[6] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[24] += 1;
+							else pricestat[25] += 1;
 						}
 						else if(month == 8){
 							pricestat[7] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[26] += 1;
+							else pricestat[27] += 1;
 						}
 						else if(month == 9){
 							pricestat[8] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[28] += 1;
+							else pricestat[29] += 1;
 						}
 						else if(month == 10){
 							pricestat[9] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[30] += 1;
+							else pricestat[31] += 1;
 						}
 						else if(month == 11){
 							pricestat[10] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[32] += 1;
+							else pricestat[33] += 1;
 						}
 						else if(month == 12){
 							pricestat[11] += booking.getMoney();
+							if(booking.getPayment().equals("Bar"))
+								pricestat[34] += 1;
+							else pricestat[35] += 1;
 						}
 					}
 				}
@@ -228,12 +267,18 @@ public class Hotelmanagement {
 		roomlist = roomDAO.getRoomlist();
 		bookinglist = bookingDAO.getBookinglist();
 		
-		int ocstat [][] = new int [roomlist.size()][2];
+		int ocstat [][] = new int [roomlist.size()+1][3];
 		int i = 0;
-		int a = 0;
+		String equipment;
 
 		for ( Room room : roomlist){
 			ocstat [i][0] = room.getRoomnumber();
+			equipment = room.getEquipment();
+			
+			if(equipment.equals("Superior Suite")) ocstat[i][2] = 1;
+				else if(equipment.equals("Business Suite")) ocstat[i][2] = 2;
+				else if(equipment.equals("High Class Room")) ocstat[i][2] = 3;
+				else if(equipment.equals("Economy Class Room")) ocstat[i][2] = 4;
 			++i;
 		}
 		for (int b = 0; b < i ; b++ ){
@@ -245,8 +290,8 @@ public class Hotelmanagement {
 			}
 		}
 		}
-			
-		
+		ocstat [roomlist.size()][0] = i;
+
 		return ocstat;
 		}
 

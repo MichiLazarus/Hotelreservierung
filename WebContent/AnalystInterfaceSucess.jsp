@@ -58,7 +58,7 @@ function ShowRatingÜberprüfung () {
 
 
 <form name="showrating" action="MasterServlet" method="post" onsubmit="return ShowRatingÜberprüfung()">
-<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;" id="Tabellenposition">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:center;" id="Seiteninfo">
 <tr>
 <th align="left">Show Rating</th>
 <th></th>
@@ -82,7 +82,7 @@ function ShowRatingÜberprüfung () {
 
 
 <form name="showallrooms" action="AnalystShowAllRooms.jsp" method="post">
-<table width="350"  border="1" rules="groups" cellpadding="8" style="float:left;" id="Tabellenposition">
+<table width="350"  border="1" rules="groups" cellpadding="8" style="float:center;" id="Seiteninfo">
 	<tr>
 		<th align="left">Show all Rooms</th><th></th>
 	</tr>
@@ -96,32 +96,28 @@ function ShowRatingÜberprüfung () {
 </form>
 
 <form name="ShowStatistic" action="MasterServlet" method="post">
-<table width="900" border="1" rules="groups" cellpadding="8" id="Tabellenposition">
+<table width="900" border="1" rules="groups" cellpadding="8" style="float:center;" id="Seiteninfo">
 	<tr>
 		<th></th>
 		<th align="center">Show Statistic</th>
 		<th></th>
 	</tr>
-<tbody>
 	<tr>
-		<th align="center">Season Statistic</th>
-		<th align="center">Price Statistic</th>
-		<th align="center">Occupancy Statistic</th>
-	</tr>								
-	<tr>
-		<td align="left">Year: </td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
+		<td align="right">Year: </td>
 		<td><select name="year">
 				 <option value="2014">2014</option>
 				 <option value="2015">2015</option>
 				 <option value="2016">2016</option>
 		</select></td>
-		<td></td>
-		<td></td>
+	</tr>
 	
+<tbody>
+	<tr>
+		<th align="center">Season Statistic</th>
+		<th align="center">Price Statistic</th>
+		<th align="center">Occupancy Statistic</th>
+	</tr>
+	<tr><td></td><td></td><td></td></tr>							
 </tbody>
 <tfoot style="background-color: #B6B6B4">
 	<tr>
