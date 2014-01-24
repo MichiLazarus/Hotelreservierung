@@ -15,7 +15,7 @@ import hotel2013.hm.users.Analyst;
 import hotel2013.hm.users.Customer;
 import hotel2013.hm.users.Hotelier;
 import hotel2013.hm.users.Person;
-
+//test
 public class Hotelmanagement {
 	
 	private Person session = null;
