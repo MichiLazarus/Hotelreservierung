@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2
+ */
 package hotel2013.hm;
 
 import hotel2013.hm.dao.PersonDAO;
@@ -23,6 +26,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MasterServlet
+ * Neues Objekt der Klasse Hotelmanagement wird erstellt.
  */
 @SuppressWarnings("serial")
 @WebServlet("/MasterServlet")
@@ -37,24 +41,65 @@ public class MasterServlet extends HttpServlet {
 	private static double[] pstat;
 	private static int[][] ostat;
 	
+	/**
+	 * Sendet die Raumnummer an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Raumnummer
+	 */
 	public static int getSroomnumber(){
 		return sroomnumber;
 	}
+	
+	/**
+	 * Sendet den Preis an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Preis
+	 */
 	public static double getSprice() {
-		return sprice;
+		return sprice;	
 	}
+	
+	/**
+	 * Sendet das Equipment an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Equipment
+	 */
 	public static String getSequipment() {
 		return sequipment;
 	}
+	
+	/**
+	 * Sendet Anzahl der Personen an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Anzahl der Personen
+	 */
 	public static int getSnop() {
 		return snop;
 	}
+	
+	/**
+	 * Sendet Statistik ueber Buchungen an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return mehrdimensionales Array mit Statisik ueber Buchungen
+	 */
 	public static int[][] getSstat(){
 		return sstat;
 	}
+	
+	/**
+	 * Sendet Statistik ueber Einnahmen an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Array mit Statisik ueber Einnahmen
+	 */
 	public static double[] getPstat(){
 		return pstat;
 	}
+	
+	/**
+	 * Sendet Statistik ueber Buchungen eines bestimmten Zimmers an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return mehrdimensionales Array mit Statistik ueber Buchungen eines bestimmten Zimmers
+	 */
 	public static int[][] getOstat(){
 		return ostat;
 	}
@@ -62,6 +107,11 @@ public class MasterServlet extends HttpServlet {
 	
 	static String user;
 	
+	/**
+	 * Sendet User an die jsp-Seite, wo diese Methode auferufen wird.
+	 * 
+	 * @return user
+	 */
 	public static String getUser(){
 		return user;
 	}
@@ -70,17 +120,40 @@ public class MasterServlet extends HttpServlet {
 	
 	public static ArrayList <Room> roomlist = new ArrayList <Room>();
 	private static ArrayList<Booking> booklist =  new ArrayList <Booking>();
-
+	
+	/**
+	 * Sendet Buchungsliste an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Arrayliste mit allen Buchungen
+	 */
 	public static ArrayList<Booking> getBooklist(){
-		return booklist;
-		
+		return booklist;	
 	}
+	
+	/**
+	 * Sendet Liste mit allen Zimmern an die jsp-Seite, wo diese Methode aufgerufen wird.
+	 * 
+	 * @return Arrayliste mit allen Zimmern
+	 */
 	public static ArrayList <Room> getRoomlist(){
 		return roomlist;
 	}
 
 	HttpSession session;
 	
+	/**
+	 * doPost
+	 * Mit request.getParameter die vom jsp uebergebenen Werte uebernommen.
+	 * Da wir mehrere Submit-Button haben, holen wir uns die Werte vom jsp mittels request.getParameter("submit").
+	 * Danach schauen wir welcher value der gedrueckte Submit-Button entspricht.
+	 * Wir uebergeben dann mit request-getParameter() alle vorhandenen Werte des Formulars der bestimmten jsp-Seite an die Klasse Hotelmanagement.
+	 * Dort werden die benoetigte Methode dann aufgerufen. 
+	 * Mit der Variable check werden vom HotelManagement zurueckgelieferte jsp-Seiten uebernommen und in Anschluss daran aufgerufen.
+	 * Am Anfang wird eine neue Session erstellt, falls noch keine Session vorhanden ist. 
+	 * Mit session.setAttribut(String name, Objekt value) bindet man "name" mit dem Objekt value an die Sitzung. 
+	 * Mit session.getAttribute(String name) wird das mit "name" verbundene Objekt geliefert.
+	 * parse wird verwendet zur Konventierung in ein anderes Format.
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		session = null;

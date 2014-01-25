@@ -173,8 +173,8 @@ public class Hotelmanagement {
 	
 	/**
 	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
-	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein mehrdimensionales Array erstellt.
-	 * Darin werden die Anzahl der Buchungen, sowie die Personenanzahl reingeschrieben für jedes einzelne Monat.
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benoetigt. Es wird ein mehrdimensionales Array erstellt.
+	 * Darin werden die Anzahl der Buchungen, sowie die Personenanzahl reingeschrieben fuer jedes einzelne Monat.
 	 * Nur fuer den Analysten.
 	 * 
 	 * @param refyear
@@ -254,7 +254,7 @@ public class Hotelmanagement {
 	
 	/**
 	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
-	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein Array erstellt.
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benoetigt. Es wird ein Array erstellt.
 	 * Darin werden die Einnahmen pro Monat reingeschrieben.
 	 * Nur fuer den Analysten.
 	 * 
@@ -357,8 +357,8 @@ public class Hotelmanagement {
 	
 	/**
 	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
-	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein mehrdimensionales Array erstellt.
-	 * Darin werden die Anzahl der Buchungen für ein bestimmtes Zimmer reingeschrieben.
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benoetigt. Es wird ein mehrdimensionales Array erstellt.
+	 * Darin werden die Anzahl der Buchungen fuer ein bestimmtes Zimmer reingeschrieben.
 	 * Nur fuer den Analysten.
 	 * 
 	 * @param refyear
@@ -398,7 +398,7 @@ public class Hotelmanagement {
 		}
 
 	/**
-	 * Hier koennen Preisvrschlaege vom Analysten für ein bestimmtes Zimmer vorgeschlagen werden.
+	 * Hier koennen Preisvorschlaege vom Analysten fuer ein bestimmtes Zimmer vorgeschlagen werden.
 	 * Nur fuer den Analysten.
 	 * 
 	 * @param priceOffer
@@ -441,10 +441,11 @@ public class Hotelmanagement {
 	}
 	
 	/**
+	 * Rating setzen.
 	 * 
 	 * @param roomnumber
-	 * 
-	 * @return "Could not find this room" 
+	 * Raumnummer
+	 * @return "Could not find this room" oder Rating
 	 */
 	public String SetRating(int roomnumber){
 		roomlist = roomDAO.getRoomlist();
@@ -459,7 +460,7 @@ public class Hotelmanagement {
 	}
 	
 	/**
-	 * Rating für ein bestimmtes Zimmer wird angezeigt.
+	 * Rating fuer ein bestimmtes Zimmer wird angezeigt.
 	 * 
 	 * @param roomnumber
 	 * Die Raumnummer, fuer die das Rating angezeigt werden soll
@@ -477,6 +478,22 @@ public class Hotelmanagement {
 			return false;
 	}
 	
+	/**
+	 * Der Hotelier kann hier ein neues Zimmer erstellen.
+	 * Nur fuer den Hotelier.
+	 * 
+	 * @param roomnumber
+	 * Raumnummer
+	 * @param nop
+	 * Anzahl der Personen
+	 * @param equipment
+	 * Equipment
+	 * @param price
+	 * Preis
+	 * @param rating
+	 * Rating
+	 * @return passende jsp-Seite
+	 */
 	//Hotelier
 	public String NewOffer(int roomnumber, int nop, String equipment, double price, String rating){
 //		if(session instanceof Hotelier){
@@ -492,6 +509,23 @@ public class Hotelmanagement {
 //		return "HotelierInterfaceFail.jsp";
 //	}
 	
+	/**
+	 * Zum Aendern der Inforamtionen (Anzahl der Personen, Equipement, Preis und/oder Rating eines Zimmers).
+	 * Benoetigt dafuer die Liste aller Raueme aus dem RoomDAO. Aus der Liste wird dann das richtige Zimmer geholt zum editieren.
+	 * Nur fuer den Hotelier.
+	 * 
+	 * @param roomnumber
+	 * Raumnummer
+	 * @param nop
+	 * Anzahl der Personen
+	 * @param equipment
+	 * Equipment
+	 * @param price
+	 * Preis des Zimmers
+	 * @param rating
+	 * Rating des Zimmers
+	 * @return "Edit successful" oder "Room not found"
+	 */
 	public String EditRoom(int roomnumber, int nop, String equipment, double price, String rating){
 	
 		roomlist = roomDAO.getRoomlist();
@@ -511,8 +545,14 @@ public class Hotelmanagement {
 	
 	
 	//Customer
-	
-	
+	/**
+	 * Loescht eine Buchung.
+	 * Nur fuer den Customer.
+	 * 
+	 * @param xbookingnumber
+	 * Die Buchungsnummer
+	 * @return passende jsp-Seite
+	 */
 	public String CancelBooking(int xbookingnumber){
 		
 		Booking booking = bookingDAO.getBookingbyBookingnumber(xbookingnumber);
@@ -528,6 +568,16 @@ public class Hotelmanagement {
 				}
 	}
 	
+	/**
+	 * Hinzufuegen eines Ratings.
+	 * Nur fuer den Customer.
+	 * 
+	 * @param bookingnumber
+	 * Die Buchungsnummer, zu der ein Rating geschireben werden soll
+	 * @param rating
+	 * Der Rating-Text
+	 * @return passende jsp-Seite
+	 */
 	public String RateBooking(int bookingnumber , String rating){
 		System.out.println(bookingnumber + rating);
 //		if(session instanceof Customer){
@@ -546,6 +596,27 @@ public class Hotelmanagement {
 //		return "CustomerInterfaceFail.jsp";
 //	}
 	
+
+	/**
+	 * Neue Buchung eines Zimmers.
+	 * Nur fuer den Customer.
+	 * 
+	 * @param bookingstart
+	 * Beginndatum der Buchung
+	 * @param bookingend
+	 * Enddatum der Buchung
+	 * @param payment
+	 * Zahlungsart (Bar oder Kreditkarte)
+	 * @param bnop
+	 * Anzahl der Personen
+	 * @param broomnumber
+	 * Raumnummer, die gebucht wird
+	 * @param user
+	 * Name vom User
+	 * @param day
+	 * Anzahl der gebuchten Naechte in Millisekunden
+	 * @return passende jsp-Seite
+	 */
 	public String Book(Date bookingstart, Date bookingend , String payment, int bnop, int broomnumber, String user,long day){
 		
 		bookinglist = bookingDAO.getBookinglist();
@@ -600,6 +671,20 @@ public class Hotelmanagement {
 	
 	}
 	
+	/**
+	 * Zeigt die Zimmer an, die den Suchkriterien entsprechen. Holt sich aus dem RoomDAO die Liste aller Zimmer.
+	 * Schaut in der Liste welche Zimmer mit den Suchkriterien uebereinstimmen und fuegt diese in eine Arrayliste hinzu. 
+	 * Man kann nach Preis, Equipement und/oder Anzahl der Personen suchen.
+	 * Nur fuer den Customer.
+	 * 
+	 * @param price
+	 * Der Preis des Zimmers
+	 * @param equipment
+	 * Das Equipment des Zimmers
+	 * @param nop
+	 * Anzahl der Personen
+	 * @return Arraylist mit den Raeumen, die den Suchergebnissen entsprechen
+	 */
 	public ArrayList<Room> SearchRoom(double price , String equipment, int nop ){
 		roomlist = roomDAO.getRoomlist();
 		ArrayList <Room> rlist = new ArrayList<Room>();

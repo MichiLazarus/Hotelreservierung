@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2
+ */
 package hotel2013.hm.dao;
 
 
@@ -28,16 +31,17 @@ public class BookingDAO {
 	private ObjectOutputStream objOutput;
 	private File f;
 
-	/*
-	 * Constructor for Serialization with Path
+	/**
+	 * Konstruktor fuer die Serialisierung mit Path
+	 * @param Path
 	 */
 	public BookingDAO(String Path) {
 		this.Path = Path;
 		this.readFile();
 	}
 
-	/*
-	 * to read all Bookingobjects in a file and save them into a ArrayList
+	/**
+	 * Zum Lesen aller Buchungsobjekte in einem File und zum Speichern in eine Arraylist
 	 */
 	@SuppressWarnings("unchecked")
 	public void readFile() {
@@ -63,9 +67,9 @@ public class BookingDAO {
 		}
 
 	}
-
-	/*
-	 * method to create the file and save all Bookingobjects in there
+	
+	/**
+	 * Methode zum erstellen des Files und zum Abspeichern aller Buchungsobjekte in das File
 	 */
 	private void saveFile() {
 
@@ -78,18 +82,22 @@ public class BookingDAO {
 
 		}
 	}
-
-	/*
-	 * method that returns the whole Bookinglist
+	
+	/**
+	 * Methode, die die ganze Buchungsliste retourniert.
+	 * 
+	 * @return Liste aller Buchungen
 	 */
 	public ArrayList<Booking> getBookinglist() {
 		return this.Bookinglist;
-
 	}
 
-	/*
-	 * method that returns an Bookingobject by searching for it with the Bookingname
-	 * in the BookingobejctArraylist
+	/**
+	 * Methode, die ein bestimmtes Buchungsobjekt retourniert, indem es per Buchungsnummer in der Buchungsliste gesucht wird.
+	 * 
+	 * @param x
+	 * Buchungsnummer
+	 * @return Buchungsobjekt oder null
 	 */
 	public Booking getBookingbyBookingnumber(int x){
 		for (Booking booking : this.Bookinglist) {
@@ -102,6 +110,12 @@ public class BookingDAO {
 		return null;
 	}
 	
+	/**
+	 * Methode zum Abspeichern einer Buchung. Neue Buchung wird in die Arrayliste aller Buchungen hinzugefuegt.
+	 * 
+	 * @param booking
+	 * Objekt booking
+	 */
 	public void saveBooking(Booking booking) {
 		
 		if (this.getBookingbyBookingnumber(booking.getBookingnumber()) == null) {
@@ -114,11 +128,16 @@ public class BookingDAO {
 			System.out.println("sucess");
 		} else {
 			System.out.println("fail");
-		}
-		
-			
+		}		
 	}
 	
+	/**
+	 * Methode zum Holen eines Zimmers anhand der Buchungsnummer.
+	 * 
+	 * @param bookingnumber
+	 * Buchungsnummer
+	 * @return Zimmernummer oder 0
+	 */
 	public int getRoombyBookingnumber(int bookingnumber){
 		for( Booking booking : Bookinglist){
 			if (booking.getBookingnumber() == bookingnumber){
@@ -128,6 +147,13 @@ public class BookingDAO {
 		return 0;
 	}
 	
+	/**
+	 * Methode zum Holen eines Users anhand der Buchungsnummer.
+	 * 
+	 * @param number
+	 * Buchungsnummer
+	 * @return User oder "fail"
+	 */
 	public String getUserbyBookingnumber(int number){
 		for(Booking booking : Bookinglist){
 			if (booking.getBookingnumber() == number ){
@@ -137,6 +163,13 @@ public class BookingDAO {
 		return "fail";
 	}
 	
+	/**
+	 * Methode zum Holen der Buchungen eines bestimmten Users.
+	 * 
+	 * @param user
+	 * User, von dem die Buchungen geholt werden sollen.
+	 * @return Arraylist mit den Buchungen
+	 */
 	public ArrayList<Booking> getBookingsofUsername(String user){
 		ArrayList<Booking> Blist = new ArrayList<Booking>();
 		for (Booking booking : Bookinglist){
@@ -149,7 +182,12 @@ public class BookingDAO {
 		return Blist;
 	}
 
-
+	/**
+	 * Methode zum Loeschen einer Buchung. Buchung wird aus der Arraylist entfernt.
+	 * 
+	 * @param booking
+	 * Buchungsobjekt
+	 */
 	public void deleteBooking(Booking booking)  {
 		
 		boolean bookingExists = false;
@@ -171,12 +209,10 @@ public class BookingDAO {
 		
 	}
 
+	/**
+	 * Methode zum Loeschen der ganzen Buchungsliste.
+	 */
 	public void deleteBookinglist() {
 		this.Bookinglist.clear();
-	}
-	
-
-
-
-	
+	}	
 }

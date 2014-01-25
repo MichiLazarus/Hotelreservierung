@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2
+ */
 package hotel2013.hm;
 
 
@@ -7,6 +10,10 @@ import java.text.SimpleDateFormat;
 
 import hotel2013.hm.data.Room;
 
+/**
+ * Eine Test-Klasse, die wir erstellt haben, zum Testen des Programms.
+ *
+ */
 public class test {
 
 	public static void main(String[] args) {

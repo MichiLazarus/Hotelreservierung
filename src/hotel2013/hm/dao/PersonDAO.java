@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2
+ */
 package hotel2013.hm.dao;
 
 
@@ -28,16 +31,17 @@ public class PersonDAO {
 	private ObjectOutputStream objOutput;
 	private File f;
 
-	/*
-	 * Constructor for Serialization with Path
+	/**
+	 * Konstruktor fuer die Serialisierung mit Path
+	 * @param Path
 	 */
 	public PersonDAO(String Path) {
 		this.Path = Path;
 		this.readFile();
 	}
 
-	/*
-	 * to read all Personobjects in a file and save them into a ArrayList
+	/**
+	 * Zum Lesen aller Personenobjekte in einem File und zum Speichern in eine Arraylist
 	 */
 	@SuppressWarnings("unchecked")
 	public void readFile() {
@@ -64,8 +68,8 @@ public class PersonDAO {
 
 	}
 
-	/*
-	 * method to create the file and save all Personobjects in there
+	/**
+	 * Methode zum erstellen des Files und zum Abspeichern aller Personenobjekte in das File
 	 */
 	private void saveFile() {
 
@@ -79,17 +83,21 @@ public class PersonDAO {
 		}
 	}
 
-	/*
-	 * method that returns the whole Personlist
+	/**
+	 * Methode, die die ganze Personenliste retourniert.
+	 * 
+	 * @return Liste aller Personen
 	 */
 	public ArrayList<Person> getPersonlist() {
 		return this.Personlist;
-
 	}
 
-	/*
-	 * method that returns an Personobject by searching for it with the Personname
-	 * in the PersonobejctArraylist
+	/**
+	 * Methode, die ein bestimmtes Personenobjekt retourniert, indem es per Usernamen in der Personenliste gesucht wird.
+	 * 
+	 * @param username
+	 * Username
+	 * @return Personenojekt oder null
 	 */
 	public static Person getPersonbyUsername(String username)
 			throws IllegalArgumentException {
@@ -99,10 +107,17 @@ public class PersonDAO {
 				return person;
 			}
 		}
-
 		return null;
 	}
 	
+	/**
+	 * Methode zum Abspeichern einer Person. Neue Person wird in die Arrayliste aller Personen hinzugefuegt.
+	 * 
+	 * @param person
+	 * Objekt person
+	 * @return true, wenn die Person noch nicht existiert und zur Arraylist hinzugefuegt wurde oder false, falls die Person schon existiert
+	 * @throws IllegalArgumentException
+	 */
 	public boolean savePerson(Person person)  throws IllegalArgumentException{
 		
 		if (this.getPersonbyUsername(person.getUsername()) == null) {
@@ -112,12 +127,16 @@ public class PersonDAO {
 			return true;
 		} else {
 			return false;
-		}
-		
-			
+		}		
 	}
 
-
+	/**
+	 * Methode zum Loeschen einer Person. Person wird aus der Arraylist entfernt.
+	 * 
+	 * @param person
+	 * Objekt person
+	 * @throws IllegalArgumentException
+	 */
 	public void deletePerson(Person person) throws IllegalArgumentException {
 		
 		boolean personExists = false;
@@ -135,17 +154,23 @@ public class PersonDAO {
 		
 		if(personExists != true) {
 			throw new IllegalArgumentException("Inserted Person to delete was not found !");
-		}
-		
+		}	
 	}
 
+	/**
+	 * Methode zum Loeschen der ganzen Personenliste.
+	 */
 	public void deletePersonlist() {
 		this.Personlist.clear();
 	}
 	
-
-
-
+	/**
+	 * Methode zum Updaten einer Person.
+	 * 
+	 * @param person
+	 * Objekt person
+	 * @throws IllegalArgumentException
+	 */
 	public void updatePerson(Person person)throws IllegalArgumentException {
 
 		boolean personExists = false;

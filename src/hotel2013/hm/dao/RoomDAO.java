@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2
+ */
 package hotel2013.hm.dao;
 
 
@@ -27,16 +30,17 @@ public class RoomDAO {
 	private ObjectOutputStream objOutput;
 	private File f;
 
-	/*
-	 * Constructor for Serialization with Path
+	/**
+	 * Konstruktor fuer die Serialisierung mit Path
+	 * @param Path
 	 */
 	public RoomDAO(String Path) {
 		this.Path = Path;
 		this.readFile();
 	}
 
-	/*
-	 * to read all Userobjects in a file and save them into a ArrayList
+	/**
+	 * Zum Lesen aller Zimmernobjekte in einem File und zum Speichern in eine Arraylist
 	 */
 	@SuppressWarnings("unchecked")
 	public void readFile() {
@@ -63,8 +67,8 @@ public class RoomDAO {
 
 	}
 
-	/*
-	 * method to create the file and save all Userobjects in there
+	/**
+	 * Methode zum erstellen des Files und zum Abspeichern aller Zimmernobjekte in das File
 	 */
 	private void saveFile() {
 
@@ -78,6 +82,11 @@ public class RoomDAO {
 		}
 	}
 
+	/**
+	 * Methode, die die ganze Zimmernliste retourniert.
+	 * 
+	 * @return Liste aller Zimmer
+	 */
 	/*
 	 * method that returns the whole Roomlist
 	 */
@@ -86,9 +95,12 @@ public class RoomDAO {
 
 	}
 
-	/*
-	 * method that returns an Userobject by searching for it with the username
-	 * in the UserobejctArraylist
+	/**
+	 * Methode, die ein bestimmtes Zimmer retourniert, indem es per Zimernummer in der Zimmernliste gesucht wird.
+	 * 
+	 * @param Roomnumber
+	 * Raumnummer
+	 * @return Zimmerobjekt oder null
 	 */
 	public Room getRoombyRoomnumber(int Roomnumber)
 			throws IllegalArgumentException {
@@ -102,7 +114,15 @@ public class RoomDAO {
 		return null;
 	}
 	
-public String saveRoom(Room room)  throws IllegalArgumentException{
+	/**
+	 * Methode zum Abspeichern eines Zimmers. Neues Zimmer wird in die Arrayliste aller Zimmer hinzugefuegt.
+	 * 
+	 * @param room
+	 * Objekt room
+	 * @return "success", wenn Zimmer(nummer) noch nicht existiert oder "failure", falls Zimmer(nummer) schon existiert
+	 * @throws IllegalArgumentException
+	 */
+	public String saveRoom(Room room)  throws IllegalArgumentException{
 		
 		if (this.getRoombyRoomnumber(room.getRoomnumber()) == null) {
 			System.out.println(room.getRoomnumber() + " saved");
@@ -117,8 +137,14 @@ public String saveRoom(Room room)  throws IllegalArgumentException{
 			
 	}
 
-
-public void deleteRoom(Room room) throws IllegalArgumentException {
+	/**
+	 * Methode zum Loeschen eines Zimmers. Zimmer wird aus der Arraylist entfernt.
+	 * 
+	 * @param room
+	 * Objekt room
+	 * @throws IllegalArgumentException
+	 */
+	public void deleteRoom(Room room) throws IllegalArgumentException {
 		
 		boolean roomExists = false;
 		
@@ -139,12 +165,21 @@ public void deleteRoom(Room room) throws IllegalArgumentException {
 		
 	}
 
+	/**
+	 * Methode zum Loeschen der ganzen Personenliste.
+	 */
 	public void deleteRoomlist() {
 		this.Roomlist.clear();
 	}
 	
-
-public void updateRoom(Room room)throws IllegalArgumentException {
+	/**
+	 * Methode zum Updaten einer Person.
+	 * 
+	 * @param room
+	 * Objekt room
+	 * @throws IllegalArgumentException
+	 */
+	public void updateRoom(Room room)throws IllegalArgumentException {
 
 		boolean personExists = false;
 		
