@@ -173,7 +173,7 @@ public class RoomDAO {
 	}
 	
 	/**
-	 * Methode zum Updaten einer Person.
+	 * Methode zum Updaten eines Zimmers.
 	 * 
 	 * @param room
 	 * Objekt room
