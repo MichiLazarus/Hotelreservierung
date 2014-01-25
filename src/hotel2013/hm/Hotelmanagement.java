@@ -1,3 +1,6 @@
+/**
+ * @author Hotelreservierung Gruppe 8H2 
+ */
 package hotel2013.hm;
 
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ import hotel2013.hm.users.Analyst;
 import hotel2013.hm.users.Customer;
 import hotel2013.hm.users.Hotelier;
 import hotel2013.hm.users.Person;
-//test
+
 public class Hotelmanagement {
 	
 	private Person session = null;
@@ -30,7 +33,25 @@ public class Hotelmanagement {
 	public Hotelmanagement(){
 		
 	}
-			
+	
+	/**
+	 * Registriert einen neuen Customer und wird persistent gespeichert. 
+	 * Zusaetzlich wird geschaut, dass der registrierte Customer ueber 18 Jahre alt ist.
+	 * 
+	 * @param username
+	 * Der eingegebene Username
+	 * @param password
+	 * Das eingegebene Passwort
+	 * @param fullName
+	 * Der eingegebene vollstaendige Name
+	 * @param email
+	 * Die eingegebene E-Mail
+	 * @param sex
+	 * Das eingegebene Geschlecht
+	 * @param birthday
+	 * Das eingegebene Geburtsdatum
+	 * @return passende jsp-Seite
+	 */
 	public String registerC(String username, String password, String fullName, String email, char sex, Date birthday){
 	
 
@@ -48,6 +69,23 @@ public class Hotelmanagement {
 		return "registerfail.jsp";
 	}
 	
+	/**
+	 * Registriert einen neuen Hotelier und wird persistent gespeichert. 
+	 * 
+	 * @param username
+	 * Der eingegebene Username
+	 * @param password
+	 * Das eingegebene Passwort
+	 * @param fullName
+	 * Der eingegebene vollstaendige Name
+	 * @param email
+	 * Die eingegebene E-Mail
+	 * @param sex
+	 * Das eingegebene Geschlecht
+	 * @param birthday
+	 * Das eingegebene Geburtsdatum
+	 * @return passende jsp-Seite
+	 */
 	public String registerH(String username, String password, String fullName, String email, char sex, Date birthday){
 
 		Person newHotelier =  new Hotelier(username, password, fullName, email, sex, birthday);
@@ -57,6 +95,23 @@ public class Hotelmanagement {
 		return "registerfail.jsp";
 	}
 	
+	/**
+	 * Registriert einen neuen Analysten und wird persistent gespeichert. 
+	 * 
+	 * @param username
+	 * Der eingegebene Username
+	 * @param password
+	 * Das eingegebene Passwort
+	 * @param fullName
+	 * Der eingegebene vollstaendige Name
+	 * @param email
+	 * Die eingegebene E-Mail
+	 * @param sex
+	 * Das eingegebene Geschlecht
+	 * @param birthday
+	 * Das eingegebene Geburtstag
+	 * @return passende jsp-Seite
+	 */
 	public String registerA(String username, String password, String fullName, String email, char sex, Date birthday){
 
 		Person newAnalyst =  new Analyst(username, password, fullName, email, sex, birthday);
@@ -65,11 +120,29 @@ public class Hotelmanagement {
 		else
 		return "registerfail.jsp";
 	}
+	
+	/**
+	 * Besorgt die Buchungsliste eines bestimmten Users.
+	 * 
+	 * @param user
+	 * User, dessen Buchungsliste gewuenscht ist
+	 * @return Buchungsliste eines bestimmten Users
+	 */
 	public ArrayList<Booking> getBooklist(String user){
 		ArrayList<Booking> Blist = bookingDAO.getBookingsofUsername(user);
 		return Blist;
 	}
 	
+	/**
+	 * Login. Es wird ueberprueft ob der Username vorhanden ist und ob das Passwort uebereinstimmt.
+	 * Arraylist bookinglist ist dazu da, um bei einem Serverneustart die Buchungsnummer an der richtigen Stelle fortzusetzen.
+	 * 
+	 * @param username
+	 * Der eingegebene Username beim Login
+	 * @param password
+	 * Das eingegebene Passwort beim Login
+	 * @return Objekt person oder null
+	 */
 	public Person login(String username, String password){
 		
 		Person person = personDAO.getPersonbyUsername(username);
@@ -98,7 +171,16 @@ public class Hotelmanagement {
 		return null;
 	}
 	
-	
+	/**
+	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein mehrdimensionales Array erstellt.
+	 * Darin werden die Anzahl der Buchungen, sowie die Personenanzahl reingeschrieben für jedes einzelne Monat.
+	 * Nur fuer den Analysten.
+	 * 
+	 * @param refyear
+	 * Jahr, zu der die Statistik angezeigt werden soll
+	 * @return mehrdimensionale Arraylist mit der zum Jahr passenden Statistik der Buchungen
+	 */
 	//Analyst
 	public int [][]SeasonStatistic(int refyear){
 		//if(session instanceof Analyst){
@@ -170,6 +252,16 @@ public class Hotelmanagement {
 				return season;
 		}
 	
+	/**
+	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein Array erstellt.
+	 * Darin werden die Einnahmen pro Monat reingeschrieben.
+	 * Nur fuer den Analysten.
+	 * 
+	 * @param refyear
+	 * Jahr, zu der die Statistik angezeigt werden soll
+	 * @return Arraylist mit der zum Jahr passenden Statistik der Einnahmen pro Monat
+	 */
 	public double []PriceStatistic(int refyear){
 		//if(session instanceof Analyst){
 				bookinglist = bookingDAO.getBookinglist();
@@ -263,6 +355,16 @@ public class Hotelmanagement {
 				return pricestat;
 		}
 	
+	/**
+	 * Es wird ein gewuenschtes Jahr als Parameter uebergeben und die dazugehoerige Statistik soll angezeigt werden. 
+	 * Dazu wird die Buchungsliste aller Buchungen vom BookingDAO benötigt. Es wird ein mehrdimensionales Array erstellt.
+	 * Darin werden die Anzahl der Buchungen für ein bestimmtes Zimmer reingeschrieben.
+	 * Nur fuer den Analysten.
+	 * 
+	 * @param refyear
+	 * Jahr, zu der die Statistik angezeigt werden soll
+	 * @return mehrdimensionale Arraylist mit der zum Jahr passenden Statistik, wie oft ein bestimmte Zimmer gebucht wurde
+	 */
 	public int [][]OccupancyStatistic(int refyear){
 		roomlist = roomDAO.getRoomlist();
 		bookinglist = bookingDAO.getBookinglist();
@@ -295,10 +397,17 @@ public class Hotelmanagement {
 		return ocstat;
 		}
 
-
-	
+	/**
+	 * Hier koennen Preisvrschlaege vom Analysten für ein bestimmtes Zimmer vorgeschlagen werden.
+	 * Nur fuer den Analysten.
+	 * 
+	 * @param priceOffer
+	 * Der vorgeschlagene Preis
+	 * @param roomnumber
+	 * Die Raumnummer, bei der ein Preisvorschlag gemacht wird
+	 * @return passende jsp-Seite
+	 */
 	public String MakePriceOffer(double priceOffer, int roomnumber){
-
 //		if(session instanceof Analyst){
 			roomlist = roomDAO.getRoomlist();
 			for(Room room : roomlist){
@@ -313,6 +422,12 @@ public class Hotelmanagement {
 //		return "AnalystInterfacePriceofferfail.jsp";
 //	}
 	
+	/**
+	 * Liefert alle erstellten Zimmer.
+	 * Nur fuer den Analysten und den Hotelier.
+	 * 
+	 * @return Arraylist mit allen Zimmern
+	 */
 	//Analyst & Hotelier
 	public ArrayList<Room> ShowAllRooms(){
 		
@@ -325,6 +440,12 @@ public class Hotelmanagement {
 		
 	}
 	
+	/**
+	 * 
+	 * @param roomnumber
+	 * 
+	 * @return "Could not find this room" 
+	 */
 	public String SetRating(int roomnumber){
 		roomlist = roomDAO.getRoomlist();
 
@@ -337,6 +458,13 @@ public class Hotelmanagement {
 			return "Could not find this room";
 	}
 	
+	/**
+	 * Rating für ein bestimmtes Zimmer wird angezeigt.
+	 * 
+	 * @param roomnumber
+	 * Die Raumnummer, fuer die das Rating angezeigt werden soll
+	 * @return true, wenn Raumnummer existiert oder false, falls Raumnummer nicht vorhanden
+	 */
 	public boolean ShowRating(int roomnumber){
 		roomlist = roomDAO.getRoomlist();
 
@@ -348,7 +476,6 @@ public class Hotelmanagement {
 			}
 			return false;
 	}
-	
 	
 	//Hotelier
 	public String NewOffer(int roomnumber, int nop, String equipment, double price, String rating){
