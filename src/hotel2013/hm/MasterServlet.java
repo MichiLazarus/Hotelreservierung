@@ -185,7 +185,7 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 
-		if(rcv.equals("Register")){
+		else if(rcv.equals("Register")){
 			Date birthday = new Date();
 			String status = request.getParameter("status");
 			String username = request.getParameter("username");
@@ -212,7 +212,7 @@ public class MasterServlet extends HttpServlet {
 		}
 
 		
-		if(rcv.equals("SeasonStatistic")){
+		else if(rcv.equals("SeasonStatistic")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
@@ -226,7 +226,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("PriceStatistic")){
+		else if(rcv.equals("PriceStatistic")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
@@ -240,7 +240,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("OccStatistic")){
+		else if(rcv.equals("OccStatistic")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
@@ -254,23 +254,32 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("MakePriceOffer")){
+		else if(rcv.equals("MakePriceOffer")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
 				String xpriceoffer = request.getParameter("priceoffer");
 				String xroomnumber = request.getParameter("rnumber");
+
+				try{
 				double priceoffer = Double.parseDouble(xpriceoffer);
-				
+				if(priceoffer > 0){
 				int roomnumber = Integer.parseInt(xroomnumber);
 				check = x.MakePriceOffer(priceoffer, roomnumber);
+				}
+				else check = "AnalystShowAllRoomsFail.jsp";
+				}
+				catch(NumberFormatException e){
+					check = "AnalystShowAllRoomsFail.jsp";
+				}
+				
 
 			}else{
 				check = "index.jsp";
 			}
 		}
 		
-		if(rcv.equals("Show all Rooms")){
+		else if(rcv.equals("Show all Rooms")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Hotelier){
@@ -283,7 +292,7 @@ public class MasterServlet extends HttpServlet {
 			
 		}
 		
-		if(rcv.equals("Show All Rooms")){
+		else if(rcv.equals("Show All Rooms")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Analyst){
@@ -296,7 +305,7 @@ public class MasterServlet extends HttpServlet {
 			
 		}
 		
-		if(rcv.equals("ShowRating")){
+		else if(rcv.equals("ShowRating")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			
@@ -310,7 +319,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("Show Rating")){
+		else if(rcv.equals("Show Rating")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			
@@ -324,7 +333,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("Create")){
+		else if(rcv.equals("Create")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Hotelier){
@@ -343,7 +352,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("SearchRoom")){
+		else if(rcv.equals("SearchRoom")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -364,7 +373,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("EditRoom")){
+		else if(rcv.equals("EditRoom")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Hotelier){
@@ -383,7 +392,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("FinishEdit")){
+		else if(rcv.equals("FinishEdit")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Hotelier){
@@ -404,7 +413,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("MyBookings")){
+		else if(rcv.equals("MyBookings")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -416,7 +425,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("CancelBooking")){
+		else if(rcv.equals("CancelBooking")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -430,7 +439,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("RateBooking")){
+		else if(rcv.equals("RateBooking")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -445,7 +454,7 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 		
-		if(rcv.equals("Book")){
+		else if(rcv.equals("Book")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -458,7 +467,7 @@ public class MasterServlet extends HttpServlet {
 			}
 		}
 		
-		if(rcv.equals("FinishBooking")){
+		else if(rcv.equals("FinishBooking")){
 			String type = (String)session.getAttribute("person");
 			Person person = PersonDAO.getPersonbyUsername(type);
 			if(person instanceof Customer){
@@ -506,6 +515,18 @@ public class MasterServlet extends HttpServlet {
 				check = "index.jsp";
 			}
 			
+		}
+		else if(rcv.equals("Logout")){
+			try
+		    {      System.out.println("vswe");
+		        session.removeAttribute("person");
+		        session.invalidate();
+		        check = "index.jsp";
+		    }
+		    catch (Exception e)
+		    {
+		    	System.out.println("nonono");
+		    }
 		}
 		
 	response.sendRedirect(check);
