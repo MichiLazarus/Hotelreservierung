@@ -63,7 +63,7 @@ function ShowRatingÜberprüfung () {
 <tr>
 <th align="left">Hotelier</th>
 <th align="right">
-<a href="index.jsp"><input type="button" value="Logout" name="Logout" class="button small"/></a>
+<form action="MasterServlet" name="Logout" method="post"><input type="submit" value="Logout" name="submit" class="button small"/></form>
 </th>
 </tr>
 </table>

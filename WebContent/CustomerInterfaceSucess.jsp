@@ -70,7 +70,7 @@ function RateBookingÜberprüfung () {
 <col width=650>
 <tr>
 <th align="left">Customer</th>
-<th align="right"><a href="index.jsp"><input type="button" value="Back" name="Back" class="button small"/></a></th>
+<th align="right"><form action="MasterServlet" name="Logout" method="post"><input type="submit" value="Logout" name="submit" class="button small"/></form></th>
 </tr>
 </table>
 
