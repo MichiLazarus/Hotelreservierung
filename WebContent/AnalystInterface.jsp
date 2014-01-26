@@ -115,7 +115,7 @@ function ShowRatingÜberprüfung () {
 	<tr>
 		<th align="center">Season Statistic</th>
 		<th align="center">Price Statistic</th>
-		<th align="center">Occupancy Statistic</th>
+		<th align="center">Occupancy Statistic (total)</th>
 	</tr>
 	<tr><td></td><td></td><td></td></tr>							
 </tbody>

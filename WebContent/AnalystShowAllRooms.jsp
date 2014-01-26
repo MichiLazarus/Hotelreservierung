@@ -8,18 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>All Rooms</title>
 
-<script type="text/javascript">
-function PriceOfferCheck () {
-
-	if ((document.PriceOffer.priceoffer.value <1 ) || isNaN(document.PriceOffer.priceoffer.value)){
-	    alert("Please enter a valid Offer!");
-	    document.PriceOffer.priceoffer.focus();
-	    return false;
-	}
-}
-
-</script>
-
 <style type="text/css">
 h1 {color:#FFD801; font-size:48px;}
 body {background-image:url("Hintergrund-Grau.png"); margin-left:5rem; margin-right:5rem;}
