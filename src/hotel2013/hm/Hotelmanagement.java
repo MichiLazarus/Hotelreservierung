@@ -4,10 +4,8 @@
 package hotel2013.hm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import hotel2013.hm.dao.BookingDAO;
 import hotel2013.hm.dao.PersonDAO;
@@ -21,7 +19,6 @@ import hotel2013.hm.users.Person;
 
 public class Hotelmanagement {
 	
-	private Person session = null;
 	private PersonDAO personDAO = new PersonDAO("Persons.ser");
 	private BookingDAO bookingDAO = new BookingDAO("Bookings.ser");
 	private RoomDAO roomDAO = new RoomDAO("Rooms.ser");	
@@ -143,6 +140,7 @@ public class Hotelmanagement {
 	 * Das eingegebene Passwort beim Login
 	 * @return Objekt person oder null
 	 */
+	@SuppressWarnings("static-access")
 	public Person login(String username, String password){
 		
 		Person person = personDAO.getPersonbyUsername(username);

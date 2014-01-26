@@ -7,6 +7,7 @@ import java.util.Date;
 import java.io.Serializable;
 import java.lang.IllegalArgumentException;
 
+@SuppressWarnings("serial")
 public class Person implements Serializable{
 	
 	

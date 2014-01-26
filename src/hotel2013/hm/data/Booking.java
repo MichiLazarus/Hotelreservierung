@@ -6,6 +6,7 @@ package hotel2013.hm.data;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings({"serial","unused"})
 public class Booking implements Serializable{
 
 	private  int bookingnumber;

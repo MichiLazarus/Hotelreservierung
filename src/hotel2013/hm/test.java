@@ -8,14 +8,13 @@ import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import hotel2013.hm.data.Room;
-
 /**
  * Eine Test-Klasse, die wir erstellt haben, zum Testen des Programms.
  *
  */
 public class test {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		

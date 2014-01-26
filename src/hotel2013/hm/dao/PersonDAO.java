@@ -4,7 +4,7 @@
 package hotel2013.hm.dao;
 
 
-import hotel2013.hm.data.Booking;
+
 import hotel2013.hm.users.Person;
 
 import java.io.File;
@@ -17,7 +17,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 
 
@@ -43,7 +43,7 @@ public class PersonDAO {
 	/**
 	 * Zum Lesen aller Personenobjekte in einem File und zum Speichern in eine Arraylist
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "static-access" })
 	public void readFile() {
 
 		f = new File(this.Path);
@@ -71,6 +71,7 @@ public class PersonDAO {
 	/**
 	 * Methode zum erstellen des Files und zum Abspeichern aller Personenobjekte in das File
 	 */
+	@SuppressWarnings("static-access")
 	private void saveFile() {
 
 		try {
@@ -88,6 +89,7 @@ public class PersonDAO {
 	 * 
 	 * @return Liste aller Personen
 	 */
+	@SuppressWarnings("static-access")
 	public ArrayList<Person> getPersonlist() {
 		return this.Personlist;
 	}
@@ -118,6 +120,7 @@ public class PersonDAO {
 	 * @return true, wenn die Person noch nicht existiert und zur Arraylist hinzugefuegt wurde oder false, falls die Person schon existiert
 	 * @throws IllegalArgumentException
 	 */
+	@SuppressWarnings("static-access")
 	public boolean savePerson(Person person)  throws IllegalArgumentException{
 		
 		if (this.getPersonbyUsername(person.getUsername()) == null) {
@@ -137,6 +140,7 @@ public class PersonDAO {
 	 * Objekt person
 	 * @throws IllegalArgumentException
 	 */
+	@SuppressWarnings("static-access")
 	public void deletePerson(Person person) throws IllegalArgumentException {
 		
 		boolean personExists = false;
@@ -160,6 +164,7 @@ public class PersonDAO {
 	/**
 	 * Methode zum Loeschen der ganzen Personenliste.
 	 */
+	@SuppressWarnings("static-access")
 	public void deletePersonlist() {
 		this.Personlist.clear();
 	}
@@ -171,6 +176,7 @@ public class PersonDAO {
 	 * Objekt person
 	 * @throws IllegalArgumentException
 	 */
+	@SuppressWarnings("static-access")
 	public void updatePerson(Person person)throws IllegalArgumentException {
 
 		boolean personExists = false;

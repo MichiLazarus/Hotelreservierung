@@ -5,7 +5,6 @@ package hotel2013.hm.dao;
 
 
 import hotel2013.hm.data.Room;
-import hotel2013.hm.users.Person;
 
 import java.io.File;
 import java.io.FileInputStream;

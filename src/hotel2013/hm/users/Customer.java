@@ -3,10 +3,10 @@
  */
 package hotel2013.hm.users;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
+import java.util.Date;
+
+@SuppressWarnings("serial")
 public class Customer extends Person {
 	
 	
