@@ -430,10 +430,6 @@ public class Hotelmanagement {
 	public ArrayList<Room> ShowAllRooms(){
 		
 		roomlist = roomDAO.getRoomlist();
-		ArrayList <Room> roomlist = new ArrayList<Room>();
-		for ( Room room : roomlist){
-				roomlist.add(room);
-		}
 		return roomlist;
 		
 	}
